@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "billing-e2e": {
+      "tags": []
+    },
+    "billing": {
+      "tags": []
+    }
+  }
 }
