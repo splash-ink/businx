@@ -22,7 +22,11 @@
               "apps/billing/src/assets"
             ],
             "styles": ["apps/billing/src/styles.css"],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "apps/billing/src/assets/js/app.js",
+              "apps/billing/src/assets/js/core.js"
+            ]
           },
           "configurations": {
             "production": {
