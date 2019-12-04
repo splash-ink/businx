@@ -4,7 +4,8 @@
     "types": ["node", "jest"],
     "baseUrl": "src",
     "paths": {
-      "@core/*": ["app/core/*"]
+      "@core/*": ["app/core/*"],
+      "@contacts/*": ["app/contacts/*"]
     }
   },
   "include": ["**/*.ts"]
