@@ -1,7 +1,68 @@
 <businx-page-title></businx-page-title>
+
 <div class="row">
   <div class="col-lg-4 mt-5px">
     <businx-card-overview></businx-card-overview>
   </div>
 </div>
-<businx-contact-list></businx-contact-list>
+
+<div class="card">
+  <div class="card-header actions-toolbar border-0">
+    
+    <div class="actions-search" id="actions-search">
+      <div class="input-group input-group-merge input-group-flush">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-transparent"><i class="far fa-search"></i></span>
+        </div>
+        <input type="text" class="form-control form-control-flush" placeholder="Type and hit enter ...">
+        <div class="input-group-append">
+          <a href="#" class="input-group-text bg-transparent" data-action="search-close"
+            data-target="#actions-search"><i class="far fa-times"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row justify-content-between align-items-center">
+      <div class="col">
+        <h6 class="d-inline-block mb-0">Contactos</h6>
+      </div>
+      <div class="col text-right">
+        <div class="actions"><a href="#" class="action-item mr-3" data-action="search-open"
+            data-target="#actions-search"><i class="far fa-search"></i></a>
+          <div class="dropdown mr-3">
+            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <i class="far fa-filter"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">
+                <i class="far fa-sort-amount-down"></i>Mais novo
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="far fa-sort-alpha-down"></i>De A-Z
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="far fa-sort-alpha-up"></i>De Z-A
+              </a>
+            </div>
+          </div>
+          <div class="dropdown" data-toggle="dropdown">
+            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <i class="far fa-ellipsis-h"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="#" class="dropdown-item">Atualizar</a>
+              <a href="#" class="dropdown-item">Açao</a>
+              <a href="#" class="dropdown-item">Açao</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <businx-contact-list></businx-contact-list>
+
+</div>
