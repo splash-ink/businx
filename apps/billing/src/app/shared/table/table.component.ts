@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'businx-contact-list',
-  templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+  selector: 'businx-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
 })
-export class ContactListComponent implements OnInit {
+export class TableComponent implements OnInit {
 
   constructor() { }
 
