@@ -1,0 +1,64 @@
+<div class="table-responsive">
+  <table class="table align-items-center">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Criado em</th>
+        <th scope="col">Projetos</th>
+        <th scope="col">Vendas totais</th>
+        <th scope="col">Atividade</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">
+          <div class="media align-items-center">
+            <div>
+              <div class="avatar-parent-child">
+                <span class="avatar bg-warning text-white rounded-circle">{{ abbreviateName('Jorge Dacosta') | uppercase}}</span>
+              </div>
+            </div>
+            <div class="media-body ml-4">
+              <a href="#" class="name h6 mb-0 text-sm">Jorge Dacosta</a>
+            </div>
+          </div>
+        </th>
+        <td>
+          {{ '2/02/2009' | date:'d MMMM yyyy' }}
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          {{ 100000 | currency:'AOA' }}
+        </td>
+        <td>
+          <div style="max-width: 100px;">
+              <!-- 
+                type: 'line'
+                toggle: 'spark-chart'
+                color: 'success' | 'danger'
+                height: '30'
+                dataset: '<custom>'
+               -->
+          </div>
+        </td>
+        <td class="text-right">
+
+          <div class="actions ml-3">
+            <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Olhada rápida">
+              <i class="far fa-external-link-alt"></i>
+            </a>
+            <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Editar">
+              <i class="far fa-pencil-alt"></i>
+            </a>
+            <a href="#" class="action-item text-danger mr-2" data-toggle="tooltip" title="Mover para lixeira">
+              <i class="far fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
