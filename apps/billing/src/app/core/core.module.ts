@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavComponent } from '../nav/nav.component';
+import { NavComponent } from './nav/nav.component';
+import { SideNavComponent } from './sidenav/sidenav.component';
 
+const comps = [
+  NavComponent,
+  SideNavComponent
+];
 
 
 @NgModule({
-  declarations: [NavComponent],
-  exports: [NavComponent],
+  declarations: comps,
+  exports: comps,
   imports: [
     CommonModule
   ]
