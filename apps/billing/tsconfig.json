@@ -5,7 +5,8 @@
     "baseUrl": "src",
     "paths": {
       "@core/*": ["app/core/*"],
-      "@contacts/*": ["app/contacts/*"]
+      "@contacts/*": ["app/contacts/*"],
+      "@shared/*": ["app/shared/*"]
     }
   },
   "include": ["**/*.ts"]

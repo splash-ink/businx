@@ -1,8 +1,16 @@
-<businx-page-title></businx-page-title>
+<businx-page-title
+  [title]="'Contactos'"
+></businx-page-title>
 
 <div class="row">
-  <div class="col-lg-4 mt-3">
-    <businx-card-overview></businx-card-overview>
+  <div class="col-lg-4 mt-3" *ngFor="let card of cards">
+    <businx-resume-card
+      [title]="card.title"
+      [value]="card.value"
+      [icon]="{ collection: 'far', class: 'fa-users'}"
+      [description]="'Desde o ultimo mes'"
+      [rate]="{ badge: 'badge-soft-success', arrow: 'fa-arrow-up'}"
+    ></businx-resume-card>
   </div>
 </div>
 
@@ -63,6 +71,9 @@
 
   </div>
 
-  <businx-contact-list></businx-contact-list>
+  <businx-table
+    [columns]="columns"
+    [dataset]="dataset"
+  ></businx-table>
 
 </div>

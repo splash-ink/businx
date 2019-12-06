@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'businx-page-title',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageTitleComponent implements OnInit {
 
+  @Input() title: string;
   constructor() { }
 
   ngOnInit() {
