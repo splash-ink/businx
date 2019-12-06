@@ -2,36 +2,31 @@
   <table class="table align-items-center">
     <thead>
       <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">Criado em</th>
-        <th scope="col">Projetos</th>
-        <th scope="col">Vendas totais</th>
-        <th scope="col">Atividade</th>
-        <th scope="col"></th>
+        <th scope="col" *ngFor="let col of columns">{{ col }}</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let item of dataset">
         <th scope="row">
           <div class="media align-items-center">
             <div>
               <div class="avatar-parent-child">
-                <span class="avatar bg-warning text-white rounded-circle">{{ abbreviateName('Jorge Dacosta') | uppercase}}</span>
+                <span class="avatar bg-warning text-white rounded-circle">{{ abbreviateName(item.name) | uppercase}}</span>
               </div>
             </div>
             <div class="media-body ml-4">
-              <a href="#" class="name h6 mb-0 text-sm">Jorge Dacosta</a>
+              <a href="#" class="name h6 mb-0 text-sm">{{ item.name }}</a>
             </div>
           </div>
         </th>
         <td>
-          {{ '2/02/2009' | date:'d MMMM yyyy' }}
+          {{ item.createdAt | date:'d MMMM yyyy' }}
         </td>
         <td>
-          15
+          {{ item.projects }}
         </td>
         <td>
-          {{ 100000 | currency:'AOA' }}
+          {{ item.totalSales | currency:'AOA' }}
         </td>
         <td>
           <div style="max-width: 100px;">
