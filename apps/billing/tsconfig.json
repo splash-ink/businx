@@ -1,13 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "jest"],
-    "baseUrl": "src",
-    "paths": {
-      "@core/*": ["app/core/*"],
-      "@contacts/*": ["app/contacts/*"],
-      "@shared/*": ["app/shared/*"]
-    }
+    "types": ["node", "jest"]
   },
   "include": ["**/*.ts"]
 }
