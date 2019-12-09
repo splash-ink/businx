@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ListItem } from '@shared/table/table.component';
+import { Table } from '@bill/shared/table/table';
+import { CONTACTS_TABLE_COLUMNS, Contacts } from '@businx/data-models';
 
 @Component({
   selector: 'businx-contacts',
@@ -7,31 +8,22 @@ import { ListItem } from '@shared/table/table.component';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
+  contactsTbl: Table;
 
-  columns = ['Nome', 'Criado em', 'Projetos', 'Vendas totais', 'Actividade'];
-  dataset: ListItem[] = [
+  data: Contacts [] = [
     {
-      name: 'Georgia da Costa',
-      createdAt: Date.now(),
-      projects: 44,
-      totalSales: 7000000,
-      activity: []
+      name: 'Georgia Dacosta',
+      company: 'Spatial LLC',
+      email: 'georgia@spatialx3c.io',
+      phone: '+190595962'
     },
     {
-      name: 'Anisa Makayla S. da Costa',
-      createdAt: Date.now(),
-      projects: 3,
-      totalSales: 82000,
-      activity: []
-    },
-    {
-      name: 'Jorge da Costa Jr.',
-      createdAt: Date.now(),
-      projects: 66,
-      totalSales: 15190000,
-      activity: []
+      name: 'Anisa Makayla Dacosta',
+      company: 'Google Stadia',
+      email: 'makayla.a@stadia.google.com',
+      phone: 951826952
     }
-  ];
+  ]
   cards = [
     {
       title: 'Novos Clientes',
@@ -79,6 +71,10 @@ export class ContactsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.contactsTbl  = {
+      columns: CONTACTS_TABLE_COLUMNS,
+      dataset: this.data
+    }
   }
 
 }
