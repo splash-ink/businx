@@ -1,12 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Table } from './table';
 
-export interface ListItem {
-  name: string,
-  createdAt: number,
-  projects: number,
-  totalSales: number,
-  activity: []
-}
 @Component({
   selector: 'businx-table',
   templateUrl: './table.component.html',
@@ -14,14 +8,21 @@ export interface ListItem {
 })
 export class TableComponent implements OnInit {
 
-  @Input() columns: string [];
-  @Input() dataset?: ListItem [];
-  @Input() isGraphic?: boolean;
-  @Input() graphicalDataset?: Object;
+  @Input('table-config') config: Table;
+
   constructor() { }
 
-  abbreviateName(name: string): string {
-    return typeof name === 'string' ? name.substr(0,2) : '*';
+  getFirst(name: string): string {
+    return typeof name === 'string' ? name.substr(0,1) : '*';
+  }
+
+  abbreviateName(name: string) {
+    const _names = name.split(" ");
+    return this.getFirst(_names[0]) + this.getFirst(_names[_names.length - 1]);
+  }
+
+  descOrder = (a, b) => {
+    if(a.key < b.key) return b.key;
   }
 
   ngOnInit() {
