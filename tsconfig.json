@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@businx/data-models": ["libs/data-models/src/index.ts"]
+      "@businx/data-models": ["libs/data-models/src/index.ts"],
+      "@bill/core/*": ["apps/billing/src/app/core/*"],
+      "@bill/contacts/*": ["apps/billing/src/app/contacts/*"],
+      "@bill/shared/*": ["apps/billing/src/app/shared/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
