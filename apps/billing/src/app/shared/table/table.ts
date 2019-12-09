@@ -1,4 +1,4 @@
 export interface Table {
     columns: string [];
-    dataset: [];
+    dataset: Object [];
 }
