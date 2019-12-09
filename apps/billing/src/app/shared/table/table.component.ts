@@ -35,7 +35,7 @@ export class TableComponent implements OnInit {
       'bg-gradient-info'
     ];
 
-    const random = Math.floor(Math.random() * 6);
+    const random = Math.floor(Math.random() * 5);
 
     return colors[random];
   }
