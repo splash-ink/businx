@@ -17,8 +17,8 @@
             <div class="media align-items-center">
               <div>
                 <div class="avatar-parent-child">
-                  <span
-                    class="avatar bg-warning text-white rounded-circle">{{ abbreviateName(item?.value) | uppercase}}</span>
+                  <span ngClass="{{ getColor() }}"
+                    class="avatar text-white rounded-circle">{{ abbreviateName(item?.value) | uppercase}}</span>
                 </div>
               </div>
               <div class="media-body ml-4">
