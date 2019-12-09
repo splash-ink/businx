@@ -21,7 +21,9 @@
               "apps/billing/src/favicon.ico",
               "apps/billing/src/assets"
             ],
-            "styles": ["apps/billing/src/styles.css"],
+            "styles": [
+              "apps/billing/src/styles.css"
+            ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "apps/billing/src/assets/js/app.js",
@@ -63,7 +65,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "billing:build"
+            "browserTarget": "billing:build",
+            "proxyConfig": "apps/billing/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -84,7 +87,10 @@
               "apps/billing/tsconfig.app.json",
               "apps/billing/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/billing/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/billing/**"
+            ]
           }
         },
         "test": {
@@ -118,8 +124,74 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/billing-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/billing-e2e/**"]
+            "tsConfig": [
+              "apps/billing-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/billing-e2e/**"
+            ]
+          }
+        }
+      }
+    },
+    "backend": {
+      "root": "apps/backend",
+      "sourceRoot": "apps/backend/src",
+      "projectType": "application",
+      "prefix": "backend",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/backend",
+            "main": "apps/backend/src/main.ts",
+            "tsConfig": "apps/backend/tsconfig.app.json",
+            "assets": [
+              "apps/backend/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend/src/environments/environment.ts",
+                  "with": "apps/backend/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "backend:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/backend/.eslintrc",
+            "tsConfig": [
+              "apps/backend/tsconfig.app.json",
+              "apps/backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/backend/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/backend/jest.config.js",
+            "tsConfig": "apps/backend/tsconfig.spec.json"
           }
         }
       }
