@@ -59,6 +59,10 @@
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "@nrwl/eslint-plugin-nx": "8.8.3",
+    "@typescript-eslint/parser": "2.3.2",
+    "@typescript-eslint/eslint-plugin": "2.3.2",
+    "eslint-config-prettier": "6.0.0"
   }
 }
