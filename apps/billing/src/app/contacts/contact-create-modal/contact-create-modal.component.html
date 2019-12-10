@@ -1,7 +1,7 @@
 <div class="modal modal-fluid fade" id="contact-create-modal" tabindex="-1" role="dialog"
   aria-labelledby="contact-create-modal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <form>
+    <form [formGroup]="form">
       <div class="modal-content">
         <div class="modal-body">
           <div class="row justify-content-center">
@@ -19,11 +19,11 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="accountTypePersonal" name="accountType" class="custom-control-input">
+                      <input type="radio" id="accountTypePersonal" name="accountType" formControlName="accountType" value="Individual" class="custom-control-input">
                       <label class="custom-control-label" for="accountTypePersonal">Individual</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="accountTypeBusiness" name="accountType" class="custom-control-input">
+                      <input type="radio" id="accountTypeBusiness" name="accountType" formControlName="accountType" value="Empresa" class="custom-control-input">
                       <label class="custom-control-label" for="accountTypeBusiness">Empresa</label>
                     </div>
                   </div>
@@ -35,7 +35,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <select class="custom-select">
+                    <select class="custom-select" formControlName="greet">
                       <option selected>Saudação</option>
                       <option value="1">Sr.</option>
                       <option value="1">Sra.</option>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nome (Georgia Makayla)">
+                    <input type="text" class="form-control" formControlName="name" placeholder="Nome (Georgia Makayla)">
                   </div>
                 </div>
               </div>
@@ -54,12 +54,12 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Telefone">
+                    <input type="text" class="form-control" formControlName="phone" placeholder="Telefone">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="E-mail">
+                    <input type="text" class="form-control" formControlName="email" placeholder="E-mail">
                   </div>
                 </div>
               </div>
@@ -67,12 +67,12 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="NIF">
+                    <input type="text" class="form-control" formControlName="nif" placeholder="NIF">
                   </div>
                 </div>
                 <div class="col-md-8">
                   <div class="form-group text-left">
-                    <select class="custom-select">
+                    <select class="custom-select" formControlName="coin">
                       <option selected>Selecionar Moeda</option>
                       <option value="1">AOA - Angola</option>
                       <option value="2">USD - United States of America</option>
