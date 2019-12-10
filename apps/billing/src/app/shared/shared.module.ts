@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ResumeCardComponent } from './resume-card/resume-card.component';
@@ -10,11 +11,17 @@ const comps = [
   ResumeCardComponent
 ];
 
+const mods = [
+  FormsModule,
+  ReactiveFormsModule
+];
+
 @NgModule({
   declarations: comps,
-  exports: comps,
+  exports: [comps, mods],
   imports: [
-    CommonModule
+    CommonModule,
+    mods
   ]
 })
 export class SharedModule { }
