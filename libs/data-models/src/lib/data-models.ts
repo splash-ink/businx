@@ -6,11 +6,10 @@ export interface Contacts {
     invoices?: Invoice [];
 }
 
-export const CONTACTS_TABLE_COLUMNS = [
-    'Nome',
-    'Empresa',
-    'E-mail',
-    'Telefone'
-];
-
 interface Invoice {}
+
+export interface Coins {
+    code: string;
+    currency: string;
+    country: string;
+}
