@@ -8,7 +8,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class ContactCreateModalComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
   }
