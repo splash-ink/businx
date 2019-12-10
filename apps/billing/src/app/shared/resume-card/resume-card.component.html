@@ -1,0 +1,35 @@
+<div class="card card-stats" *ngIf="config">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h6 class="text-muted mb-1">{{ config.title }}</h6>
+        <span class="h5 font-weight-bold mb-0">
+          <ng-container *ngIf="config.isCurrency">
+              {{ config.values.current | currency:'AOA' }}
+          </ng-container>
+          <ng-container *ngIf="!config.isCurrency">
+              {{ config.values.current }}
+          </ng-container>
+        </span>
+      </div>
+      <div class="col-auto">
+        <div class="icon text-white rounded-circle icon-shape" [ngClass]="config.icon.bg">
+          <i [ngClass]="config.icon.class" class="far"></i>
+        </div>
+      </div>
+    </div>
+    <p class="mt-3 mb-0 text-sm" *ngIf="config.values as v">
+      <span
+      [ngClass]="{'badge-soft-success': isGrowing(v.previews, v.current),
+      'badge-soft-warning': v.previews === v.current,
+      'badge-soft-danger': !isGrowing(config.values.previews, config.values.current)}"
+        class="badge mr-2">
+        <i class="far"
+        [ngClass]="{'fa-arrow-up': isGrowing(config.values.previews, config.values.current),
+        'fa-equals': v.previews === v.current,
+        'fa-arrow-down': !isGrowing(config.values.previews, config.values.current)}"></i>
+        {{ monthlyGroth(config.values.previews, config.values.current) | number:'2.' }} %</span>
+      <span class="text-nowrap">Desde o mês passado</span>
+    </p>
+  </div>
+</div>

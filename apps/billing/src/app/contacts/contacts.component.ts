@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListItem } from '@shared/table/table.component';
+import { Table } from '@bill/shared/table/table';
+import { CONTACTS_TABLE_COLUMNS, Contacts } from '@businx/data-models';
+import { ResumeCard } from '@bill/shared/resume-card/resume-card';
 
 @Component({
   selector: 'businx-contacts',
@@ -7,78 +9,67 @@ import { ListItem } from '@shared/table/table.component';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
+  contactsTbl: Table;
 
-  columns = ['Nome', 'Criado em', 'Projetos', 'Vendas totais', 'Actividade'];
-  dataset: ListItem[] = [
+  data: Contacts [] = [
     {
-      name: 'Georgia da Costa',
-      createdAt: Date.now(),
-      projects: 44,
-      totalSales: 7000000,
-      activity: []
+      name: 'Georgia Dacosta',
+      company: 'Spatial LLC',
+      email: 'georgia@spatialx3c.io',
+      phone: '+190595962'
     },
     {
-      name: 'Anisa Makayla S. da Costa',
-      createdAt: Date.now(),
-      projects: 3,
-      totalSales: 82000,
-      activity: []
-    },
-    {
-      name: 'Jorge da Costa Jr.',
-      createdAt: Date.now(),
-      projects: 66,
-      totalSales: 15190000,
-      activity: []
+      name: 'Anisa Makayla Dacosta',
+      company: 'Google Stadia',
+      email: 'makayla.a@stadia.google.com',
+      phone: 951826952
     }
-  ];
-  cards = [
+  ]
+  contactsCrd: ResumeCard [] = [
     {
-      title: 'Novos Clientes',
-      value: 23,
-      gradient: '',
+      title: 'Novos contactos',
+      isCurrency: false,
       icon: {
-        collection: 'far',
-        arrow: 'fa-users'
+        bg: 'bg-gradient-danger',
+        class: 'fa-users'
       },
-      description: '',
-      rate: {
-        badge: 'badge-soft-success',
-        arrow: 'fa-arrow-up'
+      values: {
+        previews: 100000,
+        current: 20000
       }
     },
     {
-      title: 'Projetos Entregues',
-      value: 23,
-      gradient: '',
+      title: 'Vendas totais',
+      isCurrency: true,
       icon: {
-        collection: 'far',
-        arrow: 'fa-users'
+        bg: 'bg-gradient-success',
+        class: 'fa-hand-holding-usd'
       },
-      description: '',
-      rate: {
-        badge: 'badge-soft-danger',
-        arrow: 'fa-arrow-down'
+      values: {
+        previews: 370000,
+        current: 872000
       }
     },
     {
-      title: 'Receitas',
-      value: 5,
-      gradient: '',
+      title: 'Encomendas',
+      isCurrency: false,
       icon: {
-        collection: 'far',
-        arrow: 'fa-users'
+        bg: 'bg-gradient-info',
+        class: 'fa-tag'
       },
-      description: '',
-      rate: {
-        badge: 'badge-soft-danger',
-        arrow: 'fa-arrow-down'
+      values: {
+        previews: 72,
+        current: 72
       }
     }
   ];
   constructor() { }
 
   ngOnInit() {
+    this.contactsTbl  = {
+      columns: CONTACTS_TABLE_COLUMNS,
+      dataset: this.data
+    }
   }
 
 }

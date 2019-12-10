@@ -3,13 +3,9 @@
 ></businx-page-title>
 
 <div class="row">
-  <div class="col-lg-4 mt-3" *ngFor="let card of cards">
+  <div class="col-lg-4 mt-3" *ngFor="let card of contactsCrd">
     <businx-resume-card
-      [title]="card.title"
-      [value]="card.value"
-      [icon]="{ collection: 'far', class: 'fa-users'}"
-      [description]="'Desde o ultimo mes'"
-      [rate]="{ badge: 'badge-soft-success', arrow: 'fa-arrow-up'}"
+      [card-config]="card"
     ></businx-resume-card>
   </div>
 </div>
@@ -72,8 +68,7 @@
   </div>
 
   <businx-table
-    [columns]="columns"
-    [dataset]="dataset"
+    [table-config]="contactsTbl"
   ></businx-table>
 
 </div>
