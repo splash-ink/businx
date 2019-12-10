@@ -7,7 +7,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center pt-1">
               <h6 class="h3">Novo Cliente</h6>
-             
+
               <hr class="mt-1">
 
               <div class="row">
@@ -19,11 +19,13 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="accountTypePersonal" name="accountType" formControlName="accountType" value="Individual" class="custom-control-input">
+                      <input type="radio" id="accountTypePersonal" name="accountType" formControlName="accountType"
+                        value="Individual" class="custom-control-input">
                       <label class="custom-control-label" for="accountTypePersonal">Individual</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="accountTypeBusiness" name="accountType" formControlName="accountType" value="Empresa" class="custom-control-input">
+                      <input type="radio" id="accountTypeBusiness" name="accountType" formControlName="accountType"
+                        value="Empresa" class="custom-control-input">
                       <label class="custom-control-label" for="accountTypeBusiness">Empresa</label>
                     </div>
                   </div>
@@ -36,11 +38,8 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <select class="custom-select" formControlName="greet">
-                      <option selected>Saudação</option>
-                      <option value="1">Sr.</option>
-                      <option value="1">Sra.</option>
-                      <option value="2">Dr.</option>
-                      <option value="2">Dra.</option>
+                      <option [selected]="true">Saudação</option>
+                      <option *ngFor="let greet of greetings" [value]="greet">{{ greet }}</option>
                     </select>
                   </div>
                 </div>
@@ -49,6 +48,10 @@
                     <input type="text" class="form-control" formControlName="name" placeholder="Nome (Georgia Makayla)">
                   </div>
                 </div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="company" placeholder="Empresa">
               </div>
 
               <div class="row">
@@ -73,9 +76,8 @@
                 <div class="col-sm-8">
                   <div class="form-group text-left">
                     <select class="custom-select" formControlName="coin">
-                      <option selected>Selecionar Moeda</option>
-                      <option value="1">AOA - Angola</option>
-                      <option value="2">USD - United States of America</option>
+                      <option [selected]="true">Selecionar Moeda</option>
+                      <option *ngFor="let coin of coins" [value]="coin.code">{{ coin.country }} - {{ coin.currency }}</option>
                     </select>
                   </div>
                 </div>
