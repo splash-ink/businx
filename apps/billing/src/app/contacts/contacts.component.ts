@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from '@bill/shared/table/table';
 import { CONTACTS_TABLE_COLUMNS, Contacts } from '@businx/data-models';
+import { ResumeCard } from '@bill/shared/resume-card/resume-card';
 
 @Component({
   selector: 'businx-contacts',
@@ -24,47 +25,41 @@ export class ContactsComponent implements OnInit {
       phone: 951826952
     }
   ]
-  cards = [
+  contactsCrd: ResumeCard [] = [
     {
-      title: 'Novos Clientes',
-      value: 23,
-      gradient: '',
+      title: 'Novos contactos',
+      isCurrency: false,
       icon: {
-        collection: 'far',
-        arrow: 'fa-users'
+        bg: 'bg-gradient-danger',
+        class: 'fa-users'
       },
-      description: '',
-      rate: {
-        badge: 'badge-soft-success',
-        arrow: 'fa-arrow-up'
+      values: {
+        previews: 100000,
+        current: 20000
       }
     },
     {
-      title: 'Projetos Entregues',
-      value: 23,
-      gradient: '',
+      title: 'Vendas totais',
+      isCurrency: true,
       icon: {
-        collection: 'far',
-        arrow: 'fa-users'
+        bg: 'bg-gradient-success',
+        class: 'fa-hand-holding-usd'
       },
-      description: '',
-      rate: {
-        badge: 'badge-soft-danger',
-        arrow: 'fa-arrow-down'
+      values: {
+        previews: 370000,
+        current: 872000
       }
     },
     {
-      title: 'Receitas',
-      value: 5,
-      gradient: '',
+      title: 'Encomendas',
+      isCurrency: false,
       icon: {
-        collection: 'far',
-        arrow: 'fa-users'
+        bg: 'bg-gradient-info',
+        class: 'fa-tag'
       },
-      description: '',
-      rate: {
-        badge: 'badge-soft-danger',
-        arrow: 'fa-arrow-down'
+      values: {
+        previews: 72,
+        current: 72
       }
     }
   ];
