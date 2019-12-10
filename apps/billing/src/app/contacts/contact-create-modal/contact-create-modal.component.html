@@ -1,1 +1,97 @@
-<p>contact-create-modal works!</p>
+<div class="modal modal-fluid fade" id="contact-create-modal" tabindex="-1" role="dialog"
+  aria-labelledby="contact-create-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <form>
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center pt-1">
+              <h6 class="h3">Novo Cliente</h6>
+             
+              <hr class="mt-1">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="text-left">
+                    Tipo de cliente
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="accountTypePersonal" name="accountType" class="custom-control-input">
+                      <label class="custom-control-label" for="accountTypePersonal">Individual</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="accountTypeBusiness" name="accountType" class="custom-control-input">
+                      <label class="custom-control-label" for="accountTypeBusiness">Empresa</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="mt-1">
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <select class="custom-select">
+                      <option selected>Saudação</option>
+                      <option value="1">Sr.</option>
+                      <option value="1">Sra.</option>
+                      <option value="2">Dr.</option>
+                      <option value="2">Dra.</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nome (Georgia Makayla)">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Telefone">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="E-mail">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="NIF">
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="form-group text-left">
+                    <select class="custom-select">
+                      <option selected>Selecionar Moeda</option>
+                      <option value="1">AOA - Angola</option>
+                      <option value="2">USD - United States of America</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="mt-5 mb-4">
+
+              <div class="text-right">
+                <button href="#" class="btn btn-link text-sm text-muted font-weight-bold"
+                  data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-sm btn-primary rounded-pill">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
