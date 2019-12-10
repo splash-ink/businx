@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'businx-page-title',
@@ -8,9 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PageTitleComponent implements OnInit {
 
   @Input() title: string;
+  @Input() target: string;
+
   constructor() { }
 
   ngOnInit() {
+    $('#target').attr('data-target', this.target);
   }
 
 }
