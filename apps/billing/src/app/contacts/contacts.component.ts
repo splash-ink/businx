@@ -68,7 +68,8 @@ export class ContactsComponent implements OnInit {
   ngOnInit() {
     this.contactsTbl  = {
       columns: CONTACTS_TABLE_COLUMNS,
-      dataset: this.data
+      dataset: this.data,
+      collection: 'contacts'
     }
   }
 
