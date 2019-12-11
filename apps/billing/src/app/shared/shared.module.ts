@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ResumeCardComponent } from './resume-card/resume-card.component';
+import { RouterModule } from '@angular/router';
 
 const comps = [
   TableComponent,
@@ -12,6 +13,7 @@ const comps = [
 ];
 
 const mods = [
+  RouterModule,
   FormsModule,
   ReactiveFormsModule
 ];
