@@ -9,7 +9,8 @@ import * as $ from 'jquery';
 export class PageTitleComponent implements OnInit {
 
   @Input() title: string;
-  @Input() target: string;
+  @Input() target?: string;
+  @Input() controls? = false;
 
   constructor() { }
 
