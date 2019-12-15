@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -6,7 +6,7 @@ import * as $ from 'jquery';
   templateUrl: './page-title.component.html',
   styleUrls: ['./page-title.component.css']
 })
-export class PageTitleComponent implements OnInit {
+export class PageTitleComponent implements AfterViewInit {
 
   @Input() title: string;
   @Input() target?: string;
@@ -14,7 +14,7 @@ export class PageTitleComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     $('#target').attr('data-target', this.target);
   }
 
