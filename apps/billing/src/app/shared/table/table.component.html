@@ -6,44 +6,54 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of config.dataset">
-        <ng-container *ngFor="let item of row | keyvalue:descOrder">
-
-          <td *ngIf="item.key !== 'name'">
-            {{ item?.value }}
-          </td>
-
-          <th scope="row" *ngIf="item.key === 'name'">
-            <div class="media align-items-center">
-              <div>
-                <div class="avatar-parent-child">
-                  <span ngClass="{{ getColor() }}"
-                    class="avatar text-white rounded-circle">{{ abbreviateName(item?.value) | uppercase}}</span>
+      <ng-container *ngIf="config.dataset.length > 0; else isEmpty">
+        <tr *ngFor="let row of config.dataset">
+          <ng-container *ngFor="let item of row | keyvalue:descOrder">
+  
+            <td *ngIf="item.key !== 'name'">
+              {{ item?.value }}
+            </td>
+  
+            <th scope="row" *ngIf="item.key === 'name'">
+              <div class="media align-items-center">
+                <div>
+                  <div class="avatar-parent-child">
+                    <span ngClass="{{ getColor() }}"
+                      class="avatar text-white rounded-circle">{{ abbreviateName(item?.value) | uppercase}}</span>
+                  </div>
+                </div>
+                <div class="media-body ml-4">
+                  <a href="javascript:void(0)" class="name h6 mb-0 text-sm">{{ item?.value }}</a>
                 </div>
               </div>
-              <div class="media-body ml-4">
-                <a href="javascript:void(0)" class="name h6 mb-0 text-sm">{{ item?.value }}</a>
+            </th>
+          </ng-container>
+  
+          <ng-container *ngFor="let _ of row | keyvalue">
+            <td class="text-right" *ngIf="_.key == 'name'">
+  
+              <div class="actions ml-3">
+                <a [routerLink]="[_.value]" class="action-item mr-2" data-toggle="tooltip" title="Olhada rápida">
+                  <i class="far fa-external-link-alt"></i>
+                </a>
+                <a [routerLink]="[_.value, 'edit']" class="action-item mr-2" data-toggle="tooltip" title="Editar">
+                  <i class="far fa-pencil-alt"></i>
+                </a>
+                <a href="javascript:void(0)" class="action-item text-danger mr-2" data-toggle="tooltip"
+                  title="Mover para lixeira">
+                  <i class="far fa-trash"></i>
+                </a>
               </div>
-            </div>
-          </th>
-        </ng-container>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
 
-        <td class="text-right">
-
-          <div class="actions ml-3">
-            <a href="javascript:void(0)" class="action-item mr-2" data-toggle="tooltip" title="Olhada rápida">
-              <i class="far fa-external-link-alt"></i>
-            </a>
-            <a href="javascript:void(0)" class="action-item mr-2" data-toggle="tooltip" title="Editar">
-              <i class="far fa-pencil-alt"></i>
-            </a>
-            <a href="javascript:void(0)" class="action-item text-danger mr-2" data-toggle="tooltip"
-              title="Mover para lixeira">
-              <i class="far fa-trash"></i>
-            </a>
-          </div>
-        </td>
-      </tr>
+      <ng-template #isEmpty>
+        <div class="d-block font-weight-bold pt-1">
+          Sem nada a mostrar ...
+        </div>
+      </ng-template>
     </tbody>
   </table>
 </div>

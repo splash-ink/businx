@@ -7,18 +7,15 @@
       </div>
 
     </div>
-    <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+    <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end" *ngIf="controls">
       <div class="actions actions-dark d-inline-block">
         <a href="#" class="action-item ml-md-4">
           <i class="far fa-file-export mr-2"></i>Exportar
         </a>
-        <a href="#" class="action-item ml-3">
-          <i class="far fa-cog mr-2"></i>Definicoes
-        </a>
       </div>
-      <a href="#" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+      <button class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4" id="target" data-toggle="modal">
         <span class="btn-inner--icon"><i class="far fa-plus"></i></span>
-      </a>
+      </button>
     </div>
   </div>
 </div>
