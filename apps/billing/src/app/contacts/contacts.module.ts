@@ -6,6 +6,7 @@ import { ContactsComponent } from './contacts.component';
 import { SharedModule } from '@bill/shared/shared.module';
 import { ContactCreateModalComponent } from './contact-create-modal/contact-create-modal.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
     ContactsComponent,
     ContactCreateModalComponent,
     ContactDetailsComponent,
+    ContactEditComponent,
   ],
   imports: [
     CommonModule,
