@@ -9,12 +9,12 @@ import { Contacts, COINS } from '@businx/data-models';
 export class ContactEditComponent implements OnInit {
 
   demo: Contacts = {
-    accountType: 'Pessoal',
+    accountType: 'Empresa',
     greet: 'Sra.',
     name: 'Anisa Makayla',
     company: 'Spatial LLC',
     email: 'm.anisa@spatial.io',
-    phone: '+1693555021',
+    phone: +'+1693555021',
     coin: COINS[1].currency,
     nif: '006127917LA044'
   };
