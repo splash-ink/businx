@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from '@bill/shared/table/table';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'businx-contact-details',
@@ -11,7 +11,11 @@ export class ContactDetailsComponent implements OnInit {
 
   invoicesTbl: Table;
   id;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  navigateToEdit(id: string) {
+    this.router.navigate([`/contacts/${id}/edit`]);
+  }
 
   ngOnInit() {
     this.route
