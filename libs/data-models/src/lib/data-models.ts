@@ -6,7 +6,7 @@ export interface Contacts {
     email?: string;
     phone: string | number;
     nif?: string;
-    coin?: string;
+    coin?: Coins | string;
     invoices?: Invoice [];
 }
 
