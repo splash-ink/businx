@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Contacts } from '@businx/data-models';
+import { Contacts, COINS } from '@businx/data-models';
 
 @Component({
   selector: 'businx-contact-edit',
@@ -15,8 +15,8 @@ export class ContactEditComponent implements OnInit {
     company: 'Spatial LLC',
     email: 'm.anisa@spatial.io',
     phone: '+1693555021',
-    coin: 'USD',
-    nif: '0328CA852-09'
+    coin: COINS[1].currency,
+    nif: '006127917LA044'
   };
 
   constructor() { }
