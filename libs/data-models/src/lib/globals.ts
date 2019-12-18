@@ -67,3 +67,9 @@ export const CONTACTS_TABLE_COLUMNS = [
   'E-mail',
   'Telefone'
 ];
+
+export const ITEMS_TABLE_COLUMNS = [
+  'Nome',
+  'Preço',
+  'Natureza'
+];
