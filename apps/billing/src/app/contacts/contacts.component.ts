@@ -69,7 +69,8 @@ export class ContactsComponent implements OnInit {
     this.contactsTbl  = {
       columns: CONTACTS_TABLE_COLUMNS,
       dataset: this.data,
-      collection: 'contacts'
+      collection: 'contacts',
+      title: 'Clientes'
     }
   }
 
