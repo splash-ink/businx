@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemsComponent } from './items.component';
+import { SharedModule } from '@bill/shared/shared.module';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { TableComponent } from '@bill/shared/table/table.component';
 
 describe('ItemsComponent', () => {
   let component: ItemsComponent;
@@ -8,7 +12,9 @@ describe('ItemsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ItemsComponent ]
+      declarations: [ ItemsComponent ],
+      imports: [ SharedModule ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
@@ -19,7 +25,19 @@ describe('ItemsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the page to list services', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have a table to display services', () => {
+    const el = fixture.debugElement.queryAll(By.directive(TableComponent));
+    
+    expect(el).toBeTruthy();
+  });
+
+  it(`should have a title as 'Itens'`, () => {
+    const el = fixture.nativeElement.querySelector('h5');
+    
+    expect(el.textContent).toContain('Itens');
   });
 });
