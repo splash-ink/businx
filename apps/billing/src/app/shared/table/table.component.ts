@@ -25,21 +25,6 @@ export class TableComponent implements OnInit {
     if(a.key < b.key) return b.key;
   }
 
-
-  getColor() {
-    const colors = [
-      'bg-gradient-primary',
-      'bg-gradient-success',
-      'bg-gradient-danger',
-      'bg-gradient-warning',
-      'bg-gradient-info'
-    ];
-
-    const random = Math.floor(Math.random() * 5);
-
-    return colors[random];
-  }
-
   ngOnInit() {
   }
 

@@ -27,7 +27,8 @@ export class ContactDetailsComponent implements OnInit {
     this.invoicesTbl = {
       columns: ['Fatura', 'Ordem', 'Valor', 'Impostos'],
       dataset: [],
-      collection: `${this.id}/invoices`
+      collection: `${this.id}/invoices`,
+      title: 'Facturas'
     };
   }
 

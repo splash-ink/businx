@@ -16,7 +16,8 @@ export class ItemsComponent implements OnInit {
     this.itemsTbl = {
       columns: ITEMS_TABLE_COLUMNS,
       dataset: [],
-      collection: 'items'
+      collection: 'items',
+      title: 'Serviços'
     }
   }
 
