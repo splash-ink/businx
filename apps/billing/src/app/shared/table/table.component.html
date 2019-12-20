@@ -114,13 +114,14 @@
             </ng-container>
           </tr>
         </ng-container>
-
-        <ng-template #isEmpty>
-          <div class="d-block font-weight-bold pt-1">
-            Sem nada a mostrar ...
-          </div>
-        </ng-template>
       </tbody>
+      <ng-template #isEmpty>
+        <div class="container py-3 justify-content-center">
+          <div class="text-center">
+            Sem {{ config.title | lowercase }} a mostrar, tabela vazia.
+          </div>
+        </div>
+      </ng-template>
     </table>
   </div>
 </div>
