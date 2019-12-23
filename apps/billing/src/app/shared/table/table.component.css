@@ -1,0 +1,4 @@
+.card-shadow {
+  -webkit-box-shadow: 0 0.125rem 1rem rgba(39, 52, 68, 0.4) !important;
+  box-shadow: 0 0.125rem 1rem rgba(133, 168, 211, 0.4) !important;
+}
