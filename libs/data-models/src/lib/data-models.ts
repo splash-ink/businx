@@ -1,4 +1,5 @@
 export interface Contacts {
+    id: string | number;
     accountType?: string;
     greet?: string;
     name: string;
