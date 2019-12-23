@@ -76,8 +76,24 @@
           <tr *ngFor="let row of config.dataset">
             <ng-container *ngFor="let item of row | keyvalue:descOrder">
 
-              <td *ngIf="item.key !== 'name'">
+              <td *ngIf="item.key !== 'name' && item.key !== 'price' && item.key !== 'nature'">
                 {{ item?.value }}
+              </td>
+
+              <td *ngIf="item.key === 'price'">
+                {{ item?.value | currency:'AOA' }}
+              </td>
+
+              <td *ngIf="item.key === 'nature'">
+                <span class="badge badge-warning badge-pill" *ngIf="item.value === 'Design'">
+                  {{ item?.value }}
+                </span>
+                <span class="badge badge-info badge-pill" *ngIf="item.value === 'Marketing'">
+                  {{ item?.value }}
+                </span>
+                <span class="badge badge-dark badge-pill" *ngIf="item.value === 'Tecnologia'">
+                  {{ item?.value }}
+                </span>
               </td>
 
               <th scope="row" *ngIf="item.key === 'name'">
