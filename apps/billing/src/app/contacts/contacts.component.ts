@@ -13,12 +13,14 @@ export class ContactsComponent implements OnInit {
 
   data: Contacts [] = [
     {
+      id: 1,
       name: 'Georgia Dacosta',
       company: 'Spatial LLC',
       email: 'georgia@spatialx3c.io',
       phone: '+190595962'
     },
     {
+      id: 2,
       name: 'Anisa Makayla Dacosta',
       company: 'Google Stadia',
       email: 'makayla.a@stadia.google.com',
