@@ -12,6 +12,16 @@ export class ItemFormComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder) { }
 
+  
+
+  isInvalid (x: AbstractControl): boolean {
+    return ( x.dirty || x.touched) && x.invalid;
+  }
+
+  isValid(x: AbstractControl): boolean {
+    return x.dirty && x.valid;
+  }
+
   get name() {
     return this.form.get('name');
   }
