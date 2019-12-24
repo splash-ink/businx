@@ -12,7 +12,19 @@ export class ItemFormComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder) { }
 
-  
+  toggle() {
+    const v = this.buyInfo.value;
+
+    if (v === true) {
+      // console.log(`[IF]:true -> ${v}`); // 👈 enable only for debbuging purposes
+      this.buyPrice.enable();
+      this.buyDescription.enable();
+    } else if (v === false) {
+      // console.log(`[IF]:false -> ${v}`); // 👈 enable only for debbuging purposes
+      this.buyPrice.disable();
+      this.buyDescription.disable();
+    }
+  }
 
   isInvalid (x: AbstractControl): boolean {
     return ( x.dirty || x.touched) && x.invalid;
