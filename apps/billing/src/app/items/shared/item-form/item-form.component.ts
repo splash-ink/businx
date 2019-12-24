@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators as _, AbstractControl } from '@angular/forms';
 import * as $ from 'jquery';
+import { SERVICE_TYPE } from '@businx/data-models';
 
 @Component({
   selector: 'businx-item-form',
@@ -10,6 +11,7 @@ import * as $ from 'jquery';
 export class ItemFormComponent implements OnInit {
 
   form: FormGroup;
+  natures;
   constructor(private fb: FormBuilder) { }
 
   toggle() {
@@ -72,6 +74,8 @@ export class ItemFormComponent implements OnInit {
       buyPrice: ['', [_.required, _.min(500)]],
       buyDescription: ['', [_.maxLength(70)]]
     });
+
+    this.natures = SERVICE_TYPE;
   }
 
 }
