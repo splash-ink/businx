@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="form">
   <div class="modal-content">
 
     <div class="modal-header">
@@ -20,16 +20,18 @@
     <div class="modal-body">
       <div class="row justify-content-center">
         <div class="col-lg-11 text-center pt-1">
-
+          
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="text" placeholder="Nome" class="form-control">
+                <input type="text" formControlName="name" placeholder="Nome" class="form-control"
+                  [ngClass]="{'is-valid': isValid(name), 'is-invalid' : isInvalid(name)}">
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <select class="form-control">
+                <select formControlName="nature" class="form-control"
+                  [ngClass]="{'is-valid': isValid(nature), 'is-invalid' : isInvalid(nature)}">
                   <option value="">Selecionar unidade</option>
                 </select>
               </div>
@@ -40,14 +42,13 @@
 
           <div class="row">
             <div class="col-lg-6">
-              <div class="custom-control custom-switch pb-4">
-                <input type="checkbox" class="custom-control-input" id="sellinfo">
-                <label class="custom-control-label" for="sellinfo">Informações de vendas</label>
-              </div>
+              <h5 class="text-muted pb-3">Informações de vendas</h5>
 
               <div class="form-group">
                 <div class="input-group">
-                  <input type="number" class="form-control" placeholder="Preço de venda">
+                  <input type="number" formControlName="sellPrice" class="form-control"
+                    [ngClass]="{'is-valid': isValid(sellPrice), 'is-invalid' : isInvalid(sellPrice)}"
+                    placeholder="Preço de venda">
                   <div class="input-group-append">
                     <span class="input-group-text">.00</span>
                     <span class="input-group-text">AOA</span>
@@ -56,18 +57,22 @@
               </div>
 
               <div class="form-group">
-                <textarea cols="30" rows="3" class="form-control" placeholder="Descrição ..."></textarea>
+                <textarea formControlName="sellDescription" cols="30" rows="3" class="form-control"
+                  [ngClass]="{'is-valid': isValid(sellDescription), 'is-invalid' : isInvalid(sellDescription)}"
+                  placeholder="Descrição ..."></textarea>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="custom-control custom-switch pb-4">
-                <input type="checkbox" class="custom-control-input" id="buyinfo">
+                <input type="checkbox" formControlName="buyInfo" (change)="toggle()" class="custom-control-input" id="buyinfo">
                 <label class="custom-control-label" for="buyinfo">Informações de compra</label>
               </div>
 
               <div class="form-group">
                 <div class="input-group">
-                  <input type="number" class="form-control" placeholder="Preço de custo">
+                  <input type="number" formControlName="buyPrice" class="form-control"
+                    [ngClass]="{'is-valid': isValid(buyPrice), 'is-invalid' : isInvalid(buyPrice)}"
+                    placeholder="Preço de custo">
                   <div class="input-group-append">
                     <span class="input-group-text">.00</span>
                     <span class="input-group-text">AOA</span>
@@ -76,7 +81,9 @@
               </div>
 
               <div class="form-group">
-                <textarea cols="30" rows="3" class="form-control" placeholder="Descrição ..."></textarea>
+                <textarea formControlName="buyDescription" cols="30" rows="3" class="form-control"
+                  [ngClass]="{'is-valid': isValid(buyDescription), 'is-invalid' : isInvalid(buyDescription)}"
+                  placeholder="Descrição ..."></textarea>
               </div>
             </div>
           </div>
@@ -85,7 +92,7 @@
 
           <div class="text-right">
             <button class="btn btn-link text-sm text-muted font-weight-bold" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-sm btn-primary rounded-pill">Salvar</button>
+            <button type="submit" [disabled]="form.invalid" class="btn btn-sm btn-primary rounded-pill">Salvar</button>
           </div>
 
         </div>
