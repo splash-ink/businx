@@ -73,3 +73,12 @@ export const ITEMS_TABLE_COLUMNS = [
   'Preço',
   'Natureza'
 ];
+
+export const SERVICE_TYPE = [
+  'Design Gráfico',
+  'Marketing Digital',
+  'Beleza e Maquiagem',
+  'Fotografia',
+  'Tecnologia',
+  'Impressão'
+];
