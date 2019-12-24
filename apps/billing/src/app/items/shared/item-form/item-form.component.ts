@@ -12,6 +12,34 @@ export class ItemFormComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder) { }
 
+  get name() {
+    return this.form.get('name');
+  }
+
+  get nature() {
+    return this.form.get('nature');
+  }
+
+  get sellPrice() {
+    return this.form.get('sellPrice');
+  }
+
+  get sellDescription() {
+    return this.form.get('sellDescription');
+  }
+
+  get buyInfo() {
+    return this.form.get('buyInfo');
+  }
+
+  get buyPrice() {
+    return this.form.get('buyPrice');
+  }
+
+  get buyDescription() {
+    return this.form.get('buyDescription');
+  }
+
   ngOnInit() {
     this.form = this.fb.group({
       name: ['', [_.required, _.minLength(3)]],
