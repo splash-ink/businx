@@ -9,7 +9,7 @@
           </div>
         </div>
         <div>
-          <h6 class="mb-0">Novo Servico</h6>
+          <h6 class="mb-0">Novo Serviço</h6>
         </div>
       </div>
       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
@@ -32,7 +32,8 @@
               <div class="form-group">
                 <select formControlName="nature" class="form-control"
                   [ngClass]="{'is-valid': isValid(nature), 'is-invalid' : isInvalid(nature)}">
-                  <option value="">Selecionar unidade</option>
+                  <option value="">Selecionar natureza de serviço</option>
+                  <option *ngFor="let n of natures" [value]="n">{{ n }}</option>
                 </select>
               </div>
             </div>
