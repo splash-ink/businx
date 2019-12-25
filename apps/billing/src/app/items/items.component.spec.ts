@@ -6,6 +6,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { TableComponent } from '@bill/shared/table/table.component';
 import { ItemCreateModalComponent } from './item-create-modal/item-create-modal.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ItemsComponent', () => {
   let component: ItemsComponent;
@@ -14,7 +15,7 @@ describe('ItemsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ItemsComponent ],
-      imports: [ SharedModule ],
+      imports: [ SharedModule, RouterTestingModule ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
