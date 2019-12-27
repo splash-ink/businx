@@ -5,6 +5,7 @@ import { SharedModule } from '@bill/shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { TableComponent } from '@bill/shared/table/table.component';
+import { ItemCreateModalComponent } from './item-create-modal/item-create-modal.component';
 
 describe('ItemsComponent', () => {
   let component: ItemsComponent;
@@ -31,6 +32,12 @@ describe('ItemsComponent', () => {
 
   it('should have a table to display services', () => {
     const el = fixture.debugElement.queryAll(By.directive(TableComponent));
+    
+    expect(el).toBeTruthy();
+  });
+
+  it('should have a modal to add new items', () => {
+    const el = fixture.debugElement.queryAll(By.directive(ItemCreateModalComponent));
     
     expect(el).toBeTruthy();
   });

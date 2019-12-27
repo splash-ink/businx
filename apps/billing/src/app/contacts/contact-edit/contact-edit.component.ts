@@ -9,6 +9,7 @@ import { Contacts, COINS } from '@businx/data-models';
 export class ContactEditComponent implements OnInit {
 
   demo: Contacts = {
+    id: 1,
     accountType: 'Empresa',
     greet: 'Sra.',
     name: 'Anisa Makayla',

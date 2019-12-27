@@ -76,7 +76,7 @@
           <tr *ngFor="let row of config.dataset">
             <ng-container *ngFor="let item of row | keyvalue:descOrder">
 
-              <td *ngIf="item.key !== 'name' && item.key !== 'price' && item.key !== 'nature'">
+              <td *ngIf="item.key !== 'name' && item.key !== 'price' && item.key !== 'nature' && item.key !== 'id'">
                 {{ item?.value }}
               </td>
 
@@ -85,15 +85,18 @@
               </td>
 
               <td *ngIf="item.key === 'nature'">
-                <span class="badge badge-warning badge-pill" *ngIf="item.value === 'Design'">
-                  {{ item?.value }}
-                </span>
-                <span class="badge badge-info badge-pill" *ngIf="item.value === 'Marketing'">
-                  {{ item?.value }}
-                </span>
-                <span class="badge badge-dark badge-pill" *ngIf="item.value === 'Tecnologia'">
-                  {{ item?.value }}
-                </span>
+                <div class="text-left">
+
+                  <span class="badge badge-warning badge-pill" *ngIf="item.value === 'Design'">
+                    {{ item?.value }}
+                  </span>
+                  <span class="badge badge-info badge-pill" *ngIf="item.value === 'Marketing'">
+                    {{ item?.value }}
+                  </span>
+                  <span class="badge badge-dark badge-pill" *ngIf="item.value === 'Tecnologia'">
+                    {{ item?.value }}
+                  </span>
+                </div>
               </td>
 
               <th scope="row" *ngIf="item.key === 'name'">
@@ -112,13 +115,13 @@
             </ng-container>
 
             <ng-container *ngFor="let _ of row | keyvalue">
-              <td class="text-right" *ngIf="_.key == 'name'">
+              <td class="text-right" *ngIf="_.key == 'id'">
 
                 <div class="actions ml-3">
-                  <a [routerLink]="[_.value]" class="action-item mr-2" data-toggle="tooltip" title="Olhada rápida">
+                  <a [routerLink]="[_?.value]" class="action-item mr-2" data-toggle="tooltip" title="Olhada rápida">
                     <i class="far fa-external-link-alt"></i>
                   </a>
-                  <a [routerLink]="[_.value, 'edit']" class="action-item mr-2" data-toggle="tooltip" title="Editar">
+                  <a [routerLink]="[_?.value, 'edit']" class="action-item mr-2" data-toggle="tooltip" title="Editar">
                     <i class="far fa-pencil-alt"></i>
                   </a>
                   <a href="javascript:void(0)" class="action-item text-danger mr-2" data-toggle="tooltip"
