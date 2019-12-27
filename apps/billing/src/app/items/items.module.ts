@@ -6,10 +6,11 @@ import { ItemsComponent } from './items.component';
 import { SharedModule } from '@bill/shared/shared.module';
 import { ItemCreateModalComponent } from './item-create-modal/item-create-modal.component';
 import { ItemFormComponent } from './shared/item-form/item-form.component';
+import { ItemDetailsComponent } from './item-details/item-details.component';
 
 
 @NgModule({
-  declarations: [ItemsComponent, ItemCreateModalComponent, ItemFormComponent],
+  declarations: [ItemsComponent, ItemCreateModalComponent, ItemFormComponent, ItemDetailsComponent],
   imports: [
     CommonModule,
     ItemsRoutingModule,
