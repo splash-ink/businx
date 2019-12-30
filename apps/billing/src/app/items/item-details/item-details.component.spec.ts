@@ -51,12 +51,30 @@ describe('🚦 Item Details', () => {
     expect(el.textContent).toBe('Detalhes de Serviço');
   });
   
-  it('should display the product info', () => {
-    // const nameEl = fixture.nativeElement.querySelector('h2').textContent;
+  it('should display the right product info', () => {
+    const nameEl = fixture.nativeElement.querySelector('h5').textContent;
     // const descEl = fixture.nativeElement.querySelector('p').textContent;
     // const typeEl = fixture.nativeElement.querySelector('span').textContent;
 
     // expect([nameEl, descEl, typeEl]).toBe([dummy.service, dummy.description, dummy.type]);
+  });
+
+  it('should have product/service info side', () => {
+    const getEl = el => {
+      return fixture.nativeElement.querySelector(`#${el}`);
+    }
+
+    const desc = 'Lorem ipsun, amet et vous husal keas mute';
+    const nameEl = getEl('title');
+    const description = getEl('description');
+
+    nameEl.textContent = 'My title';
+    description.textContent = desc;
+
+    fixture.detectChanges();
+
+    expect(nameEl.textContent).toBe('My title');
+    expect(description.textContent).toBe(desc);
   });
   
   it('should display the price for unites', () => {
