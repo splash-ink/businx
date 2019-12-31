@@ -3014,6 +3014,17 @@ fieldset:disabled a.btn {
   pointer-events: none
 }
 
+.btn-link-gray {
+  color: #646464;
+  background-color: transparent;
+  -webkit-box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, .15);
+  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, .15)
+}
+
+.btn-link-gray:hover {
+  color: #535252
+}
+
 .btn-primary {
   color: #fff;
   background-color: #6e00ff;
@@ -14369,6 +14380,10 @@ a.bg-white-dark:hover,
 button.bg-white-dark:focus,
 button.bg-white-dark:hover {
   background-color: #ccc !important
+}
+
+.bg-gradient-finance {
+  background: linear-gradient(50deg, #2A85D1, #00C5D3) !important
 }
 
 .bg-gradient-primary {
