@@ -4,16 +4,29 @@ import { ContactDetailsComponent } from './contact-details.component';
 import { SharedModule } from '@bill/shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { createSpyObj } from '../../test/jest.plugin';
+import { convertToParamMap} from '@angular/router';
+import { of } from 'rxjs';
 
 describe('🚦 ContactDetailsComponent', () => {
   let component: ContactDetailsComponent;
   let fixture: ComponentFixture<ContactDetailsComponent>;
 
+  let mockRouter, mockActivatedRoute;
+
   beforeEach(async(() => {
+    mockRouter = createSpyObj('Router', ['navigate']);
+    mockActivatedRoute = {
+      paramMap: of(convertToParamMap({id: 1}))
+    }
+
     TestBed.configureTestingModule({
       declarations: [ ContactDetailsComponent ],
       imports: [SharedModule],
-      providers: [ActivatedRoute, Router],
+      providers: [
+        { provide: ActivatedRoute, useValue: mockActivatedRoute},
+        { provide: Router, useValue: mockRouter }
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
@@ -25,7 +38,7 @@ describe('🚦 ContactDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('⚡', () => {
     expect(component).toBeTruthy();
   });
 });
