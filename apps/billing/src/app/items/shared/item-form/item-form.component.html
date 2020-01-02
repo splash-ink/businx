@@ -1,8 +1,8 @@
 <form [formGroup]="form">
-  <div class="modal-content">
+  <div class="{{ type }}-content">
 
-    <div class="modal-header">
-      <div class="modal-title d-flex align-items-center">
+    <div class="{{ type }}-header">
+      <div class="{{ type }}-title d-flex align-items-center">
         <div>
           <div class="icon icon-sm icon-shape icon-info rounded-circle shadow mr-3">
             <i class="far fa-suitcase-rolling"></i>
@@ -12,12 +12,12 @@
           <h6 class="mb-0">Novo Serviço</h6>
         </div>
       </div>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" *ngIf="type === 'modal'">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
-    <div class="modal-body">
+    <div class="{{ type }}-body">
       <div class="row justify-content-center">
         <div class="col-lg-11 text-center pt-1">
           
@@ -92,7 +92,7 @@
           <hr class="mt-5 mb-4">
 
           <div class="text-right">
-            <button class="btn btn-link text-sm text-muted font-weight-bold" data-dismiss="modal">Cancelar</button>
+            <button id="cancelBtn" class="btn btn-link text-sm text-muted font-weight-bold">Cancelar</button>
             <button type="submit" [disabled]="form.invalid" class="btn btn-sm btn-primary rounded-pill">Salvar</button>
           </div>
 
