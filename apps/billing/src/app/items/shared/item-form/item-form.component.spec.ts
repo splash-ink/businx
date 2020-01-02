@@ -26,19 +26,22 @@ describe('ItemFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a modal dmiss button', () => {
+  it('should have a modal dmiss button when is setted as modal form', () => {
+    component.type = 'modal';
+    fixture.detectChanges();
+
     const el = fixture.nativeElement.querySelector('button[data-dismiss="modal"]');
 
     expect(el).toBeTruthy();
   });
 
-  // it('should update the value in the control & be a validated', () => {
-  //   component.name.setValue('Stantionary');
+  it('should update the value in the control & be a validated', () => {
+    component.name.setValue('Stantionary');
 
-  //   fixture.detectChanges();
+    fixture.detectChanges();
     
-  //   const state = component.form.get('name').valid;
+    const state = component.form.get('name').valid;
   
-  //   expect(state).toBe(true);
-  // });
+    expect(state).toBe(true);
+  });
 });
