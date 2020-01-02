@@ -80,6 +80,15 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    if (this.incoming) {
+      this.name.setValue(this.incoming.type);
+      this.nature.setValue(this.incoming.type);
+      this.sellPrice.setValue(this.incoming.price);
+      this.sellDescription.setValue(this.incoming.description);
+      this.buyInfo.setValue(this.incoming.buyInfo);
+      this.buyPrice.setValue(this.incoming.buyPrice);
+      this.buyDescription.setValue(this.incoming.buyDescription);
+    }
   }
 
   ngAfterViewInit() {
