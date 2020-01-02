@@ -12,7 +12,7 @@ describe('🚦 ContactEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactEditComponent ],
+      declarations: [ ContactEditComponent, ContactFormComponent ],
       imports: [ SharedModule ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
