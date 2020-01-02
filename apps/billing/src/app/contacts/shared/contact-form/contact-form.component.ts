@@ -8,6 +8,7 @@ import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
 })
 export class ContactFormComponent implements OnInit {
 
+  @Input() title: string;
   @Input() type: string;
   @Input() incoming?: Contacts;
   
