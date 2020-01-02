@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators as _, AbstractControl } from '@angular/forms';
 import * as $ from 'jquery';
-import { SERVICE_TYPE } from '@businx/data-models';
+import { SERVICE_TYPE, Item } from '@businx/data-models';
 
 @Component({
   selector: 'businx-item-form',
@@ -9,6 +9,9 @@ import { SERVICE_TYPE } from '@businx/data-models';
   styleUrls: ['./item-form.component.css']
 })
 export class ItemFormComponent implements OnInit {
+
+  @Input() type: 'modal' | 'card';
+  @Input() incoming?: Item;
 
   form: FormGroup;
   natures;
