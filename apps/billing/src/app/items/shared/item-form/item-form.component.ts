@@ -8,7 +8,7 @@ import { SERVICE_TYPE, Item } from '@businx/data-models';
   templateUrl: './item-form.component.html',
   styleUrls: ['./item-form.component.css']
 })
-export class ItemFormComponent implements OnInit {
+export class ItemFormComponent implements OnInit, AfterViewInit {
 
   @Input() type: 'modal' | 'card';
   @Input() incoming?: Item;
@@ -79,6 +79,11 @@ export class ItemFormComponent implements OnInit {
     });
 
     this.natures = SERVICE_TYPE;
+  }
+
+  ngAfterViewInit() {
+    if (this.type === 'modal')
+      $('#cancelBtn').attr('data-dismiss', this.type);
   }
 
 }
