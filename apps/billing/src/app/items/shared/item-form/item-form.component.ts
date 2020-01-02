@@ -10,6 +10,7 @@ import { SERVICE_TYPE, Item } from '@businx/data-models';
 })
 export class ItemFormComponent implements OnInit, AfterViewInit {
 
+  @Input() title: string;
   @Input() type?: 'modal' | 'card' = 'card';
   @Input() incoming?: Item;
 
