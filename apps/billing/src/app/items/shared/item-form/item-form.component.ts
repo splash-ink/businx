@@ -15,8 +15,20 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
   natures;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      name: ['', [_.required, _.minLength(3)]],
+      nature: ['', [_.required]],
+      sellPrice: ['', [_.required, _.min(500)]],
+      sellDescription: ['', _.maxLength(70)],
+      buyInfo: [true, [_.required]],
+      buyPrice: ['', [_.required, _.min(500)]],
+      buyDescription: ['', [_.maxLength(70)]]
+    });
 
+    this.natures = SERVICE_TYPE;
+  }
+  
   toggle() {
     const v = this.buyInfo.value;
 
@@ -68,17 +80,6 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      name: ['', [_.required, _.minLength(3)]],
-      nature: ['', [_.required]],
-      sellPrice: ['', [_.required, _.min(500)]],
-      sellDescription: ['', _.maxLength(70)],
-      buyInfo: [true, [_.required]],
-      buyPrice: ['', [_.required, _.min(500)]],
-      buyDescription: ['', [_.maxLength(70)]]
-    });
-
-    this.natures = SERVICE_TYPE;
   }
 
   ngAfterViewInit() {
