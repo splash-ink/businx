@@ -15,7 +15,7 @@ describe('🚦 Item Edit Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ItemEditComponent ],
+      declarations: [ ItemEditComponent, ItemFormComponent ],
       imports: [ SharedModule ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -33,7 +33,10 @@ describe('🚦 Item Edit Component', () => {
   });
 
   it('should have the page title component', () => {
-    expect(fixture.debugElement.query(By.directive(PageTitleComponent))).toBeTruthy();
+    const el = fixture.debugElement.query(By.directive(PageTitleComponent));
+    
+    expect(el).toBeTruthy();
+    expect((<PageTitleComponent>el.componentInstance)).toBeTruthy();
   });
 
   it('should display the right title', () => {
@@ -41,11 +44,16 @@ describe('🚦 Item Edit Component', () => {
     const el = fixture.debugElement.query(By.directive(PageTitleComponent));
     (<PageTitleComponent>el.componentInstance).title = title;
 
+    fixture.detectChanges();
+
     expect(fixture.nativeElement.querySelector('h5').textContent).toBe(title);
   });
 
   it('should have the form component', () => {
-    expect(fixture.debugElement.queryAll(By.directive(ItemFormComponent))).toBeTruthy();
+    const el = fixture.debugElement.query(By.directive(ItemFormComponent));
+
+    expect(el).toBeTruthy();
+    expect((<ItemFormComponent>el.componentInstance)).toBeTruthy()
   });
 
   it('should inject data onto form component', () => {});
