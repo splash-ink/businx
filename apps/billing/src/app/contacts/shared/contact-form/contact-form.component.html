@@ -48,6 +48,7 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <select class="custom-select" formControlName="greet">
+                  <option value="">Selecionar Saudação</option>
                   <option *ngFor="let greet of greetings" [value]="greet">{{ greet }}</option>
                 </select>
               </div>
@@ -94,7 +95,7 @@
             <div class="col-sm-8">
               <div class="form-group text-left">
                 <select class="custom-select" formControlName="coin">
-                  <!-- <option [selected]="true">Selecionar Moeda</option> -->
+                  <option value="">Selecionar Moeda</option>
                   <option *ngFor="let coin of coins" [value]="coin.currency">{{ coin.country }} - {{ coin.currency }}
                   </option>
                 </select>
