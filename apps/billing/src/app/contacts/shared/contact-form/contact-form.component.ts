@@ -65,6 +65,16 @@ export class ContactFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.incoming) {
+      this.accountType.setValue(this.incoming.accountType);
+      this.greet.setValue(this.incoming.greet);
+      this.name.setValue(this.incoming.name);
+      this.company.setValue(this.incoming.company);
+      this.phone.setValue(this.incoming.phone);
+      this.email.setValue(this.incoming.email);
+      this.nif.setValue(this.incoming.nif);
+      this.coin.setValue(this.incoming.coin);
+    }
     // this.form.valueChanges.subscribe(console.log); // 👈 only for debbuging purposes 
   }
 
