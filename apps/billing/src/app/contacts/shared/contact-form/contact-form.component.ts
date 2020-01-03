@@ -13,7 +13,6 @@ export class ContactFormComponent implements OnInit {
   @Input() incoming?: Contacts;
   
   form: FormGroup;
-
   coins: Coins [];
   greetings;
 
