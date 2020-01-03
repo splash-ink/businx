@@ -2,6 +2,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators as _ } from '@angular/forms';
 import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
 import * as $ from 'jquery';
+import { FormValidationService } from '@bill/core/form-validation.service';
 
 @Component({
   selector: 'businx-contact-form',
@@ -18,7 +19,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
   coins: Coins [];
   greetings;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private fv: FormValidationService) {
     this.form = this.fb.group({
       accountType: ['' , [_.required]],
       greet: ['', [_.required]],
