@@ -2,6 +2,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators as _, AbstractControl } from '@angular/forms';
 import * as $ from 'jquery';
 import { SERVICE_TYPE, Item } from '@businx/data-models';
+import { FormValidationService } from '@bill/core/form-validation.service';
 
 @Component({
   selector: 'businx-item-form',
@@ -16,7 +17,8 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
   natures;
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder, private fv: FormValidationService) {
     this.form = this.fb.group({
       name: ['', [_.required, _.minLength(3)]],
       nature: ['', [_.required]],
@@ -42,14 +44,6 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
       this.buyPrice.disable();
       this.buyDescription.disable();
     }
-  }
-
-  isInvalid (x: AbstractControl): boolean {
-    return ( x.dirty || x.touched) && x.invalid;
-  }
-
-  isValid(x: AbstractControl): boolean {
-    return x.dirty && x.valid;
   }
 
   get name() {
