@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators as _ } from '@angular/forms';
 import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
+import * as $ from 'jquery';
+
 @Component({
   selector: 'businx-contact-form',
   templateUrl: './contact-form.component.html',
