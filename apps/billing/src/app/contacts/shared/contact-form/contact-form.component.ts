@@ -9,7 +9,7 @@ import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
 export class ContactFormComponent implements OnInit {
 
   @Input() title: string;
-  @Input() type: string;
+  @Input() type: 'card' | 'modal' = 'card';
   @Input() incoming?: Contacts;
   
   form: FormGroup;
