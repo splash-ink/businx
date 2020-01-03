@@ -81,7 +81,8 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    
+    if (this.type === 'modal')
+      $('#cancelBtn').attr('data-dismiss', this.type);
   }
 
 }
