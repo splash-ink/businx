@@ -16,17 +16,21 @@ export class ContactFormComponent implements OnInit {
   coins: Coins [];
   greetings;
 
-  /// Form Validators
-  __accountType = [_.required];
-  __greet = [_.required];
-  __name = [_.required, _.minLength(5), _.maxLength(46)];
-  __company = [_.minLength(2)];
-  __phone = [_.required, _.minLength(7), _.maxLength(14)];
-  __email = [_.email];
-  __nif = [_.minLength(14)];
-  __coin = [_.required, _.maxLength(3), _.minLength(2)];
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      accountType: ['' , [_.required]],
+      greet: ['', [_.required]],
+      name: ['', [_.required, _.minLength(5), _.maxLength(46)]],
+      company: ['', [_.minLength(2)]],
+      phone: ['', [_.required, _.minLength(7), _.maxLength(14)]],
+      email: ['', [_.email]],
+      nif: ['', [_.minLength(14)]],
+      coin: ['', [_.required, _.maxLength(3), _.minLength(2)]]
+    });
 
-  constructor(private fb: FormBuilder) { }
+    this.coins = COINS;
+    this.greetings = GREETINGS;
+  }
 
   get accountType() {
     return this.form.get('accountType');
@@ -61,31 +65,6 @@ export class ContactFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form = !this.incoming
-    ? this.fb.group({
-      accountType: ['' , this.__accountType],
-      greet: ['', this.__greet],
-      name: ['', this.__name],
-      company: ['', this.__company],
-      phone: ['', this.__phone],
-      email: ['', this.__email],
-      nif: ['', this.__nif],
-      coin: ['', this.__coin]
-    })
-    : this.fb.group({
-      accountType: [this.incoming.accountType , this.__accountType],
-      greet: [this.incoming.greet, this.__greet],
-      name: [this.incoming.name, this.__name],
-      company: [this.incoming.company, this.__company],
-      phone: [this.incoming.phone, this.__phone],
-      email: [this.incoming.email, this.__email],
-      nif: [this.incoming.nif, this.__nif],
-      coin: [this.incoming.coin, this.__coin]
-    });
-
-    this.coins = COINS;
-    this.greetings = GREETINGS;
-
     // this.form.valueChanges.subscribe(console.log); // 👈 only for debbuging purposes 
   }
 
