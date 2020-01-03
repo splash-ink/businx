@@ -38,6 +38,9 @@ describe('🚦 ContactFormComponent', () => {
   });
 
   it(`should render the title 'Novo Cliente'`, () => {
+    component.title = 'Novo Cliente';
+    fixture.detectChanges();
+
     const el = fixture.nativeElement.querySelector('h6');
 
     expect(el).toBeTruthy();
@@ -64,12 +67,12 @@ describe('🚦 ContactFormComponent', () => {
     expect(fixture.debugElement.queryAll(By.css('input')).length).toBe(7);
   });
   
-  it('should have a dismissable button to form that default type\'s modal', () => {
+  it('should have a dismissable button to form that default type\'s modal', async (() => {
     component.type = 'modal';
-    fixture.detectChanges();
+    component.ngAfterViewInit();
 
     expect(fixture.nativeElement.querySelector('button[data-dismiss]')).toBeTruthy();
-  });
+  }));
 
   it('should not have a dismiss button default type as card', () => {
     component.type = 'card';
