@@ -25,13 +25,13 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <input type="text" formControlName="name" placeholder="Nome" class="form-control"
-                  [ngClass]="{'is-valid': isValid(name), 'is-invalid' : isInvalid(name)}">
+                  [ngClass]="{'is-valid': fv.isValid(name), 'is-invalid' : fv.isInvalid(name)}">
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <select formControlName="nature" class="form-control"
-                  [ngClass]="{'is-valid': isValid(nature), 'is-invalid' : isInvalid(nature)}">
+                  [ngClass]="{'is-valid': fv.isValid(nature), 'is-invalid' : fv.isInvalid(nature)}">
                   <option value="">Selecionar natureza de serviço</option>
                   <option *ngFor="let n of natures" [value]="n">{{ n }}</option>
                 </select>
@@ -48,7 +48,7 @@
               <div class="form-group">
                 <div class="input-group">
                   <input type="number" formControlName="sellPrice" class="form-control"
-                    [ngClass]="{'is-valid': isValid(sellPrice), 'is-invalid' : isInvalid(sellPrice)}"
+                    [ngClass]="{'is-valid': fv.isValid(sellPrice), 'is-invalid' : fv.isInvalid(sellPrice)}"
                     placeholder="Preço de venda">
                   <div class="input-group-append">
                     <span class="input-group-text">.00</span>
@@ -59,7 +59,7 @@
 
               <div class="form-group">
                 <textarea formControlName="sellDescription" cols="30" rows="3" class="form-control"
-                  [ngClass]="{'is-valid': isValid(sellDescription), 'is-invalid' : isInvalid(sellDescription)}"
+                  [ngClass]="{'is-valid': fv.isValid(sellDescription), 'is-invalid' : fv.isInvalid(sellDescription)}"
                   placeholder="Descrição ..."></textarea>
               </div>
             </div>
@@ -72,7 +72,7 @@
               <div class="form-group">
                 <div class="input-group">
                   <input type="number" formControlName="buyPrice" class="form-control"
-                    [ngClass]="{'is-valid': isValid(buyPrice), 'is-invalid' : isInvalid(buyPrice)}"
+                    [ngClass]="{'is-valid': fv.isValid(buyPrice), 'is-invalid' : fv.isInvalid(buyPrice)}"
                     placeholder="Preço de custo">
                   <div class="input-group-append">
                     <span class="input-group-text">.00</span>
@@ -83,7 +83,7 @@
 
               <div class="form-group">
                 <textarea formControlName="buyDescription" cols="30" rows="3" class="form-control"
-                  [ngClass]="{'is-valid': isValid(buyDescription), 'is-invalid' : isInvalid(buyDescription)}"
+                  [ngClass]="{'is-valid': fv.isValid(buyDescription), 'is-invalid' : fv.isInvalid(buyDescription)}"
                   placeholder="Descrição ..."></textarea>
               </div>
             </div>
