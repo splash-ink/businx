@@ -8,7 +8,7 @@
           </div>
         </div>
         <div>
-        <h6 class="mb-0">{{ title }}</h6>
+          <h6 class="mb-0">{{ title }}</h6>
         </div>
       </div>
       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" *ngIf="type === 'modal'">
@@ -23,6 +23,7 @@
             <div class="col-sm-6">
               <p class="text-left">
                 Tipo de cliente
+                <span class="justify-content-center text-danger" *ngIf="accountType.invalid">*</span>
               </p>
             </div>
             <div class="col-sm-6">
@@ -37,10 +38,6 @@
                     class="custom-control-input">
                   <label class="custom-control-label" for="accountTypeBusiness">Empresa</label>
                 </div>
-
-                <span class="justify-content-center text-danger" *ngIf="accountType.invalid">
-                  *Precisa selecionar uma opção.
-                </span>
               </div>
             </div>
           </div>
