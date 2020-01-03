@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators as _ } from '@angular/forms';
 import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
 @Component({
@@ -6,7 +6,7 @@ import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
   templateUrl: './contact-form.component.html',
   styles: []
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent implements OnInit, AfterViewInit {
 
   @Input() title: string;
   @Input() type: 'card' | 'modal' = 'card';
@@ -76,6 +76,10 @@ export class ContactFormComponent implements OnInit {
       this.coin.setValue(this.incoming.coin);
     }
     // this.form.valueChanges.subscribe(console.log); // 👈 only for debbuging purposes 
+  }
+
+  ngAfterViewInit() {
+    
   }
 
 }
