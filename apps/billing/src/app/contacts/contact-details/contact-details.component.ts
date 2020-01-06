@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Table } from '@bill/shared/table/table';
+import { Table } from '@billing/shared/table/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 @Component({
