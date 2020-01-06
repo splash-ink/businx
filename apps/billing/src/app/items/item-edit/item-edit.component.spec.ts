@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemEditComponent } from './item-edit.component';
 import { By } from '@angular/platform-browser';
-import { PageTitleComponent } from '@billing/shared/page-title/page-title.component';
-import { SharedModule } from '@billing/shared/shared.module';
+import { PageTitleComponent } from '@businx/billing/shared/page-title/page-title.component';
+import { SharedModule } from '@businx/billing/shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ItemFormComponent } from '../shared/item-form/item-form.component';
 

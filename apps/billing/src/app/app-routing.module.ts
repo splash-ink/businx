@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'contacts',
-    loadChildren: () => import('@billing/contacts/contacts.module').then(m => m.ContactsModule)
+    loadChildren: () => import('@businx/billing/contacts/contacts.module').then(m => m.ContactsModule)
   },
   {
     path: 'items',
-    loadChildren: () => import('@billing/items/items.module').then(m => m.ItemsModule)
+    loadChildren: () => import('@businx/billing/items/items.module').then(m => m.ItemsModule)
   }
 ];
 
