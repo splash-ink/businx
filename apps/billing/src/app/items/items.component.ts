@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Table } from '@billing/shared/table/table';
+import { Table } from '@businx/billing/shared/table/table';
 import { ITEMS_TABLE_COLUMNS } from '@businx/data-models';
 
 @Component({

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactDetailsComponent } from './contact-details.component';
-import { SharedModule } from '@billing/shared/shared.module';
+import { SharedModule } from '@businx/billing/shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { createSpyObj } from '../../test/jest.plugin';
