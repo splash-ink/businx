@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ItemCreateModalComponent } from './item-create-modal.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { TableComponent } from '@bill/shared/table/table.component';
+import { TableComponent } from '@billing/shared/table/table.component';
 
 describe('ItemCreateModalComponent', () => {
   let component: ItemCreateModalComponent;

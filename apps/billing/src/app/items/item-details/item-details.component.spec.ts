@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemDetailsComponent } from './item-details.component';
-import { SharedModule } from '@bill/shared/shared.module';
+import { SharedModule } from '@billing/shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { PageTitleComponent } from '@bill/shared/page-title/page-title.component';
+import { PageTitleComponent } from '@billing/shared/page-title/page-title.component';
 import { Item } from '@businx/data-models';
 
 describe('🚦 Item Details', () => {

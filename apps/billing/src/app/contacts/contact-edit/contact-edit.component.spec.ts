@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactEditComponent } from './contact-edit.component';
-import { SharedModule } from '@bill/shared/shared.module';
+import { SharedModule } from '@billing/shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ContactFormComponent } from '../shared/contact-form/contact-form.component';

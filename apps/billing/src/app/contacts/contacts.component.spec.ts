@@ -2,12 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { SharedModule } from '@bill/shared/shared.module';
+import { SharedModule } from '@billing/shared/shared.module';
 import { ContactsComponent } from './contacts.component';
-import { ResumeCard } from '@bill/shared/resume-card/resume-card';
+import { ResumeCard } from '@billing/shared/resume-card/resume-card';
 import { By } from '@angular/platform-browser';
-import { ResumeCardComponent } from '@bill/shared/resume-card/resume-card.component';
-import { PageTitleComponent } from '@bill/shared/page-title/page-title.component';
+import { ResumeCardComponent } from '@billing/shared/resume-card/resume-card.component';
+import { PageTitleComponent } from '@billing/shared/page-title/page-title.component';
 import { ContactCreateModalComponent } from './contact-create-modal/contact-create-modal.component';
 
 describe('🚦 ContactsComponent', () => {

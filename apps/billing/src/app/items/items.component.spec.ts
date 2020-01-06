@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemsComponent } from './items.component';
-import { SharedModule } from '@bill/shared/shared.module';
+import { SharedModule } from '@billing/shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { TableComponent } from '@bill/shared/table/table.component';
+import { TableComponent } from '@billing/shared/table/table.component';
 import { ItemCreateModalComponent } from './item-create-modal/item-create-modal.component';
 import { RouterTestingModule } from '@angular/router/testing';
 

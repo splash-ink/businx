@@ -2,7 +2,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators as _, AbstractControl } from '@angular/forms';
 import * as $ from 'jquery';
 import { SERVICE_TYPE, Item } from '@businx/data-models';
-import { FormValidationService } from '@bill/core/form-validation.service';
+import { FormValidationService } from '@billing/core/form-validation.service';
 
 @Component({
   selector: 'businx-item-form',
