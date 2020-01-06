@@ -1,1 +1,43 @@
-<p>cart-table works!</p>
+<table class="table align-items-center">
+  <thead>
+    <tr>
+      <th scope="col" class="sort" data-sort="product">Producto</th>
+      <th scope="col" class="sort" data-sort="price">Preço</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col" class="sort" data-sort="total">Total</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="list">
+    <tr>
+      <th scope="row">
+        <div class="col align-items-center">
+          <div class="lh-100">
+            <span class="text-dark font-weight-bold mb-0">Pamphlet (Estrela)</span>
+          </div>
+          <span class="font-weight-bold text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+        </div>
+      </th>
+      <td class="price">
+        {{ 12900 | currency:'AOA' }}
+      </td>
+      <td>
+        <input type="text" class="form-control form-control-sm text-center" style="width: 80px;" value="1">
+      </td>
+      <td class="total">
+        {{ 12900 | currency:'AOA' }}
+      </td>
+      <td class="text-right">
+        <!-- Actions -->
+        <div class="actions ml-3">
+          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
+            <i class="far fa-external-link-alt"></i>
+          </a>
+          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
+            <i class="far fa-times"></i>
+          </a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
