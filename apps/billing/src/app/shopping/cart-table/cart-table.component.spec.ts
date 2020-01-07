@@ -27,6 +27,16 @@ describe('CartTableComponent', () => {
     expect(th.length).toBe(5);
   });
 
+  it('has the correct columns names', () => {
+    const th = fixture.debugElement.queryAll(By.css('thead > tr > th'));
+    
+    expect(th[0].nativeElement.textContent).toBe('Producto');
+    expect(th[1].nativeElement.textContent).toBe('Preço');
+    expect(th[2].nativeElement.textContent).toBe('Quantidade');
+    expect(th[3].nativeElement.textContent).toBe('Total');
+    expect(th[4].nativeElement.textContent).toBe('');
+  });
+
   it('has a actions-menu that helps manage items inside the cart', () => {
     const a = fixture.debugElement.queryAll(By.css('.actions > a'));
 
