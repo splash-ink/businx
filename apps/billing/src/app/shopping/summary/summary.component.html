@@ -3,7 +3,7 @@
     <small class="font-weight-bold">Subtotal:</small>
   </div>
   <div class="col-4 text-right">
-    <span class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
+    <span id="subtotal" class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
   </div>
 </div>
 
@@ -13,14 +13,14 @@
       <i class="far fa-shipping-fast"></i>
       <div class="media-body">
         <div class="text-limit lh-100">
-          <small class="font-weight-bold mb-0">Taxa de envio</small>
+          <small class="font-weight-bold mb-0">Taxa de envio:</small>
         </div>
-        <small class="badge badge-success">Entrega digital</small>
+        <small id="ship" class="badge badge-success">Entrega digital</small>
       </div>
     </div>
   </div>
   <div class="col-4 text-right">
-    <span class="text-sm font-weight-bold">{{ 0 | currency:'AOA' }}</span>
+    <span id="ship_coast" class="text-sm font-weight-bold">{{ 0 | currency:'AOA' }}</span>
   </div>
 </div>
 
@@ -29,6 +29,6 @@
     <small class="text-uppercase font-weight-bold">Total:</small>
   </div>
   <div class="col-4 text-right">
-    <span class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
+    <span id="total" class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
   </div>
 </div>
