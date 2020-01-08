@@ -9,23 +9,23 @@
     </tr>
   </thead>
   <tbody class="list">
-    <tr>
+    <tr *ngFor="let doc of docs">
       <th scope="row">
         <div class="col align-items-center">
           <div class="lh-100">
-            <span class="text-dark font-weight-bold mb-0">Pamphlet (Estrela)</span>
+            <span class="text-dark font-weight-bold mb-0">{{ doc?.item?.service }}</span>
           </div>
-          <span class="font-weight-bold text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+          <span class="font-weight-bold text-muted">{{ doc?.item?.description }}</span>
         </div>
       </th>
       <td class="price">
-        {{ 12900 | currency:'AOA' }}
+        {{ doc?.item?.price | currency:'AOA' }}
       </td>
       <td>
-        <input type="text" class="form-control form-control-sm text-center" style="width: 80px;" value="1">
+        <input type="text" class="form-control form-control-sm text-center" style="width: 80px;" [value]="doc?.quantity">
       </td>
       <td class="total">
-        {{ 12900 | currency:'AOA' }}
+        {{ (doc?.item?.price * doc?.quantity) | currency:'AOA' }}
       </td>
       <td class="text-right">
         <!-- Actions -->
