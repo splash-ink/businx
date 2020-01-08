@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from './nav/nav.component';
 import { SideNavComponent } from './sidenav/sidenav.component';
 import { FooterComponent } from './footer/footer.component';
+import { CartService } from './cart.service';
 
 const comps = [
   NavComponent,
@@ -10,12 +11,14 @@ const comps = [
   FooterComponent
 ];
 
+const servs = [CartService];
 
 @NgModule({
   declarations: comps,
   exports: comps,
   imports: [
     CommonModule
-  ]
+  ],
+  providers: servs
 })
 export class CoreModule { }
