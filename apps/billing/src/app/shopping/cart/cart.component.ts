@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '@businx/billing/core/cart.service';
+import { CartItem } from '@businx/data-models';
 
 @Component({
   selector: 'businx-cart',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  cartItems: CartItem[] = [];
+  
+  constructor(private cs: CartService) { }
 
   ngOnInit() {
   }
