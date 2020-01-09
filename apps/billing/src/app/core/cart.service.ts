@@ -9,31 +9,35 @@ export class CartService {
 
   @SyncLocalStorage()
   items$: CartItem[] = [];
+  
   private readonly STORAGE: string = 'CART_ITEMS';
 
   constructor() { }
 
   add(obj: CartItem): void {
-    const copy: CartItem[] = this.items$;
+    const lsI = localStorage.getItem(this.STORAGE);
+    const dataset: CartItem[] = (lsI !== null) ? JSON.parse(lsI) : [];
+    const storageState: boolean = (dataset.length > 0) ? true : false;
+    
+    if (storageState) {
+      let isPresent: boolean;
 
-    if (copy !== undefined
-      && copy.length > 0
-      && localStorage.getItem(this.STORAGE) !== null
-      ) {
-        copy.forEach(val => {
-        if (obj.item.id === val.item.id) {
+      dataset.forEach(val => {
+        if (obj.item.id == val.item.id) {
           val.quantity += 1;
-
-          this.save(copy);
-        } else {
-          this.save(copy);
+          isPresent = true;
         }
       });
 
-    }
+      if (!isPresent) {
+        dataset.push(obj);
+      }
 
-    this.items$.push(obj);
-    this.save(this.items$);
+      return this.save(dataset);
+    } else {
+      dataset.push(obj);
+      return this.save(dataset);
+    } 
   }
 
   remove(obj: CartItem) {
@@ -42,12 +46,13 @@ export class CartService {
         this.items$.splice(idx, 1);
       }
     });
+
+    this.save(this.items$);
   }
 
   private save(obj) {
     this.items$ = obj;
-    
-    localStorage.setItem(this.STORAGE, JSON.stringify(this.items$));
+    localStorage.setItem(this.STORAGE, JSON.stringify(obj));
   }
 }
 
