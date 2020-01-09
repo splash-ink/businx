@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartComponent } from './cart.component';
 import { CartTableComponent } from '../cart-table/cart-table.component';
 import { SummaryComponent } from '../summary/summary.component';
+import { ModalItemListComponent } from '../modal-item-list/modal-item-list.component';
 
 describe('🚦 Cart [Page]', () => {
   let component: CartComponent;
@@ -13,6 +14,7 @@ describe('🚦 Cart [Page]', () => {
       declarations: [
         CartComponent,
         CartTableComponent,
+        ModalItemListComponent,
         SummaryComponent
       ]
     })
