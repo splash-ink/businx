@@ -22,18 +22,19 @@
         {{ doc?.item?.price | currency:'AOA' }}
       </td>
       <td>
-        <input type="text" class="form-control form-control-sm text-center" style="width: 80px;" [value]="doc?.quantity">
+        <input type="number" class="form-control form-control-sm text-center w-80" [value]="doc?.quantity">
       </td>
       <td class="total">
         {{ (doc?.item?.price * doc?.quantity) | currency:'AOA' }}
       </td>
       <td class="text-right">
-        <!-- Actions -->
+
         <div class="actions ml-3">
-          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
+          <a href="javascript:void(0)" class="action-item mr-2" data-toggle="tooltip" title="Visualizar item">
             <i class="far fa-external-link-alt"></i>
           </a>
-          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
+          <a href="javascript:void(0)" (click)="remove(doc)" class="action-item mr-2" data-toggle="tooltip"
+            title="Remover da Bolsa">
             <i class="far fa-times"></i>
           </a>
         </div>
