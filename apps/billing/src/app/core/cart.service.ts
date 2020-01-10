@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CartItem } from '@businx/data-models';
 
 @Injectable({
@@ -14,7 +14,13 @@ export class CartService {
 
   constructor() { }
 
-  add(obj: CartItem): void {
+  getAll(): Observable<CartItem[]> {
+    const ls = JSON.parse(localStorage.getItem(this.STORAGE));
+
+    return of(ls);
+  }
+
+  add(obj: CartItem) {
     const lsI = localStorage.getItem(this.STORAGE);
     const dataset: CartItem[] = (lsI !== null) ? JSON.parse(lsI) : [];
     const storageState: boolean = (dataset.length > 0) ? true : false;
@@ -42,7 +48,7 @@ export class CartService {
 
   remove(obj: CartItem) {
     this.items$.find((val, idx) => {
-      if (val.item.id === obj.item.id) {
+      if (val.item.id == obj.item.id) {
         this.items$.splice(idx, 1);
       }
     });
