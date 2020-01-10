@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '@businx/billing/core/cart.service';
-import { CartItem } from '@businx/data-models';
 
 @Component({
   selector: 'businx-cart',
