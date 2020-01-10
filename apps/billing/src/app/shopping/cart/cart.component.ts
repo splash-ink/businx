@@ -9,11 +9,15 @@ import { CartItem } from '@businx/data-models';
 })
 export class CartComponent implements OnInit {
 
-  cartItems: CartItem[] = [];
-  
+  timestamp = Date.now();
+  dueDate: Date = new Date();
+
   constructor(private cs: CartService) { }
 
   ngOnInit() {
+    this.dueDate
+    .setDate(this.dueDate.getDate() + 14);
   }
 
 }
+
