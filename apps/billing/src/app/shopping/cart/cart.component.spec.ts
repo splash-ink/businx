@@ -11,6 +11,9 @@ import { DatePipe, CommonModule } from '@angular/common';
 describe('🚦 Cart [Page]', () => {
   let component: CartComponent;
   let fixture: ComponentFixture<CartComponent>;
+  const getNodeList = target => {
+    return fixture.debugElement.queryAll(By.css(target));
+  }
   
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,14 +41,11 @@ describe('🚦 Cart [Page]', () => {
   it('has client info', () => {});
   
   it('display\'s the invoice/order info', () => {
-    const get = target => {
-      return fixture.debugElement.queryAll(By.css(target));
-    }
 
     component.ngOnInit();
 
-    const spanEl = get('ul > li > span');
-    const inputEl = get('ul > li > input');
+    const spanEl = getNodeList('ul > li > span');
+    const inputEl = getNodeList('ul > li > input');
 
     expect(spanEl[0].nativeElement.textContent).toBe('Data de emissão:');
     expect(spanEl[1].nativeElement.textContent).toBe('Data de vencimento:');
