@@ -21,7 +21,8 @@
       "@businx/billing/contacts/*": ["apps/billing/src/app/contacts/*"],
       "@businx/billing/shared/*": ["apps/billing/src/app/shared/*"],
       "@businx/billing/items/*": ["apps/billing/src/app/items/*"],
-      "@businx/billing/shopping/*": ["apps/billing/src/app/shopping/*"]
+      "@businx/billing/shopping/*": ["apps/billing/src/app/shopping/*"],
+      "@businx/invoice": ["libs/invoice/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
