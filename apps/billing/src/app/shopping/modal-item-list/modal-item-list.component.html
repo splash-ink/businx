@@ -1,0 +1,41 @@
+<div class="modal fade fixed-right" id="modal-item-list" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-vertical" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header align-items-center">
+        <div class="input-group input-group-merge input-group-flush">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-transparent">
+              <i class="far fa-search"></i>
+            </span>
+          </div>
+          <input type="text" class="form-control form-control-flush" placeholder="Digite e pressione Enter...">
+        </div>
+      </div>
+
+      <div class="scrollbar-inner">
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+            <div class="flex-fill">
+              <h6 class="text-sm mb-0">Pamphlet para Eventos (Estrela)</h6>
+              <p class="text-sm mb-0">
+                {{ 15900 | currency:'AOA' }}
+              </p>
+            </div>
+            <div class="flex-fill ml-3">
+                <button class="btn btn-block btn-sm btn-neutral btn-icon rounded-pill">
+                    <span class="btn-inner--icon"><i class="far fa-shopping-bag"></i></span>
+                </button>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="modal-footer align-items-center">
+        <button type="button" class="btn btn-block btn-sm bg-danger text-white" data-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

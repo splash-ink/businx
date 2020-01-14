@@ -2,7 +2,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators as _ } from '@angular/forms';
 import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
 import * as $ from 'jquery';
-import { FormValidationService } from '@billing/core/form-validation.service';
+import { FormValidationService } from '@businx/billing/core/form-validation.service';
 
 @Component({
   selector: 'businx-contact-form',

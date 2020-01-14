@@ -3,10 +3,10 @@ import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { CoreModule } from '@billing/core/core.module';
-import { SideNavComponent } from '@billing/core/sidenav/sidenav.component';
-import { NavComponent } from '@billing/core/nav/nav.component';
-import { FooterComponent } from '@billing/core/footer/footer.component';
+import { CoreModule } from '@businx/billing/core/core.module';
+import { SideNavComponent } from '@businx/billing/core/sidenav/sidenav.component';
+import { NavComponent } from '@businx/billing/core/nav/nav.component';
+import { FooterComponent } from '@businx/billing/core/footer/footer.component';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;

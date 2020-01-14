@@ -1,0 +1,34 @@
+<div class="row mt-3 pt-3 border-top">
+  <div class="col-8 text-right">
+    <small class="font-weight-bold">Subtotal:</small>
+  </div>
+  <div class="col-4 text-right">
+    <span id="subtotal" class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
+  </div>
+</div>
+
+<div class="row mt-3 pt-3 border-top">
+  <div class="col-8 text-right">
+    <div class="media align-items-center">
+      <i class="far fa-shipping-fast"></i>
+      <div class="media-body">
+        <div class="text-limit lh-100">
+          <small class="font-weight-bold mb-0">Taxa de envio:</small>
+        </div>
+        <small id="ship" class="badge badge-success">Entrega digital</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-4 text-right">
+    <span id="ship_coast" class="text-sm font-weight-bold">{{ 0 | currency:'AOA' }}</span>
+  </div>
+</div>
+
+<div class="row mt-3 pt-3 border-top">
+  <div class="col-8 text-right">
+    <small class="text-uppercase font-weight-bold">Total:</small>
+  </div>
+  <div class="col-4 text-right">
+    <span id="total" class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
+  </div>
+</div>

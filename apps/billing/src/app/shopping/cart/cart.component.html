@@ -1,0 +1,56 @@
+<businx-page-title title="Bolsa" controls="true" target="#my-modal"></businx-page-title>
+
+<div class="row pt-3">
+  <div class="col-lg-7">
+    <!-- Contact Card Here! -->
+  </div>
+  <div class="col-lg-5">
+    <div class="card">
+      <ul class="list-group">
+        <li class="text-sm list-group-item d-flex justify-content-between align-items-center">
+          <span>Data de emissão:</span>
+          <input type="date" class="form-control form-control-sm input-sm" value="{{timestamp | date:'yyyy-MM-dd'}}">
+        </li>
+        <li class="text-sm list-group-item d-flex justify-content-between align-items-center">
+          <span>Data de vencimento:</span>
+          <input type="date" class="form-control form-control-sm input-sm" value="{{dueDate | date:'yyyy-MM-dd'}}">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header actions-toolbar border-0">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <span class="h6"><i class="far fa-shopping-bag"></i> Bolsa</span>
+      </div>
+      <div class="col-6 text-right">
+        <button class="btn btn-sm btn-secondary btn-icon-only rounded-circle" data-toggle="modal"
+          data-target="#modal-item-list" title="Adicionar Item a Bolsa.">
+          <i class="far fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <businx-cart-table></businx-cart-table>
+  </div>
+  <div class="card-body">
+    <businx-summary></businx-summary>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col text-right">
+    <button type="button" class="btn btn-sm btn-secondary">
+      Guardar como rascunho
+    </button>
+    <button type="button" class="btn btn-sm btn-success">
+      Finalizar
+    </button>
+  </div>
+</div>
+
+<businx-modal-item-list></businx-modal-item-list>
