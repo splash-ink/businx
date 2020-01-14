@@ -10,6 +10,13 @@ const routes: Routes = [
   },
   {
     path: 'contacts',
+    loadChildren: () => import('@businx/billing/contacts/contacts.module').then(m => m.ContactsModule)
+  },
+  {
+    path: 'items',
+    loadChildren: () => import('@businx/billing/items/items.module').then(m => m.ItemsModule)
+  },
+  {
     path: 'shopping',
     loadChildren: () => import('@businx/billing/shopping/shopping.module').then(m => m.ShoppingModule)
   }
@@ -19,3 +26,4 @@ const routes: Routes = [
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+export class AppRoutingModule { }
