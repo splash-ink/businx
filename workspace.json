@@ -150,6 +150,37 @@
           }
         }
       }
+    },
+    "invoice": {
+      "projectType": "library",
+      "root": "libs/invoice",
+      "sourceRoot": "libs/invoice/src",
+      "prefix": "businx",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/invoice/tsconfig.lib.json",
+              "libs/invoice/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/invoice/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/invoice/jest.config.js",
+            "tsConfig": "libs/invoice/tsconfig.spec.json",
+            "setupFile": "libs/invoice/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

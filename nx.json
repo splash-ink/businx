@@ -16,6 +16,9 @@
     },
     "data-models": {
       "tags": []
+    },
+    "invoice": {
+      "tags": []
     }
   }
 }
