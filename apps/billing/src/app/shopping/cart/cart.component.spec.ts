@@ -6,7 +6,6 @@ import { SummaryComponent } from '../summary/summary.component';
 import { ModalItemListComponent } from '../modal-item-list/modal-item-list.component';
 import { By } from '@angular/platform-browser';
 import { SharedModule } from '@businx/billing/shared/shared.module';
-import { DatePipe, CommonModule } from '@angular/common';
 
 describe('🚦 Cart [Page]', () => {
   let component: CartComponent;
@@ -27,7 +26,6 @@ describe('🚦 Cart [Page]', () => {
     })
     .compileComponents();
   }));
-  
   beforeEach(() => {
     fixture = TestBed.createComponent(CartComponent);
     component = fixture.componentInstance;
@@ -39,7 +37,7 @@ describe('🚦 Cart [Page]', () => {
   });
 
   it('has client info', () => {});
-  
+
   it('display\'s the invoice/order info', () => {
 
     component.ngOnInit();
@@ -51,7 +49,7 @@ describe('🚦 Cart [Page]', () => {
     expect(spanEl[1].nativeElement.textContent).toBe('Data de vencimento:');
     expect(inputEl).toBeTruthy();
   });
-
+  
   it('has the issue date', () => {});
   it('should render the correct due date', () => {});
   it('add the selected client for the shop', () => {});
