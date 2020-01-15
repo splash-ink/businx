@@ -4,6 +4,7 @@ import { NavComponent } from './nav/nav.component';
 import { SideNavComponent } from './sidenav/sidenav.component';
 import { FooterComponent } from './footer/footer.component';
 import { CartService } from './cart.service';
+import { RouterModule } from '@angular/router';
 
 const comps = [
   NavComponent,
@@ -17,7 +18,8 @@ const servs = [CartService];
   declarations: comps,
   exports: comps,
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   providers: servs
 })
