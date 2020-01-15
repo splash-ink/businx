@@ -19,7 +19,12 @@
             "aot": false,
             "assets": [
               "apps/billing/src/favicon.ico",
-              "apps/billing/src/assets"
+              "apps/billing/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./libs/invoice/src/assets/",
+                "output": "./assets"
+              }
             ],
             "styles": ["apps/billing/src/styles.css"],
             "scripts": [
