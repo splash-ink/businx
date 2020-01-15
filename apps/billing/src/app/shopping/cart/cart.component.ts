@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '@businx/billing/core/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'businx-cart',
@@ -11,7 +12,11 @@ export class CartComponent implements OnInit {
   timestamp = Date.now();
   dueDate: Date = new Date();
 
-  constructor(private cs: CartService) { }
+  constructor(private cs: CartService, private route: Router) { }
+
+  checkout() {
+    this.route.navigate(['/shopping/checkout'])
+  }
 
   ngOnInit() {
     this.dueDate
