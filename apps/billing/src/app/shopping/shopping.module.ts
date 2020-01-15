@@ -8,6 +8,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { ModalItemListComponent } from './modal-item-list/modal-item-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { InvoiceModule } from '@businx/invoice';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
   imports: [
     CommonModule,
     ShoppingRoutingModule,
-    SharedModule
+    SharedModule,
+    InvoiceModule
   ]
 })
 export class ShoppingModule { }
