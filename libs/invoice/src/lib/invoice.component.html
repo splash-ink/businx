@@ -42,13 +42,13 @@
         </tr>
       </thead>
       <tbody>
-        <ng-template *ngIf="doc?.items > 0">
+        <ng-container *ngIf="doc.items.length > 0">
           <tr *ngFor="let field of doc.items">
             <td>{{ field?.id }}</td>
             <th scope="row">
               <div class="row">
                 <div class="col">
-                  <h1 class="h5 invoice-no-mb">{{ field?.items.service }}</h1>
+                  <h1 class="h5 invoice-no-mb">{{ field?.item?.service }}</h1>
                   <span class="d-block invoice-text-sm text-muted">
                     {{ field?.item?.description }}
                   </span>
@@ -56,11 +56,11 @@
               </div>
             </th>
             <td>{{ field?.quantity }}</td>
-            <td>{{ field?.item?.price }}</td>
+            <td>{{ field?.item?.price | currency:'AOA' }}</td>
             <!-- Total tax -->
             <td>{{ 0 | currency:'AOA' }} </td>
           </tr>
-        </ng-template>
+        </ng-container>
       </tbody>
     </table>
 
