@@ -1,0 +1,28 @@
+.invoice-offset {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.invoice-logo {
+    width:100%;
+    max-width:300px;
+}
+
+.invoice-no-mb {
+    margin-bottom: 0;
+}
+
+.invoice-text-sm {
+    font-size: 14px;
+}
+
+.invoice-pt-4 {
+    padding-top: 3.5rem !important;
+}
+
+.invoice-text-center {
+    text-align: center;
+}
