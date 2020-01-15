@@ -7,10 +7,11 @@ import { CartTableComponent } from './cart-table/cart-table.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ModalItemListComponent } from './modal-item-list/modal-item-list.component';
 import { SharedModule } from '../shared/shared.module';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
-  declarations: [CartComponent, CartTableComponent, SummaryComponent, ModalItemListComponent],
+  declarations: [CartComponent, CartTableComponent, SummaryComponent, ModalItemListComponent, CheckoutComponent],
   imports: [
     CommonModule,
     ShoppingRoutingModule,
