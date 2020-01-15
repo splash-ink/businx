@@ -14,10 +14,14 @@ export class CartService {
 
   constructor() { }
 
-  getAll(): Observable<CartItem[]> {
-    const ls = JSON.parse(localStorage.getItem(this.STORAGE));
+  getAll() {
+    const store = localStorage.getItem(this.STORAGE);
 
-    return of(ls);
+    if (store === null) {
+      this.items$ = [];
+    } else {
+      this.items$ = JSON.parse(store);
+    }
   }
 
   add(obj: CartItem) {
