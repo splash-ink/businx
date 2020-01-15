@@ -4,6 +4,6 @@ export interface Invoice {
     id: string | number;
     buyer: Contacts;
     items: CartItem[]
-    issue_date: Date;
+    issue_date: number;
     due_date: Date;
 }
