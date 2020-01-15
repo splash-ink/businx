@@ -1,1 +1,110 @@
-<p>invoice works!</p>
+<div class="invoice-offset">
+  <div class="row d-flex justify-content-between">
+    <div class="col">
+      <img src="assets/spl-ink-logo.png" class="invoice-logo d-block" alt="Splash Ink Logo">
+      <h1 class="pt-3 h5 invoice-no-mb">Splash Ink, Lda.</h1>
+      <span class="text-muted d-block">Vila de Cacuaco, N55E - NIF: 5000050229</span>
+      <span class="text-muted d-block">(+244) 922679021 - hello@splashink.co</span>
+      <span class="text-muted d-block">Luanda, Cacuaco <br />Angola</span>
+    </div>
+    <div class="col-auto invoice-text-center">
+      <h1 class="text-uppercase invoice-no-mb d-block">Factura</h1>
+      <span class="font-weight-bold invoice-text-sm">Factura# {{ doc?.id }}</span>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-between invoice-pt-4">
+    <div class="col">
+      <p class="text-muted invoice-no-mb">Facturar a</p>
+      <span class="d-block h5">{{ doc?.buyer?.name }}</span>
+    </div>
+    <div class="col-auto">
+      <div class="row">
+        <div class="col-auto text-muted">Data de emissao:</div>
+        <div class="col text-muted">{{ doc?.issue_date | date:'dd MMM yyyy'}}</div>
+      </div>
+      <div class="row">
+        <div class="col text-muted">Vencimento:</div>
+        <div class="col text-right text-muted">{{ doc?.due_date | date:'dd MMM yyyy'}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive pt-2">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Produto & Descrição </th>
+          <th scope="col">Qtd</th>
+          <th scope="col">P/Unidate</th>
+          <th scope="col">Montante AKZ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-template *ngIf="doc?.items > 0">
+          <tr *ngFor="let field of doc.items">
+            <td>{{ field?.id }}</td>
+            <th scope="row">
+              <div class="row">
+                <div class="col">
+                  <h1 class="h5 invoice-no-mb">{{ field?.items.service }}</h1>
+                  <span class="d-block invoice-text-sm text-muted">
+                    {{ field?.item?.description }}
+                  </span>
+                </div>
+              </div>
+            </th>
+            <td>{{ field?.quantity }}</td>
+            <td>{{ field?.item?.price }}</td>
+            <!-- Total tax -->
+            <td>{{ 0 | currency:'AOA' }} </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+
+    <div id="tbl-items">
+      <div class="d-flex justify-content-end">
+        <div class="row">
+          <div class="col-auto">
+            <span class="d-block invoice-text-sm text-muted">Subtotal:</span>
+            <span class="d-block invoice-text-sm text-muted">Entrega:</span>
+            <span class="invoice-text-sm text-muted">Imposto (IVA - 14%):</span>
+            <span class="d-block font-weight-bold">Total:</span>
+          </div>
+          <div class="col">
+            <span class="d-block invoice-text-sm text-muted">{{ 46350 | currency:'AOA' }}</span>
+            <span class="d-block invoice-text-sm text-muted">{{ 0 | currency:'AOA' }}</span>
+            <span class="invoice-text-sm text-muted">{{ 46350 * 0.14 | currency:'AOA' }}</span>
+            <span class="d-block font-weight-bold">{{ (46350 * 0.14) + 46350 | currency:'AOA' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row invoice-pt-4">
+      <div class="col-auto">
+        <div>
+          <h3 class="h5">Notas</h3>
+          <p class="text-muted invoice-text-sm">
+            Obrigado pela sua transacao.
+          </p>
+        </div>
+        <div>
+          <h3 class="h5">Detalhes Bancários:</h3>
+          <p class="text-muted invoice-text-sm">
+            <strong>Banco BAI - Beneficiário:</strong> SPLASH INK PRESTACAO SERV COMERCIO GERAL <br />
+            <strong>Conta:</strong> 10625133310001 - <strong>IBAN:</strong> AO06.0040.0000.0625.1333.1013.3
+          </p>
+        </div>
+        <div>
+          <h3 class="h5">Termos e Condições</h3>
+          <p class="invoice-text-sm text-muted">
+            {{ terms }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
