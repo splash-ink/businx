@@ -2,10 +2,10 @@
   <div class="row d-flex justify-content-between">
     <div class="col">
       <img src="assets/spl-ink-logo.png" class="invoice-logo d-block" alt="Splash Ink Logo">
-      <h1 class="pt-3 h5 invoice-no-mb">Splash Ink, Lda.</h1>
-      <span class="text-muted d-block">Vila de Cacuaco, N55E - NIF: 5000050229</span>
-      <span class="text-muted d-block">(+244) 922679021 - hello@splashink.co</span>
-      <span class="text-muted d-block">Luanda, Cacuaco <br />Angola</span>
+      <h1 id="company_name" class="pt-3 h5 invoice-no-mb">Splash Ink, Lda.</h1>
+      <span id="company_location_nif" class="text-muted d-block">Vila de Cacuaco, N55E - NIF: 5000050229</span>
+      <span id="company_contact" class="text-muted d-block">(+244) 922679021 - hello@splashink.co</span>
+      <span id="company_addr" class="text-muted d-block">Luanda, Cacuaco <br />Angola</span>
     </div>
     <div class="col-auto invoice-text-center">
       <h1 class="text-uppercase invoice-no-mb d-block">Factura</h1>
@@ -16,16 +16,16 @@
   <div class="row d-flex justify-content-between invoice-pt-4">
     <div class="col">
       <p class="text-muted invoice-no-mb">Facturar a</p>
-      <span class="d-block h5">{{ doc?.buyer?.name }}</span>
+      <span id="buyer" class="d-block h5">{{ doc?.buyer?.name }}</span>
     </div>
     <div class="col-auto">
       <div class="row">
         <div class="col-auto text-muted">Data de emissao:</div>
-        <div class="col text-muted">{{ doc?.issue_date | date:'dd MMM yyyy'}}</div>
+        <div id="issue_date" class="col text-muted">{{ doc?.issue_date | date:'dd MMM yyyy'}}</div>
       </div>
       <div class="row">
         <div class="col text-muted">Vencimento:</div>
-        <div class="col text-right text-muted">{{ doc?.due_date | date:'dd MMM yyyy'}}</div>
+        <div id="due_date" class="col text-right text-muted">{{ doc?.due_date | date:'dd MMM yyyy'}}</div>
       </div>
     </div>
   </div>
