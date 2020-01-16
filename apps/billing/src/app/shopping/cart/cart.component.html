@@ -27,6 +27,9 @@
         <span class="h6"><i class="far fa-shopping-bag"></i> Bolsa</span>
       </div>
       <div class="col-6 text-right">
+        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle" title="Esvaziar Bolsa">
+          <i class="far fa-trash-alt"></i>
+        </button>
         <button class="btn btn-sm btn-secondary btn-icon-only rounded-circle" data-toggle="modal"
           data-target="#modal-item-list" title="Adicionar Item a Bolsa.">
           <i class="far fa-plus"></i>
@@ -47,8 +50,11 @@
     <button type="button" class="btn btn-sm btn-secondary">
       Guardar como rascunho
     </button>
-    <button type="button" class="btn btn-sm btn-success" (click)="checkout()">
-      Finalizar
+    <button type="button" class="btn btn-animated btn-success btn-animated-x" (click)="checkout()">
+      <span class="btn-inner--visible">Finalizar</span>
+      <span class="btn-inner--hidden">
+        <i class="far fa-arrow-right"></i>
+      </span>
     </button>
   </div>
 </div>
