@@ -1,1 +1,18 @@
-<p>checkout works!</p>
+<div class="d-flex justify-content-end py-2">
+  <button type="button" class="btn btn-sm rounded-pill btn-secondary btn-icon">
+    Enviar por Email
+    <span class="btn-inner--icon">
+      <i class="far fa-paper-plane"></i>
+    </span>
+  </button>
+  <button type="button" class="btn btn-secondary rounded-circle btn-icon-only" (click)="exportAsPDF()">
+    <span class="btn-inner--icon">
+      <i class="far fa-print"></i>
+    </span>
+  </button>
+</div>
+<div class="card">
+  <div class="card-content" #invoice>
+    <businx-invoice [invoice-data]="dummy"></businx-invoice>
+  </div>
+</div>
