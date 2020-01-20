@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { CartItem } from '@businx/data-models';
+import { ICartItem } from '@businx/billing/shopping/cart/cart.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +7,8 @@ import { CartItem } from '@businx/data-models';
 export class CartService {
 
   @SyncLocalStorage()
-  items$: CartItem[] = [];
-  
+  items$: ICartItem[] = [];
+
   private readonly STORAGE: string = 'CART_ITEMS';
 
   constructor() { }
@@ -24,11 +23,11 @@ export class CartService {
     }
   }
 
-  add(obj: CartItem) {
+  add(obj: ICartItem) {
     const lsI = localStorage.getItem(this.STORAGE);
-    const dataset: CartItem[] = (lsI !== null) ? JSON.parse(lsI) : [];
+    const dataset: ICartItem[] = (lsI !== null) ? JSON.parse(lsI) : [];
     const storageState: boolean = (dataset.length > 0) ? true : false;
-    
+
     if (storageState) {
       let isPresent: boolean;
 
@@ -47,10 +46,10 @@ export class CartService {
     } else {
       dataset.push(obj);
       return this.save(dataset);
-    } 
+    }
   }
 
-  remove(obj: CartItem) {
+  remove(obj: ICartItem) {
     this.items$.find((val, idx) => {
       if (val.item.id == obj.item.id) {
         this.items$.splice(idx, 1);
@@ -58,6 +57,30 @@ export class CartService {
     });
 
     this.save(this.items$);
+  }
+
+  getSubtotal(arr: ICartItem []): number {
+    let subtotal = 0;
+
+    arr.find((val) => {
+      subtotal += (val.item.price * val.quantity);
+    });
+
+    return subtotal;
+  }
+
+  getTax(arr: ICartItem []) {
+    let tax = 0;
+
+    arr.find((val) => {
+      tax += (val.item.price * 0.14);
+    });
+
+    return tax;
+  }
+
+  getTotal(subtotal, ship, tax) {
+    return (subtotal + ship + tax);
   }
 
   private save(obj) {

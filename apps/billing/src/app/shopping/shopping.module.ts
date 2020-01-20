@@ -1,14 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ShoppingRoutingModule } from './shopping-routing.module';
-import { CartComponent } from './cart/cart.component';
-import { CartTableComponent } from './cart-table/cart-table.component';
-import { SummaryComponent } from './summary/summary.component';
-import { ModalItemListComponent } from './modal-item-list/modal-item-list.component';
-import { SharedModule } from '../shared/shared.module';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { NgModule } from '@angular/core';
 import { InvoiceModule } from '@businx/invoice';
+import { SharedModule } from '../shared/shared.module';
+import { CartTableComponent } from './cart-table/cart-table.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ModalItemListComponent } from './modal-item-list/modal-item-list.component';
+import { ShoppingRoutingModule } from './shopping-routing.module';
+import { SummaryComponent } from './summary/summary.component';
+
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { InvoiceModule } from '@businx/invoice';
     ShoppingRoutingModule,
     SharedModule,
     InvoiceModule
-  ]
+  ],
+  providers: [CartService]
 })
 export class ShoppingModule { }

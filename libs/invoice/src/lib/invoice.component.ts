@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TERMS } from './globals';
-import { Invoice } from './invoice';
+import { TERMS } from '@businx/billing/shared/globals';
+import { IInvoice } from '@businx/billing/shopping/invoice.model';
 
 @Component({
   selector: 'businx-invoice',
@@ -9,11 +9,15 @@ import { Invoice } from './invoice';
 })
 export class InvoiceComponent implements OnInit {
 
-  @Input('invoice-data') doc: Invoice;
-  
+  @Input('invoice-data') doc: IInvoice;
+
   terms = TERMS;
-  
+
   constructor() { }
+
+  getTotalByItem(price: number, qty: number) {
+    return (price * qty);
+  }
 
   ngOnInit() {
   }

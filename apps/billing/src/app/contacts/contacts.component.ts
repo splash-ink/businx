@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Table } from '@businx/billing/shared/table/table';
-import { CONTACTS_TABLE_COLUMNS, Contacts } from '@businx/data-models';
 import { ResumeCard } from '@businx/billing/shared/resume-card/resume-card';
+import { Table } from '@businx/billing/shared/table/table';
+import { CONTACTS_TABLE_COLUMNS } from '@businx/data-models';
+import { Contacts } from './contacts.model';
 
 @Component({
   selector: 'businx-contacts',

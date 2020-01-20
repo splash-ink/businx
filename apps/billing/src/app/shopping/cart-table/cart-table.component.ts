@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CartService } from '@businx/billing/core/cart.service';
-import { CartItem } from '@businx/data-models';
-import { Observable } from 'rxjs';
+import { ICartItem } from '../cart/cart.model';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'businx-cart-table',
@@ -14,10 +13,10 @@ import { Observable } from 'rxjs';
 })
 export class CartTableComponent implements OnInit {
 
-  docs: CartItem[] = [];
+  docs: ICartItem[] = [];
   constructor(private cs: CartService) { }
 
-  remove(obj: CartItem) {
+  remove(obj: ICartItem) {
     this.cs.remove(obj);
   }
 
