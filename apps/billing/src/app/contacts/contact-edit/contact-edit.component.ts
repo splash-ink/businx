@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Contacts, COINS } from '@businx/data-models';
+import { COINS } from '@businx/data-models';
+import { Contacts } from '../contacts.model';
 
 @Component({
   selector: 'businx-contact-edit',
