@@ -9,23 +9,23 @@
     </div>
     <div class="col-auto invoice-text-center">
       <h1 class="text-uppercase invoice-no-mb d-block">Factura</h1>
-      <span class="font-weight-bold text-sm">Factura# {{ doc?.id }}</span>
+      <span class="font-weight-bold text-sm">Factura# {{ doc?.invoice.id }}</span>
     </div>
   </div>
 
   <div class="row d-flex justify-content-between invoice-pt-4">
     <div class="col">
       <p class="text-sm text-muted invoice-no-mb">Facturar a</p>
-      <span id="buyer" class="d-block h6">{{ doc?.buyer?.name }}</span>
+      <span id="buyer" class="d-block h6">{{ doc?.invoice.buyer?.name }}</span>
     </div>
     <div class="col-auto">
       <div class="row">
         <div class="col-auto text-muted text-sm">Data de emissao:</div>
-        <div id="issue_date" class="col text-muted text-sm">{{ doc?.issue_date | date:'dd MMM yyyy'}}</div>
+        <div id="issue_date" class="col text-muted text-sm">{{ doc?.invoice.issue_date | date:'dd MMM yyyy'}}</div>
       </div>
       <div class="row">
         <div class="col text-muted text-sm">Vencimento:</div>
-        <div id="due_date" class="col text-right text-muted text-sm">{{ doc?.due_date | date:'dd MMM yyyy'}}</div>
+        <div id="due_date" class="col text-right text-muted text-sm">{{ doc?.invoice.due_date | date:'dd MMM yyyy'}}</div>
       </div>
     </div>
   </div>
@@ -42,23 +42,22 @@
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngIf="doc.items.length > 0">
-          <tr *ngFor="let field of doc.items">
-            <td>{{ field?.id }}</td>
+        <ng-container *ngIf="doc.invoice.items.length > 0">
+          <tr *ngFor="let data of doc.invoice.items">
+            <td>*</td>
             <th scope="row">
               <div class="row">
                 <div class="col">
-                  <h1 class="h6 invoice-no-mb">{{ field?.item?.service }}</h1>
+                  <h1 class="h6 invoice-no-mb">{{ data?.item?.service }}</h1>
                   <span class="d-block text-sm text-muted">
-                    {{ field?.item?.description }}
+                    {{ data?.item?.description }}
                   </span>
                 </div>
               </div>
             </th>
-            <td>{{ field?.quantity }}</td>
-            <td>{{ field?.item?.price | currency:'AOA' }}</td>
-            <!-- Total tax -->
-            <td>{{ 0 | currency:'AOA' }} </td>
+            <td>{{ data?.quantity }}</td>
+            <td>{{ data?.item?.price | currency:'AOA' }}</td>
+            <td>{{ data?.getTotal() | currency:'AOA' }} </td>
           </tr>
         </ng-container>
       </tbody>
@@ -74,10 +73,10 @@
             <span class="d-block font-weight-bold">Total:</span>
           </div>
           <div class="col">
-            <span class="d-block text-sm text-muted">{{ 46350 | currency:'AOA' }}</span>
-            <span class="d-block text-sm text-muted">{{ 0 | currency:'AOA' }}</span>
-            <span class="text-sm text-muted">{{ 46350 * 0.14 | currency:'AOA' }}</span>
-            <span class="d-block font-weight-bold">{{ (46350 * 0.14) + 46350 | currency:'AOA' }}</span>
+            <span class="d-block text-sm text-muted">{{ doc.subtotal() | currency:'AOA' }}</span>
+            <span class="d-block text-sm text-muted">{{ doc.invoice.ship | currency:'AOA' }}</span>
+            <span class="text-sm text-muted">{{ doc.tax() | currency:'AOA' }}</span>
+            <span class="d-block font-weight-bold">{{ doc.total() | currency:'AOA' }}</span>
           </div>
         </div>
       </div>
