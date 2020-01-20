@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { DEMO } from '@businx/invoice';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'businx-checkout',
@@ -9,19 +9,19 @@ import { DEMO } from '@businx/invoice';
 export class CheckoutComponent implements OnInit {
 
   @ViewChild('invoice', { static: true }) el: ElementRef;
-  dummy = DEMO;
+  dummy = null;
 
-  constructor() { }
+  constructor(private cs: CartService) { }
 
   async exportAsPDF() {
     const opt = {
       margin:       0,
-      filename:     `SPL-${this.dummy.id}.pdf`,
+      filename:     `SPL-${this.dummy.invoice.id}.pdf`,
       image:        { type: 'jpeg', quality: 1 },
       html2canvas:  { scale: 1 },
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
-    
+
     html2pdf()
     .set(opt)
     .from(this.el.nativeElement)
