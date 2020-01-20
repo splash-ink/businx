@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators as _ } from '@angular/forms';
-import { COINS, GREETINGS, Coins, Contacts } from '@businx/data-models';
-import * as $ from 'jquery';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators as _ } from '@angular/forms';
 import { FormValidationService } from '@businx/billing/core/form-validation.service';
+import { COINS, Coins, GREETINGS } from '@businx/data-models';
+import * as $ from 'jquery';
+import { Contacts } from '../../contacts.model';
 
 @Component({
   selector: 'businx-contact-form',
@@ -14,7 +15,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
   @Input() title: string;
   @Input() type: 'card' | 'modal' = 'card';
   @Input() incoming?: Contacts;
-  
+
   form: FormGroup;
   coins: Coins [];
   greetings;
@@ -78,7 +79,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
       this.nif.setValue(this.incoming.nif);
       this.coin.setValue(this.incoming.coin);
     }
-    // this.form.valueChanges.subscribe(console.log); // 👈 only for debbuging purposes 
+    // this.form.valueChanges.subscribe(console.log); // 👈 only for debbuging purposes
   }
 
   ngAfterViewInit() {
