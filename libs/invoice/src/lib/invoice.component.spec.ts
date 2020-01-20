@@ -2,9 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser'
 import { InvoiceComponent } from './invoice.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { DEMO } from './globals';
+// import { DEMO } from '../../../../apps/billing/src/app/shared/globals';
 
 describe('InvoiceComponent', () => {
+  let DEMO = null;
   let component: InvoiceComponent;
   let fixture: ComponentFixture<InvoiceComponent>;
   let getNodeList;
@@ -32,12 +33,12 @@ describe('InvoiceComponent', () => {
       return fixture.debugElement.query(By.css(target));
     }
   });
-  
+
   it('has a company logo within the invoice', () => {
     const el = fixture.nativeElement.querySelector('img');
-    
+
     el.src = 'http://localhost/assets/spl-ink-logo.png';
-    expect(el.src).toContain('assets/spl-ink-logo.png');    
+    expect(el.src).toContain('assets/spl-ink-logo.png');
     expect(component).toBeTruthy();
   });
 
