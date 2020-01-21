@@ -5,11 +5,13 @@ import { TableComponent } from './table/table.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ResumeCardComponent } from './resume-card/resume-card.component';
 import { RouterModule } from '@angular/router';
+import { ContactCardComponent } from './contact-card/contact-card.component';
 
 const comps = [
   TableComponent,
   PageTitleComponent,
-  ResumeCardComponent
+  ResumeCardComponent,
+  ContactCardComponent
 ];
 
 const mods = [
