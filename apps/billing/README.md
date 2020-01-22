@@ -3,11 +3,12 @@
 ## Shared Utils 
 The **Billing** application contains alot of reusable components (utils) listed above:
 
-Name | Selector | State | Type | APIs
+Name | Selector | State | Type 
 --- | --- | --- | --- | ---
-**Table** | `businx-table` | Stable | Dynamic | WIP
-**PageTitle** | `businx-page-title` | Beta | Mixed | WIP
-**ResumeCard** | `businx-resume-card` | Stable | Dumb | WIP
+**Table** | `businx-table` | Stable | Dynamic
+**PageTitle** | `businx-page-title` | Beta | Mixed
+**ResumeCard** | `businx-resume-card` | Stable | Dumb
+**ContactCard** | `businx-contact-card` | Beta | Dumb
 
 Check the Usage Mode section to more information about the [shared utils](#usage-mode).
 
@@ -31,7 +32,7 @@ export interface Table {
 #### Page Title
 You can perform your page title the way you want according with the available options in the component API.
 
-Custom Inputs | Optional | Data Type
+APIs | Optional | Data Type
 --- | --- | ---
 [title] | No | String
 [target] | Yes | String
@@ -68,4 +69,35 @@ export interface ResumeCard {
 ```html
     <!-- Template -->
     <businx-resume-card [card-config]="<bind-your-config-here>"></businx-resume-card>
+```
+
+#### Contact Card
+This component expect's an *contact object* by default. You can check the `contacts` shape below or search for `contacts.model.ts` file that contains all the iformation you need to use this component.
+
+```typescript
+// Data Model
+export interface Contacts {
+    id: string | number;
+    greet?: string; // required when using <cart-ops>
+    name: string;
+    company?: string;
+    email?: string;
+    phone: string | number;
+    nif?: string; // required when using <cart-ops>
+    coin?: string; // required when using <cart-ops>
+}
+```
+
+APIs | Optional | Data Type
+--- | --- | ---
+[data] | No | `Contacts`
+[controls] | Yes | Boolean
+[expose-cart-ops] | Yes | Boolean
+[custom-function] | Yes | Function
+
+Basic usage:
+```html
+    <!-- Template -->
+    <businx-contact-card [data]="<bind-your-data-here>">
+    </businx-contact-card>
 ```
