@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from '@businx/billing/shared/table/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Contacts } from '../contacts.model';
 @Component({
   selector: 'businx-contact-details',
   templateUrl: './contact-details.component.html',
@@ -11,11 +12,16 @@ export class ContactDetailsComponent implements OnInit {
 
   invoicesTbl: Table;
   id;
-  constructor(private route: ActivatedRoute, private router: Router) { }
 
-  navigateToEdit(id: string) {
-    this.router.navigate([`/contacts/${id}/edit`]);
+  contactDemo: Contacts = {
+    id: 1,
+    name: 'Georgia Dacosta',
+    company: 'Spatial LLC',
+    email: 'georgia@spatialx3c.io',
+    phone: '+190595962'
   }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route
