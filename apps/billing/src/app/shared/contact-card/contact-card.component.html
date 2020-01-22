@@ -1,1 +1,46 @@
-<p>contact-card works!</p>
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex align-items-center">
+          <span class="avatar rounded-circle avatar-lg bg-gradient-primary text-white">
+            {{ getNameInitials() | uppercase }}
+          </span>
+          <div class="avatar-content ml-3">
+            <h6 class="mb-0">{{ data?.name }}</h6>
+            <span class="d-block text-muted">
+              <i class="far fa-envelope mr-2"></i>
+              {{ data?.email }}
+            </span>
+            <span class="text-muted">
+              <i class="far fa-at mr-2"></i>
+              {{ data?.company }}
+            </span>
+            <span class="text-muted">
+              <i class="far fa-phone ml-2 mr-2"></i>
+              {{ data?.phone }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="dropdown" data-toggle="dropdown">
+          <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="far fa-ellipsis-v"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a href="javascript:void(0);" class="dropdown-item" (click)="navigateToEdit()">
+              <i class="far fa-user-edit"></i>
+              Editar
+            </a>
+            <a href="javascript:void(0);" class="dropdown-item" *ngIf="cartOps" (click)="fn">
+              <i class="far fa-times"></i>
+              Remover
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
