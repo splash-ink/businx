@@ -2,42 +2,7 @@
 
 <div class="row pt-3">
   <div class="col-lg-6 order-lg-1">
-    <div class="card">
-      <div class="card-header">
-        <div class="row">
-          <div class="col">
-            <div class="d-flex align-items-center">
-              <span
-                class="avatar rounded-circle avatar-lg bg-gradient-primary text-white">
-                CP
-              </span>
-              <div class="avatar-content ml-3">
-                <h6 class="mb-0">Célcia Paiva</h6>
-                <span class="d-block text-muted">
-                  <i class="far fa-envelope mr-2"></i>
-                  cpaiva@automaquinaria.co.ao
-                </span>
-                <span class="text-muted">
-                  <i class="far fa-at mr-2"></i>Auto-Maquinaria
-                </span>
-                <span class="text-muted">
-                  <i class="far fa-phone ml-2 mr-2"></i>+244943353102
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-auto">
-            <button type="button" (click)="navigateToEdit('celciapaivaexampleid')" class="action-item hover-shadow-lg hover-scale-110">
-              <i class="far fa-edit"></i>
-            </button>
-          </div>
-        </div>
-
-      </div>
-      <div class="card-body">
-        <p class="text-sm lh-160 mb-0">Grafico de Atividades.</p>
-      </div>
-    </div>
+    <businx-contact-card [data]="contactDemo"></businx-contact-card>
 
     <businx-table
       [table-config]="invoicesTbl"
