@@ -4,7 +4,7 @@
 The **Billing** application contains alot of reusable components (utils) listed above:
 
 Name | Selector | State | Type 
---- | --- | --- | --- | ---
+--- | --- | --- | ---
 **Table** | `businx-table` | Stable | Dynamic
 **PageTitle** | `businx-page-title` | Beta | Mixed
 **ResumeCard** | `businx-resume-card` | Stable | Dumb
