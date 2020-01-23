@@ -9,19 +9,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ModalItemListComponent } from './modal-item-list/modal-item-list.component';
 import { ShoppingRoutingModule } from './shopping-routing.module';
 import { SummaryComponent } from './summary/summary.component';
-import { ContactsListModalComponent } from './cart/contacts-list-modal/contacts-list-modal.component';
 
 
 
 @NgModule({
-  declarations: [
-    CartComponent,
-    CartTableComponent,
-    SummaryComponent,
-    ModalItemListComponent,
-    CheckoutComponent,
-    ContactsListModalComponent
-  ],
+  declarations: [CartComponent, CartTableComponent, SummaryComponent, ModalItemListComponent, CheckoutComponent],
   imports: [
     CommonModule,
     ShoppingRoutingModule,
