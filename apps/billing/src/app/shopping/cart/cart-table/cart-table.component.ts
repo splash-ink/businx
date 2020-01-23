@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ICartItem } from '../cart/cart.model';
-import { CartService } from '../cart/cart.service';
+import { ICartItem } from '../cart.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'businx-cart-table',
