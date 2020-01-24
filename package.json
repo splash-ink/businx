@@ -22,7 +22,10 @@
     "format:check": "nx format:check",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "link-upstream": "git remote add upstream https://github.com/splash-ink/businx.git",
+    "sync": "git checkout master && git fetch upstream && git merge upstream/master",
+    "reset": "rm -rf ./node_modules ./package-lock.json && npm install && npm run start"
   },
   "private": true,
   "dependencies": {
