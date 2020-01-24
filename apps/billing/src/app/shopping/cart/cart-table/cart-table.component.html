@@ -22,23 +22,23 @@
         {{ cartItem?.item?.price | currency:'AOA' }}
       </td>
       <td>
-        <input type="number" class="form-control form-control-sm text-center w-80" [value]="cartItem?.quantity">
+        <input type="number" class="form-control form-control-sm text-center w-80" #i
+          (change)="cs.updateCartItemQty(cartItem, i.value)" min="1" [value]="cartItem?.quantity">
       </td>
       <td class="total">
         {{ (cartItem?.item?.price * cartItem?.quantity) | currency:'AOA' }}
       </td>
       <td class="text-right">
-
         <div class="actions ml-3">
           <a href="javascript:void(0)" class="action-item mr-2" data-toggle="tooltip" title="Visualizar item">
             <i class="far fa-external-link-alt"></i>
           </a>
-          <a href="javascript:void(0)" (click)="cs.unsetCartItem(cartItem)" class="action-item mr-2" data-toggle="tooltip"
-            title="Remover da Bolsa">
+          <a href="javascript:void(0)" (click)="cs.unsetCartItem(cartItem)" class="action-item mr-2"
+            data-toggle="tooltip" title="Remover da Bolsa">
             <i class="far fa-times"></i>
           </a>
         </div>
       </td>
-    </tr>
+    </tr >
   </tbody>
 </table>
