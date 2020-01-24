@@ -58,6 +58,20 @@ export class CartService {
     }
   }
 
+  updateCartItemQty(obj: ICartItem, qty: number) {
+    const cartItems: ICartItem[] = this.getCartItems();
+
+    if (cartItems.length > 0) {
+      cartItems.forEach(val => {
+        if (obj.item.id == val.item.id) {
+          val.quantity = qty;
+        }
+      });
+    }
+
+    return this.setLocalStorage(this.itemsStore, cartItems);
+  }
+
   unsetCartItem(obj: ICartItem) {
     const cartItems: ICartItem [] = this.getCartItems();
 
@@ -74,30 +88,51 @@ export class CartService {
     localStorage.removeItem(this.itemsStore);
   }
 
-  /** HANDLERS **/
-
-  getSubtotal(arr: ICartItem []): number {
+  getSubtotal(): number {
+    const cartItems: ICartItem [] = this.getCartItems();
     let subtotal = 0;
 
-    arr.find((val) => {
-      subtotal += (val.item.price * val.quantity);
-    });
+    if (cartItems.length > 0) {
+      cartItems.find((obj) => {
+        subtotal += (obj.item.price * obj.quantity);
+      });
+    }
 
     return subtotal;
   }
 
-  getTax(arr: ICartItem []) {
+  getTax() {
+    const cartItems: ICartItem [] = this.getCartItems();
     let tax = 0;
 
-    arr.find((val) => {
-      tax += (val.item.price * 0.14);
-    });
+    if (cartItems.length > 0) {
+      cartItems.find((obj) => {
+        const { item:{ price }, quantity } = obj;
+
+        tax += ((price * quantity) * 0.14);
+      });
+    }
 
     return tax;
   }
 
-  getTotal(subtotal, ship, tax) {
-    return (subtotal + ship + tax);
+  getTotal(ship: number, discount: number) {
+    const cost = (this.getSubtotal() + this.getTax() + ship);
+
+    if (discount === 0)
+      return cost;
+
+    return (cost - ((cost * discount) / 100));
+  }
+
+  setToLocalStorage(key: string, obj: any) {
+    this.setLocalStorage(key, obj);
+  }
+
+  getFromLocalStorage(key: string, aliase) {
+    const ls = localStorage.getItem(key);
+
+    return ls === null ? aliase : JSON.parse(ls);
   }
 
   private setLocalStorage(key: string, obj: any) {
