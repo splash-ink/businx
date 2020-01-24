@@ -1,8 +1,10 @@
-<businx-page-title title="Bolsa" controls="true" target="#my-modal"></businx-page-title>
+<businx-page-title title="Bolsa" controls="true" target="#contacts-list-modal"></businx-page-title>
 
 <div class="row pt-3">
   <div class="col-lg-7">
-    <!-- Contact Card Here! -->
+    <businx-contact-card *ngIf="cs.getBuyer()"
+    [data]="cs.getBuyer()"
+    [expose-cart-ops]="true"></businx-contact-card>
   </div>
   <div class="col-lg-5">
     <div class="card">
@@ -27,7 +29,9 @@
         <span class="h6"><i class="far fa-shopping-bag"></i> Bolsa</span>
       </div>
       <div class="col-6 text-right">
-        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle" title="Esvaziar Bolsa">
+        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle"
+          (click)="cs.unsetCartItems()"
+          title="Esvaziar Bolsa">
           <i class="far fa-trash-alt"></i>
         </button>
         <button class="btn btn-sm btn-secondary btn-icon-only rounded-circle" data-toggle="modal"
