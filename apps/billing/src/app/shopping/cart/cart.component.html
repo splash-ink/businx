@@ -2,9 +2,14 @@
 
 <div class="row pt-3">
   <div class="col-lg-7">
-    <businx-contact-card *ngIf="cs.getBuyer()"
-    [data]="cs.getBuyer()"
-    [expose-cart-ops]="true"></businx-contact-card>
+    <businx-contact-card *ngIf="cs.getBuyer()" [data]="cs.getBuyer()" [expose-cart-ops]="true"></businx-contact-card>
+    <a href="javascript:void(0)" data-toggle="modal" data-target="#contacts-list-modal" *ngIf="!cs.getBuyer()">
+      <div class="card empty-contact-card">
+        <div class="card-body text-center py-2">
+          <h1 class="h6 text-white d-block">Clique para adicionar um Contacto.</h1>
+        </div>
+      </div>
+    </a>
   </div>
   <div class="col-lg-5">
     <div class="card">
@@ -29,8 +34,7 @@
         <span class="h6"><i class="far fa-shopping-bag"></i> Bolsa</span>
       </div>
       <div class="col-6 text-right">
-        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle"
-          (click)="cs.unsetCartItems()"
+        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle" (click)="cs.unsetCartItems()"
           title="Esvaziar Bolsa">
           <i class="far fa-trash-alt"></i>
         </button>
