@@ -1,3 +1,9 @@
 .input-sm {
     max-width: 165px !important;
 }
+
+.empty-contact-card {
+  border: 2px dashed #fefefe;
+  background: transparent;
+  padding: 47px;
+}
