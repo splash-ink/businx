@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contacts } from '@businx/billing/contacts/contacts.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'businx-contacts-list-modal',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsListModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cs: CartService) { }
+
+  add () {
+    this.cs.setBuyer({
+      id: 53,
+      name: 'Jorge Dacosta',
+      phone: +244922140791,
+      email: 'jorgedacosta@null.net',
+      company: 'Splash Ink',
+      greet: 'Dev.'
+    });
+  }
 
   ngOnInit() {
   }
