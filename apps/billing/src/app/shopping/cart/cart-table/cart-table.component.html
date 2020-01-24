@@ -9,23 +9,23 @@
     </tr>
   </thead>
   <tbody class="list">
-    <tr *ngFor="let doc of docs">
+    <tr *ngFor="let cartItem of cs.getCartItems()">
       <th scope="row">
         <div class="col align-items-center">
           <div class="lh-100">
-            <span class="text-dark font-weight-bold mb-0">{{ doc?.item?.service }}</span>
+            <span class="text-dark font-weight-bold mb-0">{{ cartItem?.item?.service }}</span>
           </div>
-          <span class="font-weight-bold text-muted">{{ doc?.item?.description }}</span>
+          <span class="font-weight-bold text-muted">{{ cartItem?.item?.description }}</span>
         </div>
       </th>
       <td class="price">
-        {{ doc?.item?.price | currency:'AOA' }}
+        {{ cartItem?.item?.price | currency:'AOA' }}
       </td>
       <td>
-        <input type="number" class="form-control form-control-sm text-center w-80" [value]="doc?.quantity">
+        <input type="number" class="form-control form-control-sm text-center w-80" [value]="cartItem?.quantity">
       </td>
       <td class="total">
-        {{ (doc?.item?.price * doc?.quantity) | currency:'AOA' }}
+        {{ (cartItem?.item?.price * cartItem?.quantity) | currency:'AOA' }}
       </td>
       <td class="text-right">
 
@@ -33,7 +33,7 @@
           <a href="javascript:void(0)" class="action-item mr-2" data-toggle="tooltip" title="Visualizar item">
             <i class="far fa-external-link-alt"></i>
           </a>
-          <a href="javascript:void(0)" (click)="remove(doc)" class="action-item mr-2" data-toggle="tooltip"
+          <a href="javascript:void(0)" (click)="cs.unsetCartItem(cartItem)" class="action-item mr-2" data-toggle="tooltip"
             title="Remover da Bolsa">
             <i class="far fa-times"></i>
           </a>
