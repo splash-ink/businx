@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   timestamp = Date.now();
   dueDate: Date = new Date();
 
-  constructor(private cs: CartService, private route: Router) { }
+  constructor(public cs: CartService, private route: Router) { }
 
   checkout() {
     this.route.navigate(['/shopping/checkout'])

@@ -1,37 +1,46 @@
 import { Injectable } from '@angular/core';
 import { ICartItem } from '@businx/billing/shopping/cart/cart.model';
+import { Contacts } from '@businx/billing/contacts/contacts.model';
+import { of, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  @SyncLocalStorage()
-  items$: ICartItem[] = [];
-
-  private readonly STORAGE: string = 'CART_ITEMS';
+  private readonly itemsStore: string = 'CART_ITEMS';
+  private readonly buyerStore: string = 'CART_BUYER';
 
   constructor() { }
 
-  getAll() {
-    const store = localStorage.getItem(this.STORAGE);
+  getBuyer () {
+    const ls = localStorage.getItem(this.buyerStore);
 
-    if (store === null) {
-      this.items$ = [];
-    } else {
-      this.items$ = JSON.parse(store);
-    }
+    return ls == null ? null : JSON.parse(ls);
   }
 
-  add(obj: ICartItem) {
-    const lsI = localStorage.getItem(this.STORAGE);
-    const dataset: ICartItem[] = (lsI !== null) ? JSON.parse(lsI) : [];
-    const storageState: boolean = (dataset.length > 0) ? true : false;
+  setBuyer(buyer: Contacts): void {
+    this.setLocalStorage(this.buyerStore, buyer);
+  }
 
-    if (storageState) {
+  unsetBuyer(): void {
+    localStorage.removeItem(this.buyerStore);
+  }
+
+  getCartItems() {
+    const ls = localStorage.getItem(this.itemsStore);
+
+    return ls == null ? [] : JSON.parse(ls);
+  }
+
+  setCartItem(obj: ICartItem) {
+    const cartItems: ICartItem[] = this.getCartItems();
+    const state: boolean = (cartItems.length > 0) ? true : false;
+
+    if (state) {
       let isPresent: boolean;
 
-      dataset.forEach(val => {
+      cartItems.forEach(val => {
         if (obj.item.id == val.item.id) {
           val.quantity += 1;
           isPresent = true;
@@ -39,25 +48,33 @@ export class CartService {
       });
 
       if (!isPresent) {
-        dataset.push(obj);
+        cartItems.push(obj);
       }
 
-      return this.save(dataset);
+      return this.setLocalStorage(this.itemsStore, cartItems);
     } else {
-      dataset.push(obj);
-      return this.save(dataset);
+      cartItems.push(obj);
+      return this.setLocalStorage(this.itemsStore, cartItems);
     }
   }
 
-  remove(obj: ICartItem) {
-    this.items$.find((val, idx) => {
+  unsetCartItem(obj: ICartItem) {
+    const cartItems: ICartItem [] = this.getCartItems();
+
+    cartItems.find((val, idx) => {
       if (val.item.id == obj.item.id) {
-        this.items$.splice(idx, 1);
+        cartItems.splice(idx, 1);
       }
     });
 
-    this.save(this.items$);
+    this.setLocalStorage(this.itemsStore, cartItems);
   }
+
+  unsetCartItems() {
+    localStorage.removeItem(this.itemsStore);
+  }
+
+  /** HANDLERS **/
 
   getSubtotal(arr: ICartItem []): number {
     let subtotal = 0;
@@ -83,32 +100,7 @@ export class CartService {
     return (subtotal + ship + tax);
   }
 
-  private save(obj) {
-    this.items$ = obj;
-    localStorage.setItem(this.STORAGE, JSON.stringify(obj));
-  }
-}
-
-function SyncLocalStorage() {
-  return function (target: Object, key: string | symbol) {
-    let val = target[key];
-
-    const getter = () => {
-      return val;
-    }
-
-    const setter = (next) => {
-      const local = localStorage.getItem('CART_ITEMS');
-
-      val = (local !== null) ? JSON.parse(local) : next;
-    }
-
-    Object.defineProperty(target, key, {
-      get: getter,
-      set: setter,
-      enumerable: true,
-      configurable: true
-    });
-
+  private setLocalStorage(key: string, obj: any) {
+    localStorage.setItem(key, JSON.stringify(obj));
   }
 }

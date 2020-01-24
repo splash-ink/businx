@@ -14,16 +14,16 @@
       </div>
 
       <div class="scrollbar-inner">
-        <a href="#" class="list-group-item list-group-item-action">
-          <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
-            <div class="flex-fill">
-              <h6 class="text-sm mb-0">Pamphlet para Eventos (Estrela)</h6>
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action">
+          <div class="row" data-toggle="tooltip" data-placement="right" data-title="">
+            <div class="col">
+              <h6 class="text-sm mb-0">Service Name</h6>
               <p class="text-sm mb-0">
-                {{ 15900 | currency:'AOA' }}
+                {{ 9000 | currency:'AOA' }}
               </p>
             </div>
-            <div class="flex-fill ml-3">
-              <button type="button" class="btn btn-sm btn-secondary rounded-circle btn-icon-only">
+            <div class="col-auto">
+              <button type="button" class="btn btn-sm btn-secondary rounded-circle btn-icon-only" (click)="add()">
                 <span class="btn-inner--visible">
                   <i class="far fa-shopping-cart"></i>
                 </span>

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ICartItem } from '../cart.model';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -13,15 +12,9 @@ import { CartService } from '../cart.service';
 })
 export class CartTableComponent implements OnInit {
 
-  docs: ICartItem[] = [];
-  constructor(private cs: CartService) { }
-
-  remove(obj: ICartItem) {
-    this.cs.remove(obj);
-  }
+  constructor(public cs: CartService) { }
 
   ngOnInit() {
-    this.docs = this.cs.items$;
   }
 
 }

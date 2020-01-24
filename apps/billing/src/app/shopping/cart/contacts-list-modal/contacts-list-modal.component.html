@@ -1,0 +1,31 @@
+<div class="modal fade fixed-right" id="contacts-list-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-vertical" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header align-items-center">
+        <div class="modal-title">
+          Contactos
+        </div>
+      </div>
+
+      <div class="scrollbar-inner">
+        <a href="javascript:void(0)" (click)="add()" class="list-group-item list-group-item-action">
+          <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="Selecionar contacto">
+            <div class="flex-fill">
+              <h6 class="text-sm mb-0">Username</h6>
+              <p class="text-sm mb-0">
+                email@domain.com
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="modal-footer align-items-center">
+        <button type="button" class="btn btn-block btn-sm bg-danger text-white" data-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

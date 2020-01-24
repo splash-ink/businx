@@ -9,6 +9,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ModalItemListComponent } from './cart/modal-item-list/modal-item-list.component';
 import { ShoppingRoutingModule } from './shopping-routing.module';
 import { SummaryComponent } from './cart/summary/summary.component';
+import { ContactsListModalComponent } from './cart/contacts-list-modal/contacts-list-modal.component';
 
 
 
@@ -18,7 +19,8 @@ import { SummaryComponent } from './cart/summary/summary.component';
     CartTableComponent,
     SummaryComponent,
     ModalItemListComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ContactsListModalComponent
   ],
   imports: [
     CommonModule,
