@@ -1,34 +1,63 @@
 <div class="row mt-3 pt-3 border-top">
-  <div class="col-8 text-right">
+  <div class="col-lg-8 text-right">
     <small class="font-weight-bold">Subtotal:</small>
   </div>
-  <div class="col-4 text-right">
-    <span id="subtotal" class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
+  <div class="col-lg-4 text-right">
+    <span id="subtotal" class="text-sm font-weight-bold">
+      {{ cs.getSubtotal() | currency:'AOA' }}
+    </span>
   </div>
 </div>
 
-<div class="row mt-3 pt-3 border-top">
-  <div class="col-8 text-right">
+<div class="row mt-3 pt-3 border-top align-items-center">
+  <div class="col-lg-8 text-right">
+    <small class="font-weight-bold mb-0">Desconto (máx 30%):</small>
+  </div>
+  <div class="col-lg-4 d-flex justify-content-end">
+    <input class="form-control form-control-sm" style="width: 100px;" type="number" id="discount"
+      (change)="checkDiscountLimit()" [(ngModel)]="discount">
+  </div>
+</div>
+
+<div class="row mt-3 pt-3 border-top align-items-center">
+  <div class="col-lg-8 text-right">
     <div class="media align-items-center">
       <i class="far fa-shipping-fast"></i>
       <div class="media-body">
         <div class="text-limit lh-100">
-          <small class="font-weight-bold mb-0">Taxa de envio:</small>
+          <small class="font-weight-bold mb-0">Taxa de entrega:</small>
         </div>
-        <small id="ship" class="badge badge-success">Entrega digital</small>
+        <small *ngIf="ship === 0" id="ship" class="badge badge-success">Entrega digital</small>
+        <small *ngIf="ship !== 0">
+          <i class="far fa-coins mr-1"></i> AKZ
+        </small>
       </div>
     </div>
   </div>
-  <div class="col-4 text-right">
-    <span id="ship_coast" class="text-sm font-weight-bold">{{ 0 | currency:'AOA' }}</span>
+  <div class="col-lg-4 d-flex justify-content-end">
+    <input class="form-control form-control-sm" style="width: 100px;" type="number" id="ship_coast"
+      [(ngModel)]="ship" (change)="cs.setToLocalStorage('CART_SHIP', ship)">
   </div>
 </div>
 
 <div class="row mt-3 pt-3 border-top">
-  <div class="col-8 text-right">
+  <div class="col-lg-8 text-right">
+    <small class="font-weight-bold mb-0">Imposto (IVA - 14%):</small>
+  </div>
+  <div class="col-lg-4 text-right">
+    <span id="total" class="text-sm font-weight-bold">
+      {{ cs.getTax() | currency:'AOA' }}
+    </span>
+  </div>
+</div>
+
+<div class="row mt-3 pt-3 border-top">
+  <div class="col-lg-8 text-right">
     <small class="text-uppercase font-weight-bold">Total:</small>
   </div>
-  <div class="col-4 text-right">
-    <span id="total" class="text-sm font-weight-bold">{{ 12900 | currency:'AOA' }}</span>
+  <div class="col-lg-4 text-right">
+    <span id="total" class="text-sm font-weight-bold">
+      {{ cs.getTotal(ship, discount) | currency:'AOA' }}
+    </span>
   </div>
 </div>
