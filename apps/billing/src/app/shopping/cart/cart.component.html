@@ -46,7 +46,11 @@
     </div>
   </div>
   <div class="table-responsive">
-    <businx-cart-table></businx-cart-table>
+    <businx-cart-table
+    [data]="cs.getCartItems()"
+    (onDelete)="onDelete($event)"
+    (onUpdate)="onUpdate($event)"
+    ></businx-cart-table>
   </div>
   <div class="card-body">
     <businx-summary></businx-summary>
