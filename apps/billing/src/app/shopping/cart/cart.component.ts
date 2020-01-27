@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
 import { Router } from '@angular/router';
+import { ICartItem } from './cart.model';
 
 @Component({
   selector: 'businx-cart',
@@ -16,6 +17,16 @@ export class CartComponent implements OnInit {
 
   checkout() {
     this.route.navigate(['/shopping/checkout'])
+  }
+
+  onDelete($event: ICartItem) {
+    this.cs.unsetCartItem($event);
+  }
+
+  onUpdate($event: [ICartItem, number]) {
+    const [ item, newVal] = $event;
+
+    this.cs.updateCartItemQty(item, newVal);
   }
 
   ngOnInit() {
