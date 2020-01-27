@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SummaryComponent } from './summary.component';
 import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 describe('SummaryComponent', () => {
   let component: SummaryComponent;
@@ -9,7 +10,10 @@ describe('SummaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummaryComponent ]
+      declarations: [ SummaryComponent ],
+      imports: [
+        FormsModule
+      ]
     })
     .compileComponents();
   }));
@@ -27,8 +31,8 @@ describe('SummaryComponent', () => {
 
     expect(els).toBeTruthy();
     expect(els[0].nativeElement.textContent).toContain('Subtotal:');
-    expect(els[1].nativeElement.textContent).toContain('Taxa de envio:');
-    expect(els[3].nativeElement.textContent).toContain('Total:');
+    expect(els[2].nativeElement.textContent).toContain('Taxa de entrega:');
+    expect(els[5].nativeElement.textContent).toContain('Total:');
   });
 
   it(`shall display the subtotal & total values in 'AOA' coin`, () => {
