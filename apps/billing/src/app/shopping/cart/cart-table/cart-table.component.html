@@ -9,36 +9,38 @@
     </tr>
   </thead>
   <tbody class="list">
-    <tr *ngFor="let cartItem of cs.getCartItems()">
-      <th scope="row">
-        <div class="col align-items-center">
-          <div class="lh-100">
-            <span class="text-dark font-weight-bold mb-0">{{ cartItem?.item?.service }}</span>
+    <ng-container *ngIf="data.length > 0">
+      <tr *ngFor="let cartItem of data">
+        <th scope="row">
+          <div class="col align-items-center">
+            <div class="lh-100">
+              <span class="text-dark font-weight-bold mb-0">{{ cartItem?.item?.service }}</span>
+            </div>
+            <span class="font-weight-bold text-muted">{{ cartItem?.item?.description }}</span>
           </div>
-          <span class="font-weight-bold text-muted">{{ cartItem?.item?.description }}</span>
-        </div>
-      </th>
-      <td class="price">
-        {{ cartItem?.item?.price | currency:'AOA' }}
-      </td>
-      <td>
-        <input type="number" class="form-control form-control-sm text-center w-80" #i
-          (change)="cs.updateCartItemQty(cartItem, i.value)" min="1" [value]="cartItem?.quantity">
-      </td>
-      <td class="total">
-        {{ (cartItem?.item?.price * cartItem?.quantity) | currency:'AOA' }}
-      </td>
-      <td class="text-right">
-        <div class="actions ml-3">
-          <a href="javascript:void(0)" class="action-item mr-2" data-toggle="tooltip" title="Visualizar item">
-            <i class="far fa-external-link-alt"></i>
-          </a>
-          <a href="javascript:void(0)" (click)="cs.unsetCartItem(cartItem)" class="action-item mr-2"
-            data-toggle="tooltip" title="Remover da Bolsa">
-            <i class="far fa-times"></i>
-          </a>
-        </div>
-      </td>
-    </tr >
+        </th>
+        <td class="price">
+          {{ cartItem?.item?.price | currency:'AOA' }}
+        </td>
+        <td>
+          <input type="number" class="form-control form-control-sm text-center w-80" #i
+            (change)="update(cartItem, i.value)" min="1" [value]="cartItem?.quantity">
+        </td>
+        <td class="total">
+          {{ (cartItem?.item?.price * cartItem?.quantity) | currency:'AOA' }}
+        </td>
+        <td class="text-right">
+          <div class="actions ml-3">
+            <a href="javascript:void(0)" class="action-item mr-2" data-toggle="tooltip" title="Visualizar item">
+              <i class="far fa-external-link-alt"></i>
+            </a>
+            <a href="javascript:void(0)" (click)="unset(cartItem)" class="action-item mr-2"
+              data-toggle="tooltip" title="Remover da Bolsa">
+              <i class="far fa-times"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
   </tbody>
 </table>
