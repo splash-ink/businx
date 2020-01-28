@@ -1,11 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CartComponent } from './cart.component';
-import { CartTableComponent } from './cart-table/cart-table.component';
-import { SummaryComponent } from './summary/summary.component';
-import { ModalItemListComponent } from './modal-item-list/modal-item-list.component';
 import { By } from '@angular/platform-browser';
 import { SharedModule } from '@businx/billing/shared/shared.module';
+import { CartTableComponent } from './cart-table/cart-table.component';
+import { CartComponent } from './cart.component';
+import { ContactsListModalComponent } from './contacts-list-modal/contacts-list-modal.component';
+import { ModalItemListComponent } from './modal-item-list/modal-item-list.component';
+import { SummaryComponent } from './summary/summary.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ContactCardComponent } from '@businx/billing/shared/contact-card/contact-card.component';
+
 
 describe('🚦 Cart [Page]', () => {
   let component: CartComponent;
@@ -20,9 +23,10 @@ describe('🚦 Cart [Page]', () => {
         CartComponent,
         CartTableComponent,
         ModalItemListComponent,
-        SummaryComponent
+        SummaryComponent,
+        ContactsListModalComponent
       ],
-      imports: [ SharedModule ]
+      imports: [ SharedModule, RouterTestingModule ]
     })
     .compileComponents();
   }));
@@ -36,7 +40,9 @@ describe('🚦 Cart [Page]', () => {
     expect(component).toBeTruthy();
   });
 
-  it('has client info', () => {});
+  it('should have a client info', () => {
+
+  });
 
   it('display\'s the invoice/order info', () => {
 
