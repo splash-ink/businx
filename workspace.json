@@ -29,6 +29,7 @@
             "styles": ["apps/billing/src/styles.css"],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/apexcharts/dist/apexcharts.min.js",
               "apps/billing/src/assets/js/app.js",
               "apps/billing/src/assets/js/core.js",
               "apps/billing/src/assets/libs/@eKoopmans/html2pdf.js/html2pdf.bundle.js"
