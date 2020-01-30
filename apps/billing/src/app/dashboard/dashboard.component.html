@@ -1,1 +1,57 @@
-<p>dashboard works!</p>
+<ng-container *ngIf="growthCards$.length > 0">
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let card of growthCards$">
+      <businx-growth-card [card-config]="card"></businx-growth-card>
+    </div>
+  </div>
+</ng-container>
+
+<div class="row py-2">
+  <div class="col-lg-6">
+    <div class="card shadow" id="earns-card">
+      <div class="card-body">
+        <div class="row mb-0">
+          <div class="col-lg-12">
+            <h1 class="h6 text-uppercase d-block">Meus Ganhos</h1>
+            <p class="d-flex align-items-center mb-2">
+              <span class="h2 font-weight-bold mr-2">
+                {{ 31951.90 | currency:'AOA' }}
+              </span>
+              <span class="badge badge-success text-xs">
+                <i class="fa fa-chevron-up"></i> 16%
+              </span>
+            </p>
+
+          </div>
+        </div>
+        <div class="row d-flex align-items-center" style="margin: 0">
+          <div class="col">
+            <p class="text-sm mb-0">Hoje</p>
+            <span class="font-weight-bold">+{{ 2000 | currency:'AOA' }}</span>
+          </div>
+          <div class="col">
+            <hr class="divider divider-vertical divider-xs" />
+          </div>
+          <div class="col">
+            <p class="text-sm mb-0">Esta Semana</p>
+            <span class="font-weight-bold">+{{ 7800 | currency:'AOA' }}</span>
+          </div>
+          <div class="col">
+            <hr class="divider divider-vertical divider-xs" />
+          </div>
+          <div class="col">
+            <p class="text-sm mb-0">Este Mês</p>
+            <span class="font-weight-bold">+{{ 28540 | currency:'AOA' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow">
+      <div class="card-body">
+
+      </div>
+    </div>
+  </div>
+</div>
