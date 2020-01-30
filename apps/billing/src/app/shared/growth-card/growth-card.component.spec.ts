@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResumeCardComponent } from './resume-card.component';
+import { ResumeCardComponent } from './growth-card.component';
 
 describe('ResumeCardComponent', () => {
   let component: ResumeCardComponent;

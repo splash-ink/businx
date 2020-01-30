@@ -1,4 +1,4 @@
-export interface ResumeCard {
+export interface GrowthCardModel {
     title: string;
     isCurrency: boolean;
     icon: {
