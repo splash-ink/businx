@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ResumeCard } from './resume-card';
+import { GrowthCardModel } from './growth-card.model';
 
 @Component({
-  selector: 'businx-resume-card',
-  templateUrl: './resume-card.component.html',
-  styleUrls: ['./resume-card.component.css']
+  selector: 'businx-growth-card',
+  templateUrl: './growth-card.component.html',
+  styleUrls: ['./growth-card.component.css']
 })
-export class ResumeCardComponent implements OnInit {
+export class GrowthCardComponent implements OnInit {
 
-  @Input('card-config') config: ResumeCard;
+  @Input('card-config') data: GrowthCardModel;
   constructor() { }
 
   monthlyGroth(prev, curr) {
