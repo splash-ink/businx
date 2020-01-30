@@ -19776,6 +19776,10 @@ a.text-muted:hover {
   width: 40%
 }
 
+.divider-xs {
+  height: 40px !important;
+}
+
 .divider-fade:before {
   content: "";
   display: block;
