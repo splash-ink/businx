@@ -11,6 +11,7 @@ import { AppStyles, StringManipulation } from './utils';
 import { ApexLineComponent } from './apex-line/apex-line.component';
 
 const components = [
+  ApexLineComponent,
   TableComponent,
   PageTitleComponent,
   GrowthCardComponent,
@@ -25,7 +26,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components, ApexLineComponent],
+  declarations: [...components],
   exports: [...components, modules],
   imports: [
     CommonModule,
