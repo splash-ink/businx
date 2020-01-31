@@ -29,8 +29,7 @@ export class ApexLineComponent implements OnInit {
           enabled: !1
         },
         type: 'line',
-        height: 177,
-        width: 600
+        height: 177
       },
       stroke: {
         width: 7,
