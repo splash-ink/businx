@@ -1,35 +1,11 @@
-<div class="card card-stats" *ngIf="data">
-  <div class="card-body">
+<div class="card border-0 shadow bg-gradient-success">
+  <div class="card-body mt-0" style="padding: 1.2rem">
     <div class="row">
       <div class="col">
-        <h6 class="text-muted mb-1">{{ data.title }}</h6>
-        <span class="h5 font-weight-bold mb-0">
-          <ng-container *ngIf="data.isCurrency">
-              {{ data.values.current | currency:'AOA' }}
-          </ng-container>
-          <ng-container *ngIf="!data.isCurrency">
-              {{ data.values.current }}
-          </ng-container>
-        </span>
-      </div>
-      <div class="col-auto">
-        <div class="icon text-white rounded-circle icon-shape" [ngClass]="data.icon.bg">
-          <i [ngClass]="data.icon.class" class="far"></i>
-        </div>
+        <h1 class="d-block font-weight-bold text-white mb-0">{{ monthlyGroth(data.values.previews, data.values.current) | number:'2.0-0' }}%</h1>
+        <h6 class="d-block font-weight-bold text-white mb-0">Ganhos de {{ data.title }}</h6>
+        <p class="text-white mb-0">Desde o mês passado</p>
       </div>
     </div>
-    <p class="mt-3 mb-0 text-sm" *ngIf="data.values as v">
-      <span
-      [ngClass]="{'badge-soft-success': isGrowing(v.previews, v.current),
-      'badge-soft-warning': v.previews === v.current,
-      'badge-soft-danger': !isGrowing(data.values.previews, data.values.current)}"
-        class="badge mr-2">
-        <i class="far"
-        [ngClass]="{'fa-arrow-up': isGrowing(data.values.previews, data.values.current),
-        'fa-equals': v.previews === v.current,
-        'fa-arrow-down': !isGrowing(data.values.previews, data.values.current)}"></i>
-        {{ monthlyGroth(data.values.previews, data.values.current) | number:'2.' }} %</span>
-      <span class="text-nowrap">Desde o mês passado</span>
-    </p>
   </div>
 </div>
