@@ -2,32 +2,35 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { ContactCardComponent } from './contact-card/contact-card.component';
 import { GrowthCardComponent } from './growth-card/growth-card.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { TableComponent } from './table/table.component';
-import { StringManipulation } from './utils';
+import { AppStyles, StringManipulation } from './utils';
+import { ApexLineComponent } from './apex-line/apex-line.component';
 
-const comps = [
+const components = [
   TableComponent,
   PageTitleComponent,
   GrowthCardComponent,
   ContactCardComponent
 ];
 
-const mods = [
+const modules = [
   RouterModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  NgApexchartsModule
 ];
 
 @NgModule({
-  declarations: comps,
-  exports: [comps, mods],
+  declarations: [...components, ApexLineComponent],
+  exports: [...components, modules],
   imports: [
     CommonModule,
-    mods
+    modules
   ],
-  providers: [ StringManipulation ]
+  providers: [ StringManipulation, AppStyles ]
 })
 export class SharedModule { }
