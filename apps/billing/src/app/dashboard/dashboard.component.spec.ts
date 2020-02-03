@@ -37,7 +37,6 @@ import { asapScheduler } from "rxjs";
   });
 
   it('should display three growth cards', () => {
-
     const growthCards = fixture.debugElement
     .queryAll(By.directive(GrowthCardComponent));
 
