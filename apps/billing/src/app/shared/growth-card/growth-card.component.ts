@@ -23,6 +23,8 @@ export class GrowthCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    const { description } = this.data;
+    this.data.description = (typeof description === 'undefined') ? `Desde o mês passado ...` : description;
   }
 
 }
