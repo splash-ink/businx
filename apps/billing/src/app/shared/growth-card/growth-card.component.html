@@ -1,10 +1,13 @@
-<div class="card border-0 shadow bg-gradient-success">
+<div class="card border-0 shadow" [ngClass]="data.themeColor">
   <div class="card-body mt-0" style="padding: 1.2rem">
     <div class="row">
       <div class="col">
-        <h1 class="d-block font-weight-bold text-white mb-0">{{ monthlyGroth(data.values.previews, data.values.current) | number:'2.0-0' }}%</h1>
-        <h6 class="d-block font-weight-bold text-white mb-0">Ganhos de {{ data.title }}</h6>
-        <p class="text-white mb-0">Desde o mês passado</p>
+        <h1 class="d-block font-weight-bold text-white mb-0">{{ monthlyGroth(data.previews, data.current) | number:'2.0-0' }}%</h1>
+        <h6 class="d-block font-weight-bold text-white mb-0">
+          <span class="far fa-badge-percent mr-1"></span>
+          {{ data.from }}
+        </h6>
+        <p class="text-white mb-0">{{ data.description }}</p>
       </div>
     </div>
   </div>
