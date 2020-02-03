@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="800px" src="./public/bnx-colorful.png" />
+  <img width="600px" src="./public/bnx-colorful.png" />
 </p>
 
 <p align="center">
