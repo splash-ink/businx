@@ -7,7 +7,20 @@
   <a href="#getting-started">:rocket: Get Started</a>
 </p>
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/splash-ink/businx/issues) ![GitHub](https://img.shields.io/github/license/splash-ink/businx) ![GitHub package.json version](https://img.shields.io/github/package-json/v/splash-ink/businx) ![Website](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Fapp.businx.io)
+<p align="center">
+  <a aria-label="contributions welcome" href="https://github.com/splash-ink/businx/issues">
+    <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" />
+  </a>
+  <a aria-label="Businx LICENSE" href="https://github.com/splash-ink/businx/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/splash-ink/businx" />
+  </a>
+  <a aria-label="Businx LICENSE" href="javascript:void(0)">
+    <img src="https://img.shields.io/github/package-json/v/splash-ink/businx" />
+  </a>
+  <a aria-label="Website status" href="javascript:void(0)">
+    <img src="https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Fappname.app" />
+  </a>
+</p>
 
 ## Overview
 Businx is a web-based application that helps you get a grip on your finances activities and make your business grow faster. We offers to you some exclusives premium features like: (i) Start new investments and follow the growth along side its risks; (ii) Get your transactions organized into the right categories; (iii) Track where your money is going and how much is left.
