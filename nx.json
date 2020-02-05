@@ -19,6 +19,9 @@
     },
     "invoice": {
       "tags": []
+    },
+    "functions": {
+      "tags": []
     }
   }
 }
