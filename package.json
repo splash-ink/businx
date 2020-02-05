@@ -42,7 +42,11 @@
     "jquery": "^3.4.1",
     "ng-apexcharts": "^1.2.0",
     "rxjs": "~6.4.0",
-    "zone.js": "^0.9.1"
+    "zone.js": "^0.9.1",
+    "@nestjs/common": "^6.8.3",
+    "@nestjs/core": "^6.8.3",
+    "@nestjs/platform-express": "^6.8.3",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.23",
@@ -69,6 +73,9 @@
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "@nrwl/node": "8.12.2",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.8.3"
   }
 }
