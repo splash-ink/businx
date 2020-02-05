@@ -52,6 +52,7 @@
     "@nrwl/cypress": "^8.12.0",
     "@nrwl/eslint-plugin-nx": "8.8.3",
     "@nrwl/jest": "8.8.3",
+    "@nrwl/nest": "^8.12.2",
     "@nrwl/workspace": "8.8.3",
     "@types/jest": "24.0.9",
     "@types/node": "~8.9.4",
