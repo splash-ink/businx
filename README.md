@@ -40,7 +40,7 @@ Businx is a web-based application that helps you get a grip on your finances act
 # Technology Stack
 * Angular 2+
 * Bootstrap
-* jQuery
+* Firebase
 * Nx DevTools
 * TypeScript
 
