@@ -34,7 +34,7 @@
         <span class="h6"><i class="far fa-shopping-bag"></i> Bolsa</span>
       </div>
       <div class="col-6 text-right">
-        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle" (click)="cs.unsetCartItems()"
+        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle" (click)="clearCartData()"
           title="Esvaziar Bolsa">
           <i class="far fa-trash-alt"></i>
         </button>
@@ -53,7 +53,16 @@
     ></businx-cart-table>
   </div>
   <div class="card-body">
-    <businx-summary></businx-summary>
+    <businx-summary
+    [ship]="getShip()"
+    (_ship)="syncToLocalStorage('CART_SHIP', $event)"
+    [discount]="getDiscount()"
+    (_discount)="syncToLocalStorage('CART_DISCOUNT', $event)"
+    [tax]="getTax()"
+    [total]="getTotal()"
+    [subtotal]="getSubtotal()"
+    >
+    </businx-summary>
   </div>
 </div>
 
