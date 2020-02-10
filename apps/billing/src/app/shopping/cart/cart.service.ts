@@ -129,7 +129,11 @@ export class CartService {
     this.setLocalStorage(key, obj);
   }
 
-  getFromLocalStorage(key: string, aliase) {
+  unsetFromLocalStorage(key: string) {
+    localStorage.removeItem(key);
+  }
+
+  getFromLocalStorage(key: string, aliase?: any) {
     const ls = localStorage.getItem(key);
 
     return ls === null ? aliase : JSON.parse(ls);
