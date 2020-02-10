@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'businx-summary',
@@ -8,16 +7,26 @@ import { CartService } from '../cart.service';
 })
 export class SummaryComponent implements OnInit {
 
-  ship = this.cs.getFromLocalStorage('CART_SHIP', 0);
-  discount = this.cs.getFromLocalStorage('CART_DISCOUNT', 0);;
+  @Input() subtotal: number;
+  @Input() total: number;
+  @Input() tax: number;
+  @Input() ship?: number = 0;
+  @Input() discount?: number = 0;
 
-  constructor(public cs: CartService) { }
+  @Output() private _ship = new EventEmitter<number>();
+  @Output() private _discount = new EventEmitter<number>();
+
+  constructor() { }
 
   checkDiscountLimit() {
     if (this.discount > 30)
       this.discount = 30
 
-    this.cs.setToLocalStorage('CART_DISCOUNT', this.discount);
+    this._discount.emit(this.discount);
+  }
+
+  storeShip(ship: number) {
+    this._ship.emit(ship);
   }
 
   ngOnInit() {
