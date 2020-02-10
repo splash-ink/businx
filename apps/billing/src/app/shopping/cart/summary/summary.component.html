@@ -4,7 +4,7 @@
   </div>
   <div class="col-lg-4 text-right">
     <span id="subtotal" class="text-sm font-weight-bold">
-      {{ cs.getSubtotal() | currency:'AOA' }}
+      {{ subtotal | currency:'AOA' }}
     </span>
   </div>
 </div>
@@ -36,7 +36,7 @@
   </div>
   <div class="col-lg-4 d-flex justify-content-end">
     <input class="form-control form-control-sm" style="width: 100px;" type="number" id="ship_coast"
-      [(ngModel)]="ship" (change)="cs.setToLocalStorage('CART_SHIP', ship)">
+      [(ngModel)]="ship" (change)="storeShip(ship)">
   </div>
 </div>
 
@@ -46,7 +46,7 @@
   </div>
   <div class="col-lg-4 text-right">
     <span id="total" class="text-sm font-weight-bold">
-      {{ cs.getTax() | currency:'AOA' }}
+      {{ tax | currency:'AOA' }}
     </span>
   </div>
 </div>
@@ -57,7 +57,7 @@
   </div>
   <div class="col-lg-4 text-right">
     <span id="total" class="text-sm font-weight-bold">
-      {{ cs.getTotal(ship, discount) | currency:'AOA' }}
+      {{ total | currency:'AOA' }}
     </span>
   </div>
 </div>
