@@ -5,6 +5,9 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "nx serve billing",
+    "dev:backend": "nx build functions && firebase serve --only functions",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
@@ -25,7 +28,7 @@
     "help": "nx help",
     "link-upstream": "git remote add upstream https://github.com/splash-ink/businx.git",
     "sync": "git checkout master && git fetch upstream && git merge upstream/master",
-    "reset": "rm -rf ./node_modules ./*-lock.json && npm install && npm run start"
+    "reset": "rm -rf ./node_modules ./*-lock.json && npm install && npm run dev"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +45,9 @@
     "@nestjs/platform-express": "^6.8.3",
     "apexcharts": "^3.15.5",
     "core-js": "^2.6.11",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.9.2",
+    "firebase-functions": "^3.3.0",
     "jquery": "^3.4.1",
     "ng-apexcharts": "^1.2.0",
     "reflect-metadata": "^0.1.13",
@@ -78,5 +84,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.5.3"
+  },
+  "main": "dist/apps/functions/main.js",
+  "engines": {
+    "node": "<=10"
   }
 }
