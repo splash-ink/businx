@@ -245,6 +245,33 @@
           }
         }
       }
+    },
+    "firestore-data-service": {
+      "projectType": "library",
+      "root": "libs/firestore-data-service",
+      "sourceRoot": "libs/firestore-data-service/src",
+      "prefix": "businx",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/firestore-data-service/tsconfig.lib.json",
+              "libs/firestore-data-service/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/firestore-data-service/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/firestore-data-service/jest.config.js",
+            "tsConfig": "libs/firestore-data-service/tsconfig.spec.json",
+            "setupFile": "libs/firestore-data-service/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
