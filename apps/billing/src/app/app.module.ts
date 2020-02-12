@@ -19,7 +19,7 @@ registerLocaleData(ptAo);
     CoreModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule.enablePersistence()
+    AngularFirestoreModule.enablePersistence({ synchronizeTabs: true })
   ],
   providers: [{
     provide: LOCALE_ID,
