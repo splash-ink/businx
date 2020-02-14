@@ -98,7 +98,7 @@
                 <select class="custom-select" formControlName="coin"
                   [ngClass]="{'is-valid': fv.isValid(coin), 'is-invalid': fv.isInvalid(coin)}">
                   <option value="">Selecionar Moeda</option>
-                  <option *ngFor="let coin of coins" [value]="coin.currency">{{ coin.country }} - {{ coin.currency }}
+                  <option *ngFor="let coin of coins" [value]="coin.code">{{ coin.country }} - {{ coin.currency }}
                   </option>
                 </select>
               </div>
