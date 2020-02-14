@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators as _ } from '@angular/forms';
+import { Contact } from '@businx/billing/contacts/contact.model';
 import { FormValidationService } from '@businx/billing/core/form-validation.service';
 import { COINS, Coins, GREETINGS } from '@businx/data-models';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 import * as $ from 'jquery';
-import { Contact } from '../../contact.model';
 
 @Component({
   selector: 'businx-contact-form',
@@ -20,7 +21,11 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
   coins: Coins [];
   greetings;
 
-  constructor(private fb: FormBuilder, private fv: FormValidationService) {
+  constructor(
+    private fb: FormBuilder,
+    public fv: FormValidationService,
+    private readonly fds: FirestoreDataService
+    ) {
     this.form = this.fb.group({
       accountType: ['' , [_.required]],
       greet: ['', [_.required]],
