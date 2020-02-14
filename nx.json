@@ -22,6 +22,9 @@
     },
     "functions": {
       "tags": []
+    },
+    "firestore-data-service": {
+      "tags": []
     }
   }
 }

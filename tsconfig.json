@@ -23,7 +23,10 @@
       "@businx/billing/items/*": ["apps/billing/src/app/items/*"],
       "@businx/billing/shopping/*": ["apps/billing/src/app/shopping/*"],
       "@businx/billing/dashboard/*": ["apps/billing/src/app/dashboard/*"],
-      "@businx/invoice": ["libs/invoice/src/index.ts"]
+      "@businx/invoice": ["libs/invoice/src/index.ts"],
+      "@businx/firestore-data-service": [
+        "libs/firestore-data-service/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

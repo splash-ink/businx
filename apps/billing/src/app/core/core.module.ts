@@ -4,6 +4,7 @@ import { NavComponent } from './nav/nav.component';
 import { SideNavComponent } from './sidenav/sidenav.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { FirestoreDataServiceModule } from '@businx/firestore-data-service';
 
 const comps = [
   NavComponent,
@@ -16,7 +17,8 @@ const comps = [
   exports: comps,
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FirestoreDataServiceModule
   ]
 })
 export class CoreModule { }
