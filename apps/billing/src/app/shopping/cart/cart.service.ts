@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ICartItem } from '@businx/billing/shopping/cart/cart.model';
-import { Contacts } from '@businx/billing/contacts/contacts.model';
+import { Contact } from '@businx/billing/contacts/contact.model';
 import { of, Observable } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class CartService {
     return ls == null ? null : JSON.parse(ls);
   }
 
-  setBuyer(buyer: Contacts): void {
+  setBuyer(buyer: Contact): void {
     this.setLocalStorage(this.buyerStore, buyer);
   }
 
