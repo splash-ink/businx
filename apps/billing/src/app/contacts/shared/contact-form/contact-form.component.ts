@@ -41,6 +41,28 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
     this.greetings = GREETINGS;
   }
 
+  async create() {
+    try {
+      $('#txt').remove();
+      $('button[type="submit"]').append('<i class="far fa-circle-notch fa-spin"></i>');
+
+      const data: Contact = {
+        ...this.form.value as Contact
+      }
+      await this.fds.create('companies/splashink/contacts', data);
+
+      $('button[type="submit"] > i').remove();
+      $('button[type="submit"]').append('<span id="txt">Salvar</span>');
+
+      this.form.reset();
+
+      $('#cancelBtn').click();
+      // display a notification
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   get accountType() {
     return this.form.get('accountType');
   }
