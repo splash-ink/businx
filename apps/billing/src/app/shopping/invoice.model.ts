@@ -1,4 +1,4 @@
-import { Contacts } from '../contacts/contacts.model';
+import { Contact } from '../contacts/contact.model';
 import { ICartItem } from './cart/cart.model';
 
 export class IInvoice {
@@ -44,7 +44,7 @@ export class IInvoice {
 
 export interface Invoice {
     id?: string | number;
-    buyer: Contacts;
+    buyer: Contact;
     items: ICartItem[]
     issue_date: number;
     due_date: Date;
