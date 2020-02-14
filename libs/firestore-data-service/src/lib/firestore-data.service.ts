@@ -39,7 +39,7 @@ export class FirestoreDataService {
   /// Get Data
   /// **************
 
-  doc$<T>(ref: DocPredicate<T>): Observable<T> {
+  findByRef$<T>(ref: DocPredicate<T>): Observable<T> {
     return this.doc(ref)
       .snapshotChanges()
       .pipe(
@@ -49,7 +49,7 @@ export class FirestoreDataService {
       );
   }
 
-  col$<T>(ref: CollectionPredicate<T>, queryFn?): Observable<T[]> {
+  findAll$<T>(ref: CollectionPredicate<T>, queryFn?): Observable<T[]> {
     return this.col(ref, queryFn)
       .snapshotChanges()
       .pipe(
@@ -59,7 +59,7 @@ export class FirestoreDataService {
       );
   }
 
-  colWithIds$<T>(ref: CollectionPredicate<T>, queryFn?): Observable<T[]> {
+  findAllWithIds$<T>(ref: CollectionPredicate<T>, queryFn?): Observable<T[]> {
     return this.col(ref, queryFn)
     .valueChanges({ idField: 'id' });
   }
@@ -93,7 +93,7 @@ export class FirestoreDataService {
     return this.doc(ref).delete();
   }
 
-  add<T>(ref: CollectionPredicate<T>, data): Promise<firebase.firestore.DocumentReference> {
+  create<T>(ref: CollectionPredicate<T>, data): Promise<firebase.firestore.DocumentReference> {
     const timestamp = this.timestamp;
     return this.col(ref).add({
       ...data,
@@ -161,7 +161,7 @@ export class FirestoreDataService {
 
   /// returns a documents references mapped to AngularFirestoreDocument
   docWithRefs$<T>(ref: DocPredicate<T>) {
-    return this.doc$(ref).pipe(
+    return this.findByRef$(ref).pipe(
       map((doc: T) => {
         for (const k of Object.keys(doc)) {
           if (doc[k] instanceof firebase.firestore.DocumentReference) {
