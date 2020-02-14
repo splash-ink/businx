@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from '@businx/billing/shared/table/table';
 import { CONTACTS_TABLE_COLUMNS } from '@businx/data-models';
-import { Contacts } from './contacts.model';
+import { Contact } from './contact.model';
 
 @Component({
   selector: 'businx-contacts',
@@ -11,7 +11,7 @@ import { Contacts } from './contacts.model';
 export class ContactsComponent implements OnInit {
   contactsTbl: Table;
 
-  contacts$: Contacts [] = [];
+  contacts$: Contact [] = [];
 
   constructor() { }
 
