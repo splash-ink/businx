@@ -46,20 +46,33 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
       $('#txt').remove();
       $('button[type="submit"]').append('<i class="far fa-circle-notch fa-spin"></i>');
 
+      let ref = 'companies/splashink/contacts';
+      let exists = false;
       const data: Contact = {
         ...this.form.value as Contact
       }
-      await this.fds.create('companies/splashink/contacts', data);
 
+      if (this.incoming) {
+        exists = true;
+        ref = ref + `/${this.incoming.id}`;
+        await this.fds.upsert(ref, data);
+      } else {
+        await this.fds.create(ref, data);
+      }
+
+      if (this.type === 'modal')
+        $('#cancelBtn').click();
+
+      if (!exists)
+        this.form.reset();
+
+    } catch (error) {
+      console.error(error);
+    } finally {
       $('button[type="submit"] > i').remove();
       $('button[type="submit"]').append('<span id="txt">Salvar</span>');
 
-      this.form.reset();
-
-      $('#cancelBtn').click();
       // display a notification
-    } catch (error) {
-      console.error(error);
     }
   }
 
