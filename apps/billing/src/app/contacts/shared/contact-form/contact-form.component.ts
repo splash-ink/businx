@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators as _ } from '@angular/forms';
 import { FormValidationService } from '@businx/billing/core/form-validation.service';
 import { COINS, Coins, GREETINGS } from '@businx/data-models';
 import * as $ from 'jquery';
-import { Contacts } from '../../contacts.model';
+import { Contact } from '../../contact.model';
 
 @Component({
   selector: 'businx-contact-form',
@@ -14,7 +14,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 
   @Input() title: string;
   @Input() type: 'card' | 'modal' = 'card';
-  @Input() incoming?: Contacts;
+  @Input() incoming?: Contact;
 
   form: FormGroup;
   coins: Coins [];

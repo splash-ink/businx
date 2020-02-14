@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Contacts } from '../../contacts/contacts.model';
+import { Contact } from '../../contacts/contact.model';
 import { Router } from '@angular/router';
 import { StringManipulation } from '../utils/index';
 import { CartService } from '@businx/billing/shopping/cart/cart.service';
@@ -11,7 +11,7 @@ import { CartService } from '@businx/billing/shopping/cart/cart.service';
 })
 export class ContactCardComponent {
 
-  @Input('data') data: Contacts;
+  @Input('data') data: Contact;
   @Input('controls') ctrl? = true;
   @Input('expose-cart-ops') cartOps? = false;
 

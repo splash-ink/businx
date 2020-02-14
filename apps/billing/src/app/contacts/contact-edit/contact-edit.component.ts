@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { COINS } from '@businx/data-models';
-import { Contacts } from '../contacts.model';
+import { Contact } from '../contact.model';
 
 @Component({
   selector: 'businx-contact-edit',
@@ -9,7 +9,7 @@ import { Contacts } from '../contacts.model';
 })
 export class ContactEditComponent implements OnInit {
 
-  demo: Contacts = {
+  demo: Contact = {
     id: 1,
     accountType: 'Empresa',
     greet: 'Sra.',

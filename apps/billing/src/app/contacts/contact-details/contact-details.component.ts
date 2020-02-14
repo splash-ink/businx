@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Table } from '@businx/billing/shared/table/table';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Contacts } from '../contacts.model';
+import { Contact } from '../contact.model';
 @Component({
   selector: 'businx-contact-details',
   templateUrl: './contact-details.component.html',
@@ -13,7 +13,7 @@ export class ContactDetailsComponent implements OnInit {
   invoicesTbl: Table;
   id;
 
-  contactDemo: Contacts = {
+  contactDemo: Contact = {
     id: 1,
     name: 'Georgia Dacosta',
     company: 'Spatial LLC',
