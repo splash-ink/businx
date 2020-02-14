@@ -1,6 +1,6 @@
 import { IInvoice } from '@businx/billing/shopping/invoice.model';
 
-export interface Contacts {
+export interface Contact {
     id: string | number;
     accountType?: string;
     greet?: string;
