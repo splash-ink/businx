@@ -2,6 +2,41 @@
 This lib provides you a global generic service that can simplify your codebase and solve common challenges faced with Angular Firebase development. To get start, checkout the documentation API bellow:
 
 ## Overview
+## Get start
+1. Include lib to your `CoreModule` importations array;
+   ```typescript
+    ...
+    import { FirestoreDataServiceModule } from '@businx/firestore-data-service';
+
+    @NgModule({
+      ...,
+      imports: [
+        ...,
+        FirestoreDataServiceModule
+      ]
+    })
+    export class CoreModule { }
+   ```
+2. Import the `FirestoreDataService` class and inject it to your component;
+   ```typescript
+   import { Component } from '@angular/core';
+   import { FirestoreDataService } from '@businx/firestore-data-service';
+
+    @Component({...})
+    export class MyComponent {
+      constructor(private readonly fds: FirestoreDataService) {}
+    }
+
+   ```
+3. Enjoy! :smile:
+  ```typescript
+    ...
+    this.user = this.fds.findByRef$('users/foo')
+      .switchMap(doc => {
+        return this.fds.findByRef$(doc.friends.path);
+      });
+  ```
+
 ### Data types
 
 ```typescript
