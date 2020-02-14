@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Table } from './table';
 
 @Component({
@@ -9,6 +9,7 @@ import { Table } from './table';
 export class TableComponent implements OnInit {
 
   @Input('table-config') config: Table;
+  @Output('onDelete') fieldId? = new EventEmitter<string|number>();
 
   constructor() { }
 
@@ -23,6 +24,10 @@ export class TableComponent implements OnInit {
 
   descOrder = (a, b) => {
     if(a.key < b.key) return b.key;
+  }
+
+  onDelete(value: string | number) {
+    this.fieldId.emit(value);
   }
 
   ngOnInit() {
