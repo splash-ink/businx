@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'contacts',
-    loadChildren: () => import('@businx/billing/contacts/contacts.module').then(m => m.ContactsModule)
+    loadChildren: () => import('@businx/billing/contacts').then(m => m.ContactsModule)
   },
   {
     path: 'dashboard',
