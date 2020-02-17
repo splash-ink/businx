@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from '@businx/billing/contacts/contact.model';
+import { Contact } from '@businx/billing/contacts';
 import { CartService } from '../cart.service';
 
 @Component({
