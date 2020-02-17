@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { COINS } from '@businx/data-models';
-import { Contact } from '../contact.model';
+import { ActivatedRoute } from '@angular/router';
+import { FirestoreDataService } from '@businx/firestore-data-service';
+import { Contact } from '@businx/billing/contacts';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'businx-contact-edit',
@@ -9,21 +11,30 @@ import { Contact } from '../contact.model';
 })
 export class ContactEditComponent implements OnInit {
 
-  demo: Contact = {
-    id: 1,
-    accountType: 'Empresa',
-    greet: 'Sra.',
-    name: 'Anisa Makayla',
-    company: 'Spatial LLC',
-    email: 'm.anisa@spatial.io',
-    phone: +'+1693555021',
-    coin: COINS[1].currency,
-    nif: '006127917LA044'
-  };
+  id;
+  doc$: Observable<Contact>;
 
-  constructor() { }
+  constructor(
+    private readonly fds: FirestoreDataService,
+    private route: ActivatedRoute,
+    ) { }
+
+  private getUrlParam(param: string) {
+    if (param.length < 0)
+      return;
+
+    return this.route.snapshot.paramMap.get(param);
+  }
+
+  mergeId(data: Contact): Contact {
+    const id = this.id;
+
+    return { id, ...data }
+  }
 
   ngOnInit() {
+    this.id = this.getUrlParam('id');
+    this.doc$ = this.fds.findByRef$<Contact>(`companies/splashink/contacts/${this.id}`);
   }
 
 }
