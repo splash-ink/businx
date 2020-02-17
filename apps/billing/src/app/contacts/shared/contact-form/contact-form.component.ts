@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators as _ } from '@angular/forms';
-import { Contact } from '@businx/billing/contacts/contact.model';
+import { Contact } from '@businx/billing/contacts';
 import { FormValidationService } from '@businx/billing/core/form-validation.service';
 import { COINS, Coins, GREETINGS } from '@businx/data-models';
 import { FirestoreDataService } from '@businx/firestore-data-service';
