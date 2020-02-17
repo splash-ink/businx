@@ -18,7 +18,7 @@
     "paths": {
       "@businx/data-models": ["libs/data-models/src/index.ts"],
       "@businx/billing/core/*": ["apps/billing/src/app/core/*"],
-      "@businx/billing/contacts/*": ["apps/billing/src/app/contacts/*"],
+      "@businx/billing/contacts": ["apps/billing/src/app/contacts/index.ts"],
       "@businx/billing/shared/*": ["apps/billing/src/app/shared/*"],
       "@businx/billing/items/*": ["apps/billing/src/app/items/*"],
       "@businx/billing/shopping/*": ["apps/billing/src/app/shopping/*"],
