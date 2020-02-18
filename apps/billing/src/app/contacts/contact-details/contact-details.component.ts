@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Table } from '@businx/billing/shared/table/table';
 import { Contact } from '@businx/billing/contacts';
 import { FirestoreDataService } from '@businx/firestore-data-service';
-import { Misc } from '@businx/billing/shared/utils';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'businx-contact-details',
   templateUrl: './contact-details.component.html',
@@ -12,15 +13,16 @@ export class ContactDetailsComponent implements OnInit {
 
   id;
   invoicesTbl: Table;
-  contactDemo: Contact;
+  contact$: Observable<Contact>;
 
   constructor(
     private readonly fds: FirestoreDataService,
-    private readonly utils: Misc
+    private readonly route: ActivatedRoute
     ) { }
 
   ngOnInit() {
-    this.id = this.utils.getUrlParam('id');
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.contact$ = this.fds.findByRef$(`companies/splashink/contacts/${this.id}`);
 
     this.invoicesTbl = {
       columns: ['Fatura', 'Ordem', 'Valor', 'Impostos'],
