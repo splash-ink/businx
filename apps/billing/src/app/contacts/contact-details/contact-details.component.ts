@@ -18,7 +18,12 @@ export class ContactDetailsComponent implements OnInit {
   constructor(
     private readonly fds: FirestoreDataService,
     private readonly route: ActivatedRoute
-    ) { }
+  ) { }
+
+  mergeId(data: Contact): Contact {
+    const id = this.id;
+    return { id, ...data }
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
