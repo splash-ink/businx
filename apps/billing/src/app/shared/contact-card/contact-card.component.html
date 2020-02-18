@@ -8,16 +8,16 @@
           </span>
           <div class="avatar-content ml-3">
             <h6 class="mb-0">{{ data?.name }}</h6>
-            <span class="d-block text-muted">
+            <span class="d-block text-muted" *ngIf="data?.email">
               <i class="far fa-envelope mr-2"></i>
               {{ data?.email }}
             </span>
-            <span class="text-muted">
+            <span class="d-block text-muted" *ngIf="data?.company">
               <i class="far fa-at mr-2"></i>
               {{ data?.company }}
             </span>
-            <span class="text-muted">
-              <i class="far fa-phone ml-2 mr-2"></i>
+            <span class="text-muted" *ngIf="data?.phone">
+              <i class="far fa-phone mr-2"></i>
               {{ data?.phone }}
             </span>
           </div>
