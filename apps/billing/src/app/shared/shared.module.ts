@@ -7,7 +7,7 @@ import { ContactCardComponent } from './contact-card/contact-card.component';
 import { GrowthCardComponent } from './growth-card/growth-card.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { TableComponent } from './table/table.component';
-import { AppStyles, StringManipulation, Misc } from './utils';
+import { AppStyles, StringManipulation } from './utils';
 import { ApexLineComponent } from './apex-line/apex-line.component';
 
 const components = [
@@ -32,6 +32,6 @@ const modules = [
     CommonModule,
     modules
   ],
-  providers: [ StringManipulation, AppStyles, Misc ]
+  providers: [ StringManipulation, AppStyles ]
 })
 export class SharedModule { }
