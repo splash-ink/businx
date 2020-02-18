@@ -20,6 +20,8 @@ export class ContactDetailsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.id = this.utils.getUrlParam('id');
+
     this.invoicesTbl = {
       columns: ['Fatura', 'Ordem', 'Valor', 'Impostos'],
       dataset: [],
