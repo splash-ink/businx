@@ -3,7 +3,7 @@
 
   <div class="row pt-3">
     <div class="col-lg-6 order-lg-1">
-      <businx-contact-card [data]="contact"></businx-contact-card>
+      <businx-contact-card [data]="mergeId(contact)"></businx-contact-card>
     </div>
     <div class="col-lg-6 order-lg-2">
       <div class="card">
@@ -14,7 +14,7 @@
               <span>Vendas totais</span>
             </div>
             <div>
-              {{ 630000 | currency:'AOA':'KZ' }}
+              {{ 0 | currency:'AOA':'KZ' }}
             </div>
           </div>
           <div class="list-group-item list-group-item-action d-flex justify-content-between">
@@ -23,7 +23,7 @@
               <span>Pendente</span>
             </div>
             <div>
-              {{ 133000 | currency:'AOA':'KZ' }}
+              {{ 0 | currency:'AOA':'KZ' }}
             </div>
           </div>
           <div class="list-group-item list-group-item-action d-flex justify-content-between">
@@ -32,7 +32,7 @@
               <span>Rascunho</span>
             </div>
             <div>
-              {{ 423300 | currency:'AOA':'KZ' }}
+              {{ 0 | currency:'AOA':'KZ' }}
             </div>
           </div>
           <div class="list-group-item list-group-item-action d-flex justify-content-between">
@@ -41,7 +41,7 @@
               <span>Pedidos</span>
             </div>
             <div>
-              3
+              0
             </div>
           </div>
         </div>
