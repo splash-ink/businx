@@ -19,6 +19,11 @@ export class ItemEditComponent implements OnInit {
     private readonly fds: FirestoreDataService
   ) { }
 
+  mergeIdField(item: Item): Item {
+    const id = this.id;
+    return { id, ...item };
+  }
+
   ngOnInit() {
     if (this.route.snapshot.paramMap.has('id')) {
       this.id = this.route.snapshot.paramMap.get('id');
