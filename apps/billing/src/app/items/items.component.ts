@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from '@businx/billing/shared/table/table';
-import { ITEMS_TABLE_COLUMNS } from '@businx/data-models';
+import { ITEMS_TABLE_COLUMNS, itemPreview } from '@businx/data-models';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'businx-items',
@@ -8,69 +9,18 @@ import { ITEMS_TABLE_COLUMNS } from '@businx/data-models';
   styles: []
 })
 export class ItemsComponent implements OnInit {
+
+  ref = 'companies/splashink/items';
   itemsTbl: Table;
-  
+  subscription: Subscription;
+  items$: itemPreview [] = [];
+
   constructor() { }
 
   ngOnInit() {
     this.itemsTbl = {
       columns: ITEMS_TABLE_COLUMNS,
-      dataset: [
-        {
-          id: 1,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Tecnologia'
-        },
-        {
-          id: 2,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Tecnologia'
-        },
-        {
-          id: 3,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Design'
-        },
-        {
-          id: 4,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Design'
-        },
-        {
-          id: 5,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Tecnologia'
-        },
-        {
-          id: 6,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Marketing'
-        },
-        {
-          id: 7,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Marketing'
-        },
-        {
-          id: 8,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Tecnologia'
-        },
-        {
-          id: 9,
-          title: 'Brochura Trifold',
-          price: 15000,
-          nature: 'Tecnologia'
-        }
-      ],
+      dataset: this.items$,
       collection: 'items',
       title: 'Serviços'
     }
