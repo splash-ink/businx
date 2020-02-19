@@ -21,6 +21,10 @@ export class ItemDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(this.route.snapshot.paramMap.has('id')) {
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.item$ = this.fds.findByRef$(`${this.ref}/${this.id}`);
+    }
   }
 
 }
