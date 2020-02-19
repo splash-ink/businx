@@ -20,6 +20,10 @@ export class ItemEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.route.snapshot.paramMap.has('id')) {
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.doc$ = this.fds.findByRef$<Item>(`companies/splashink/items/${this.id}`);
+    }
   }
 
 }
