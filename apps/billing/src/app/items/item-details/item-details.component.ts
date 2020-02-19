@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Observable } from 'rxjs';
 import { Item } from '@businx/data-models';
 
@@ -13,7 +15,10 @@ export class ItemDetailsComponent implements OnInit {
   ref = 'companies/splashink/items';
   item$: Observable<Item>;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private readonly fds: FirestoreDataService
+  ) { }
 
   ngOnInit() {
   }
