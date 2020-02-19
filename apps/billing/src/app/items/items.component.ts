@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Table } from '@businx/billing/shared/table/table';
 import { ITEMS_TABLE_COLUMNS, itemPreview } from '@businx/data-models';
 import { Subscription } from 'rxjs';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 
 @Component({
   selector: 'businx-items',
@@ -15,7 +16,7 @@ export class ItemsComponent implements OnInit {
   subscription: Subscription;
   items$: itemPreview [] = [];
 
-  constructor() { }
+  constructor(private readonly fsds: FirestoreDataService) { }
 
   ngOnInit() {
     this.itemsTbl = {
