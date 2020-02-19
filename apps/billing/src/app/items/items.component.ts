@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Table } from '@businx/billing/shared/table/table';
 import { ITEMS_TABLE_COLUMNS, itemPreview } from '@businx/data-models';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { FirestoreDataService } from '@businx/firestore-data-service';
   templateUrl: './items.component.html',
   styles: []
 })
-export class ItemsComponent implements OnInit {
+export class ItemsComponent implements OnInit, OnDestroy {
 
   ref = 'companies/splashink/items';
   itemsTbl: Table;
@@ -25,6 +25,9 @@ export class ItemsComponent implements OnInit {
       collection: 'items',
       title: 'Serviços'
     }
+  }
+
+  ngOnDestroy() {
   }
 
 }
