@@ -19,6 +19,8 @@ export class ItemsComponent implements OnInit, OnDestroy {
   constructor(private readonly fsds: FirestoreDataService) { }
 
   ngOnInit() {
+    this.sync();
+
     this.itemsTbl = {
       columns: ITEMS_TABLE_COLUMNS,
       dataset: this.items$,
@@ -29,6 +31,32 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  private sync() {
+    this.subscription = this.fsds
+    .findAllWithIds$<itemPreview>(this.ref)
+    .subscribe((docs) => {
+      docs.map((payload) => {
+
+        const item: itemPreview = {
+          id: payload.id,
+          name: payload.name,
+          price: payload.price,
+          nature: payload.nature
+        }
+
+        if(this.items$.length > 0) {
+          this.items$.forEach((doc, idx) => {
+            if(doc.id == payload.id) {
+              this.items$.splice(idx, 1);
+            }
+          });
+        }
+
+        this.items$.push(item);
+      });
+    });
   }
 
 }
