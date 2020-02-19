@@ -1,15 +1,13 @@
 <businx-page-title title="Detalhes de Serviço"></businx-page-title>
 
-<div class="row pt-3">
+<div class="row pt-3" *ngIf="item$ | async as item">
   <div class="col-lg-6">
     <div class="card">
       <div class="card-content">
         <div class="card-header">
           <div class="text-left">
-            <h5 id="title" class="font-weight-bold text-uppercase">Nome Servico</h5>
-            <p id="description" class="h6 text-muted text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis asperiores ab velit deserunt eaque corporis, vitae nostrum beatae vel voluptatibus ipsum suscipit
-              quod quasi facere ullam eligendi iure repellat enim!</p>
+            <h5 id="title" class="font-weight-bold text-uppercase">{{ item?.name }}</h5>
+            <p id="description" class="h6 text-muted text-sm">{{ item?.description }}</p>
           </div>
         </div>
         <div class="card-body">
@@ -55,7 +53,7 @@
       <div class="card-body">
         <div class="row align-items-center">
           <div class="col-sm-6 mb-4 mb-sm-0">
-            <span class="d-block h3 mb-0" id="price">{{ 0000 | currency:'AOA' }}</span>
+            <span class="d-block h3 mb-0" id="price">{{ item?.price | currency:'AOA' }}</span>
           </div>
           <div class="col-sm-6 text-sm-right">
             <button type="button" class="btn bg-gradient-finance text-white text-sm btn-icon">
