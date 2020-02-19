@@ -18,7 +18,20 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
   constructor(private readonly fsds: FirestoreDataService) { }
 
-  ngOnInit() {
+  onDelete(id: string | number): void {
+    this.itemsTbl.dataset.forEach(
+      (doc: itemPreview, idx) => {
+        if (doc.id == id) {
+          this.itemsTbl.dataset.splice(idx, 1);
+        }
+      }
+    );
+
+    this.fsds.delete(`${this.ref}/${id}`);
+    this.sync();
+  }
+
+  ngOnInit(): void {
     this.sync();
 
     this.itemsTbl = {
@@ -29,7 +42,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
