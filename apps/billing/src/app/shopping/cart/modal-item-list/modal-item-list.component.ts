@@ -14,10 +14,10 @@ export class ModalItemListComponent implements OnInit {
   add () {
     this.cs.setCartItem(new ICartItem({
       id: 258,
-      service: 'Service name',
+      name: 'Service name',
       price: 9000,
       description: 'My cart item description',
-      type: 'test',
+      nature: 'test',
       buyInfo: false
     }, 1, false));
   }

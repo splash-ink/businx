@@ -23,17 +23,17 @@ const InvoiceDataset: Invoice = {
     items: [
         new ICartItem({
             id: 1,
-            service: 'Business Card',
+            name: 'Business Card',
             price: 180,
-            type: 'print',
+            nature: 'print',
             description: 'Some description about product',
             buyInfo: false
         }, 100),
         new ICartItem({
             id: 1,
-            service: 'Trifold Broshure',
+            name: 'Trifold Broshure',
             price: 325,
-            type: 'print',
+            nature: 'print',
             description: 'Some description about product',
             buyInfo: false
         }, 30)
