@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { ICartItem } from '../cart.model';
 import { FirestoreDataService } from '@businx/firestore-data-service';
+import { Item } from '@businx/data-models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'businx-modal-item-list',
@@ -9,6 +11,8 @@ import { FirestoreDataService } from '@businx/firestore-data-service';
   styles: []
 })
 export class ModalItemListComponent implements OnInit {
+
+  docs$: Observable<Item[]>;
 
   constructor(
     private cs: CartService,
