@@ -13,17 +13,17 @@
         </div>
       </div>
 
-      <div class="scrollbar-inner">
-        <a href="javascript:void(0)" class="list-group-item list-group-item-action">
+      <div class="scrollbar-inner" *ngIf="docs$">
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action" *ngFor="let doc of docs$ | async" (click)="add(doc)">
           <div class="row" data-toggle="tooltip" data-placement="right" data-title="">
             <div class="col">
-              <h6 class="text-sm mb-0">Service Name</h6>
+              <h6 class="text-sm mb-0">{{ doc.name }}</h6>
               <p class="text-sm mb-0">
-                {{ 9000 | currency:'AOA' }}
+                {{ doc.price | currency:'AOA' }}
               </p>
             </div>
             <div class="col-auto">
-              <button type="button" class="btn btn-sm btn-secondary rounded-circle btn-icon-only" (click)="add()">
+              <button type="button" class="btn btn-sm btn-secondary rounded-circle btn-icon-only" (click)="add(doc)">
                 <span class="btn-inner--visible">
                   <i class="far fa-shopping-cart"></i>
                 </span>
@@ -34,7 +34,7 @@
       </div>
 
       <div class="modal-footer align-items-center">
-        <button type="button" class="btn btn-block btn-sm bg-danger text-white" data-dismiss="modal">
+        <button id="itemListBtn" type="button" class="btn btn-block btn-sm bg-danger text-white" data-dismiss="modal">
           Fechar
         </button>
       </div>
