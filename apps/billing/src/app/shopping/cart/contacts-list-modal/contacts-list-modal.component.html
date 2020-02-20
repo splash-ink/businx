@@ -9,7 +9,7 @@
       </div>
 
       <div class="scrollbar-inner">
-        <a href="javascript:void(0)" *ngFor="let doc of docs$ | async" (click)="add()" class="list-group-item list-group-item-action">
+        <a href="javascript:void(0)" *ngFor="let doc of docs$ | async" (click)="add(doc)" class="list-group-item list-group-item-action">
           <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="Selecionar contacto">
             <div class="flex-fill">
               <h6 class="text-sm mb-0">{{ doc.name }}</h6>
@@ -22,7 +22,7 @@
       </div>
 
       <div class="modal-footer align-items-center">
-        <button type="button" class="btn btn-block btn-sm bg-danger text-white" data-dismiss="modal">
+        <button id="contactListBtn" type="button" class="btn btn-block btn-sm bg-danger text-white" data-dismiss="modal">
           Fechar
         </button>
       </div>
