@@ -31,6 +31,7 @@ export class ModalItemListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.docs$ = this.fds.findAllWithIds$<Item>('companies/splashink/items');
   }
 
 }
