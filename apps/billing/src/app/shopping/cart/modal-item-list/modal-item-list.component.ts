@@ -4,6 +4,7 @@ import { ICartItem } from '../cart.model';
 import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Item } from '@businx/data-models';
 import { Observable } from 'rxjs';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'businx-modal-item-list',
@@ -19,15 +20,11 @@ export class ModalItemListComponent implements OnInit {
     private readonly fds: FirestoreDataService
   ) { }
 
-  add () {
-    this.cs.setCartItem(new ICartItem({
-      id: 258,
-      name: 'Service name',
-      price: 9000,
-      description: 'My cart item description',
-      nature: 'test',
-      buyInfo: false
-    }, 1, false));
+  add (item: Item) {
+    if(typeof item != 'undefined')
+      this.cs.setCartItem(new ICartItem(item, 1, false));
+
+    $('#itemListBtn').click();
   }
 
   ngOnInit() {
