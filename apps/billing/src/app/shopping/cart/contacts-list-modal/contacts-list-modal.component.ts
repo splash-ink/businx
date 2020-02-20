@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '@businx/billing/contacts';
 import { CartService } from '../cart.service';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 
 @Component({
   selector: 'businx-contacts-list-modal',
@@ -9,7 +10,10 @@ import { CartService } from '../cart.service';
 })
 export class ContactsListModalComponent implements OnInit {
 
-  constructor(private cs: CartService) { }
+  constructor(
+    private readonly fds: FirestoreDataService,
+    private cs: CartService
+  ) { }
 
   add () {
     this.cs.setBuyer({
