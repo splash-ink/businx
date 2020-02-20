@@ -8,7 +8,7 @@
         </div>
       </div>
 
-      <div class="scrollbar-inner">
+      <div class="scrollbar-inner" *ngIf="docs$">
         <a href="javascript:void(0)" *ngFor="let doc of docs$ | async" (click)="add(doc)" class="list-group-item list-group-item-action">
           <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="Selecionar contacto">
             <div class="flex-fill">
