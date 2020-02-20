@@ -9,12 +9,12 @@
       </div>
 
       <div class="scrollbar-inner">
-        <a href="javascript:void(0)" (click)="add()" class="list-group-item list-group-item-action">
+        <a href="javascript:void(0)" *ngFor="let doc of docs$ | async" (click)="add()" class="list-group-item list-group-item-action">
           <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="Selecionar contacto">
             <div class="flex-fill">
-              <h6 class="text-sm mb-0">Username</h6>
+              <h6 class="text-sm mb-0">{{ doc.name }}</h6>
               <p class="text-sm mb-0">
-                email@domain.com
+                {{ doc.email }}
               </p>
             </div>
           </div>
