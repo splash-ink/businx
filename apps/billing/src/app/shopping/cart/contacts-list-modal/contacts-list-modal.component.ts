@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from '@businx/billing/contacts';
 import { CartService } from '../cart.service';
 import { FirestoreDataService } from '@businx/firestore-data-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'businx-contacts-list-modal',
@@ -9,6 +10,8 @@ import { FirestoreDataService } from '@businx/firestore-data-service';
   styles: []
 })
 export class ContactsListModalComponent implements OnInit {
+
+  docs$: Observable<Contact>;
 
   constructor(
     private readonly fds: FirestoreDataService,
