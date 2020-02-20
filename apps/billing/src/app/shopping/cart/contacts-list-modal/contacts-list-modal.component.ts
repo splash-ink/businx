@@ -3,6 +3,7 @@ import { Contact } from '@businx/billing/contacts';
 import { CartService } from '../cart.service';
 import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Observable } from 'rxjs';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'businx-contacts-list-modal',
@@ -18,15 +19,11 @@ export class ContactsListModalComponent implements OnInit {
     private cs: CartService
   ) { }
 
-  add () {
-    this.cs.setBuyer({
-      id: 53,
-      name: 'Jorge Dacosta',
-      phone: +244922140791,
-      email: 'jorgedacosta@null.net',
-      company: 'Splash Ink',
-      greet: 'Dev.'
-    });
+  add (contact: Contact) {
+    if(typeof contact != 'undefined')
+      this.cs.setBuyer(contact);
+
+    $('#contactListBtn').click();
   }
 
   ngOnInit() {
