@@ -30,6 +30,7 @@ export class ContactsListModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.docs$ = this.fds.findAllWithIds$<Contact>('companies/splashink/contacts');
   }
 
 }
