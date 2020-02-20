@@ -10,10 +10,10 @@ describe('CartTableComponent', () => {
   let fixture: ComponentFixture<CartTableComponent>;
   const demo: ICartItem = new ICartItem({
       id: 123,
-      service: 'service name',
+      name: 'service name',
       description: 'Loren ipsum, dolet amet rusir.',
       price: 5000,
-      type: 'tech',
+      nature: 'tech',
       buyInfo: false
     }, 1, false);
 
