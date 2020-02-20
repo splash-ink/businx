@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactsListModalComponent implements OnInit {
 
-  docs$: Observable<Contact>;
+  docs$: Observable<Contact[]>;
 
   constructor(
     private readonly fds: FirestoreDataService,
