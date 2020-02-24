@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
 import { Router } from '@angular/router';
 import { ICartItem } from './cart.model';
+import { Invoice } from '../invoice.model';
 
 export const LocalKeys = [
   'CART_SHIP',
@@ -20,7 +21,7 @@ export class CartComponent implements OnInit {
 
   constructor(public cs: CartService, private route: Router) { }
 
-  checkout() {
+  checkout(id: string | number) {
     this.route.navigate(['/shopping/checkout'])
   }
 
