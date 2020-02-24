@@ -69,6 +69,7 @@
       <thead>
         <tr>
           <th scope="col" *ngFor="let col of config.columns">{{ col }}</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -86,16 +87,7 @@
 
               <td *ngIf="item.key === 'nature'">
                 <div class="text-left">
-
-                  <span class="badge badge-warning badge-pill" *ngIf="item.value === 'Design'">
-                    {{ item?.value }}
-                  </span>
-                  <span class="badge badge-info badge-pill" *ngIf="item.value === 'Marketing'">
-                    {{ item?.value }}
-                  </span>
-                  <span class="badge badge-dark badge-pill" *ngIf="item.value === 'Tecnologia'">
-                    {{ item?.value }}
-                  </span>
+                  {{ item?.value }}
                 </div>
               </td>
 

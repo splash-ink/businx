@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators as _, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators as _ } from '@angular/forms';
 import * as $ from 'jquery';
 import { SERVICE_TYPE, Item } from '@businx/data-models';
 import { FormValidationService } from '@businx/billing/core/form-validation.service';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 
 @Component({
   selector: 'businx-item-form',
@@ -18,20 +19,59 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
   form: FormGroup;
   natures;
 
-  constructor(private fb: FormBuilder, private fv: FormValidationService) {
+  constructor(
+    private fb: FormBuilder,
+    private fv: FormValidationService,
+    private readonly fds: FirestoreDataService
+  ) {
     this.form = this.fb.group({
       name: ['', [_.required, _.minLength(3)]],
       nature: ['', [_.required]],
-      sellPrice: ['', [_.required, _.min(500)]],
-      sellDescription: ['', _.maxLength(70)],
+      price: ['', [_.required, _.min(50)]],
+      description: ['', _.maxLength(250)],
       buyInfo: [true, [_.required]],
-      buyPrice: ['', [_.required, _.min(500)]],
+      buyPrice: ['', [_.required, _.min(50)]],
       buyDescription: ['', [_.maxLength(70)]]
     });
 
     this.natures = SERVICE_TYPE;
   }
-  
+
+  async create() {
+    try {
+      $('#txt').remove();
+      $('button[type="submit"]').append('<i class="far fa-circle-notch fa-spin"></i>');
+
+      let ref = 'companies/splashink/items';
+      let exists = false;
+      const data: Item = {
+        ...this.form.value as Item
+      }
+
+      if (this.incoming) {
+        exists = true;
+        ref = ref + `/${this.incoming.id}`;
+        await this.fds.upsert(ref, data);
+      } else {
+        await this.fds.create(ref, data);
+      }
+
+      if (this.type === 'modal')
+        $('#cancelBtn').click();
+
+      if (!exists)
+        this.form.reset();
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      $('button[type="submit"] > i').remove();
+      $('button[type="submit"]').append('<span id="txt">Salvar</span>');
+
+      // display a notification
+    }
+  }
+
   toggle() {
     const v = this.buyInfo.value;
 
@@ -54,12 +94,12 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
     return this.form.get('nature');
   }
 
-  get sellPrice() {
-    return this.form.get('sellPrice');
+  get price() {
+    return this.form.get('price');
   }
 
-  get sellDescription() {
-    return this.form.get('sellDescription');
+  get description() {
+    return this.form.get('description');
   }
 
   get buyInfo() {
@@ -76,10 +116,10 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     if (this.incoming) {
-      this.name.setValue(this.incoming.type);
-      this.nature.setValue(this.incoming.type);
-      this.sellPrice.setValue(this.incoming.price);
-      this.sellDescription.setValue(this.incoming.description);
+      this.name.setValue(this.incoming.name);
+      this.nature.setValue(this.incoming.nature);
+      this.price.setValue(this.incoming.price);
+      this.description.setValue(this.incoming.description);
       this.buyInfo.setValue(this.incoming.buyInfo);
       this.buyPrice.setValue(this.incoming.buyPrice);
       this.buyDescription.setValue(this.incoming.buyDescription);
