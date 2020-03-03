@@ -26,8 +26,20 @@ export class CartComponent implements OnInit {
     private readonly dataService: FirestoreDataService
   ) { }
 
-  checkout(id: string | number) {
-    this.route.navigate(['/shopping/checkout'])
+  async checkout() {
+    const invoice: Invoice = {
+      buyer: this.cs.getBuyer(),
+      items: this.cs.getCartItems(),
+      issue_date: this.timestamp,
+      due_date: this.dueDate,
+      discounts: this.getDiscount(),
+      ship: this.getShip()
+    }
+
+    const data = await this.dataService
+    .create('companies/splashink/invoices', invoice);
+
+    this.route.navigate([`/shopping/checkout/${data.id}`]);
   }
 
   clearCartData() {
