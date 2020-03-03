@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
-import { Router } from '@angular/router';
 import { ICartItem } from './cart.model';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Invoice } from '../invoice.model';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 
 export const LocalKeys = [
   'CART_SHIP',
@@ -19,7 +20,11 @@ export class CartComponent implements OnInit {
   timestamp = Date.now();
   dueDate: Date = new Date();
 
-  constructor(public cs: CartService, private route: Router) { }
+  constructor(
+    private route: Router,
+    public readonly cs: CartService,
+    private readonly dataService: FirestoreDataService
+  ) { }
 
   checkout(id: string | number) {
     this.route.navigate(['/shopping/checkout'])
