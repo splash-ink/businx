@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from '../cart/cart.service';
 import { FirestoreDataService } from '@businx/firestore-data-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'businx-checkout',
@@ -14,7 +15,8 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private readonly cs: CartService,
-    private readonly dataService: FirestoreDataService
+    private readonly dataService: FirestoreDataService,
+    private route: ActivatedRoute
   ) { }
 
   async exportAsPDF() {
