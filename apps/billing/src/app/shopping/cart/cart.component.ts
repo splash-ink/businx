@@ -37,6 +37,17 @@ export class CartComponent implements OnInit {
     return;
   }
 
+  isReady(): boolean {
+    const items: ICartItem [] = this.cs.getCartItems();
+    const buyer: Contact = this.cs.getBuyer();
+
+    if(items.length > 0 && buyer !== null) {
+      return true;
+    }
+
+    return false;
+  }
+
   clearCartData() {
     this.cs.unsetCartItems();
     this.syncToLocalStorage(LocalKeys[0], 0);
