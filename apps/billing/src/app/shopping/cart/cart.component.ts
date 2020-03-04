@@ -29,7 +29,12 @@ export class CartComponent implements OnInit {
   ) { }
 
   async checkout() {
+    const doc = await this.invoice();
+    if (!!doc) {
+      this.route.navigate([`/shopping/checkout`, doc.id]);
+    }
 
+    return;
   }
 
   clearCartData() {
