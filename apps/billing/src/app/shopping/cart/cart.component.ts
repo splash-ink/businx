@@ -48,6 +48,37 @@ export class CartComponent implements OnInit {
     return false;
   }
 
+  async invoice() {
+    const items: ICartItem [] = this.cs.getCartItems();
+    const buyer: Contact = this.cs.getBuyer();
+    const ship = this.getShip();
+    const discounts = this.getDiscount();
+    const subtotal = this.getSubtotal();
+    const total = this.getTotal();
+    const tax = this.getTax();
+
+    if (this.isReady) {
+      try {
+        const invoice = await this.dataService.create<Invoice>(this.ref, {
+          buyer,
+          items,
+          discounts,
+          ship,
+          tax,
+          subtotal,
+          total,
+          issue_date: this.timestamp,
+          due_date: this.dueDate
+        });
+
+        return invoice;
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   clearCartData() {
     this.cs.unsetCartItems();
     this.syncToLocalStorage(LocalKeys[0], 0);
