@@ -27,19 +27,23 @@ export class CartComponent implements OnInit {
   ) { }
 
   async checkout() {
-    const invoice: Invoice = {
-      buyer: this.cs.getBuyer(),
-      items: this.cs.getCartItems(),
-      issue_date: this.timestamp,
-      due_date: this.dueDate,
-      discounts: this.getDiscount(),
-      ship: this.getShip()
+    try {
+      const invoice: Invoice = {
+        buyer: this.cs.getBuyer(),
+        items: this.cs.getCartItems(),
+        issue_date: this.timestamp,
+        due_date: this.dueDate,
+        discounts: this.getDiscount(),
+        ship: this.getShip()
+      }
+
+      const data = await this.dataService
+      .create('companies/splashink/invoices', invoice);
+
+      this.route.navigate([`/shopping/checkout`, data.id]);
+    } catch (error) {
+      console.log(error);
     }
-
-    const data = await this.dataService
-    .create('companies/splashink/invoices', invoice);
-
-    this.route.navigate([`/shopping/checkout`, data.id]);
   }
 
   clearCartData() {
