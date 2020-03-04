@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
     const data = await this.dataService
     .create('companies/splashink/invoices', invoice);
 
-    this.route.navigate([`/shopping/checkout/${data.id}`]);
+    this.route.navigate([`/shopping/checkout`, data.id]);
   }
 
   clearCartData() {
