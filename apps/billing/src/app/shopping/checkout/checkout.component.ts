@@ -13,6 +13,8 @@ export class CheckoutComponent implements OnInit {
 
   @ViewChild('invoice', { static: true }) el: ElementRef;
 
+  doc$: Observable<Invoice>;
+
   constructor(
     private readonly dataService: FirestoreDataService,
     private route: ActivatedRoute
