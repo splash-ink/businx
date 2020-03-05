@@ -71,7 +71,7 @@
     <button type="button" class="btn btn-sm btn-secondary">
       Guardar como rascunho
     </button>
-    <button type="button" class="btn btn-animated btn-success btn-animated-x" (click)="checkout()">
+    <button [disabled]="!isReady()" type="button" class="btn btn-animated btn-success btn-animated-x" (click)="checkout()">
       <span class="btn-inner--visible">Finalizar</span>
       <span class="btn-inner--hidden">
         <i class="far fa-arrow-right"></i>
