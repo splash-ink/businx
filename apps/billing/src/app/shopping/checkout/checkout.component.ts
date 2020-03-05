@@ -35,6 +35,10 @@ export class CheckoutComponent implements OnInit {
     .save();
   }
 
+  parseInvoiceToI2(invoice: Invoice): IInvoice {
+    return new IInvoice(invoice);
+  }
+
   ngOnInit() {
   }
 
