@@ -40,6 +40,16 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    const { paramMap } =  this.route.snapshot;
+
+    if (paramMap.has('id')) {
+      const id = paramMap.get('id');
+      const ref = `companies/splashink/invoices/${id}`;
+
+      console.log(id);
+
+      this.doc$ = this.dataService.findByRef$<Invoice>(ref);
+    }
   }
 
 }
