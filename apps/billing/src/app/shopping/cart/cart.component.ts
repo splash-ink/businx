@@ -1,10 +1,9 @@
 import { CartService } from './cart.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Invoice } from '../invoice.model';
 import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Contact } from '../../contacts/contact.model';
-import { OrderItem } from '@businx/data-models';
+import { Order, OrderItem } from '@businx/data-models';
 
 export const LocalKeys = [
   'CART_SHIP',
@@ -59,7 +58,7 @@ export class CartComponent implements OnInit {
 
     if (this.isReady) {
       try {
-        const invoice = await this.dataService.create<Invoice>(this.ref, {
+        const invoice = await this.dataService.create<Order>(this.ref, {
           buyer,
           items,
           discounts,
