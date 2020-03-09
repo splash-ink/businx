@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ICartItem } from '@businx/billing/shopping/cart/cart.model';
 import { Contact } from '@businx/billing/contacts';
+import { OrderItem } from '@businx/data-models';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,38 +31,38 @@ export class CartService {
     return ls == null ? [] : JSON.parse(ls);
   }
 
-  setCartItem(obj: ICartItem) {
-    const cartItems: ICartItem[] = this.getCartItems();
+  setCartItem(item: OrderItem) {
+    const cartItems: OrderItem [] = this.getCartItems();
     const state: boolean = (cartItems.length > 0) ? true : false;
 
     if (state) {
       let isPresent: boolean;
 
-      cartItems.forEach(val => {
-        if (obj.item.id == val.item.id) {
-          val.quantity += 1;
+      cartItems.forEach(cartItem => {
+        if (item.id === cartItem.id) {
+          cartItem.qty++;
           isPresent = true;
         }
       });
 
       if (!isPresent) {
-        cartItems.push(obj);
+        cartItems.push(item);
       }
 
       return this.setLocalStorage(this.itemsStore, cartItems);
     } else {
-      cartItems.push(obj);
+      cartItems.push(item);
       return this.setLocalStorage(this.itemsStore, cartItems);
     }
   }
 
-  updateCartItemQty(obj: ICartItem, qty: number) {
-    const cartItems: ICartItem[] = this.getCartItems();
+  updateCartItemQty(item: OrderItem, qty: number) {
+    const cartItems: OrderItem [] = this.getCartItems();
 
     if (cartItems.length > 0) {
-      cartItems.forEach(val => {
-        if (obj.item.id == val.item.id) {
-          val.quantity = qty;
+      cartItems.forEach(cartItem => {
+        if (item.id === cartItem.id) {
+          cartItem.qty = qty;
         }
       });
     }
@@ -70,11 +70,11 @@ export class CartService {
     return this.setLocalStorage(this.itemsStore, cartItems);
   }
 
-  unsetCartItem(obj: ICartItem) {
-    const cartItems: ICartItem [] = this.getCartItems();
+  unsetCartItem(item: OrderItem) {
+    const cartItems: OrderItem [] = this.getCartItems();
 
-    cartItems.find((val, idx) => {
-      if (val.item.id == obj.item.id) {
+    cartItems.find((cartItem, idx) => {
+      if (item.id === cartItem.id) {
         cartItems.splice(idx, 1);
       }
     });
@@ -87,12 +87,12 @@ export class CartService {
   }
 
   getSubtotal(): number {
-    const cartItems: ICartItem [] = this.getCartItems();
+    const cartItems: OrderItem [] = this.getCartItems();
     let subtotal = 0;
 
     if (cartItems.length > 0) {
-      cartItems.find((obj) => {
-        subtotal += (obj.item.price * obj.quantity);
+      cartItems.forEach((obj) => {
+        subtotal += (obj.price * obj.qty);
       });
     }
 
@@ -100,14 +100,14 @@ export class CartService {
   }
 
   getTax() {
-    const cartItems: ICartItem [] = this.getCartItems();
+    const cartItems: OrderItem [] = this.getCartItems();
     let tax = 0;
 
     if (cartItems.length > 0) {
-      cartItems.find((obj) => {
-        const { item:{ price }, quantity } = obj;
+      cartItems.forEach((obj) => {
+        const { price, qty } = obj;
 
-        tax += ((price * quantity) * 0.14);
+        tax += ((price * qty) * 0.14);
       });
     }
 
