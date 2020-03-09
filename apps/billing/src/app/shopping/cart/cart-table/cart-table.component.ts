@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ICartItem } from '../cart.model';
+import { OrderItem } from '@businx/data-models';
 
 @Component({
   selector: 'businx-cart-table',
@@ -12,20 +13,20 @@ import { ICartItem } from '../cart.model';
 })
 export class CartTableComponent implements OnInit {
 
-  @Input('data') data: ICartItem [];
-  @Output('onUpdate') onUpdate = new EventEmitter<[ICartItem, number]>();
-  @Output('onDelete') onDelete = new EventEmitter<ICartItem>();
+  @Input('data') orderItems: OrderItem [];
+  @Output('onUpdate') onUpdate = new EventEmitter<[OrderItem, number]>();
+  @Output('onDelete') onDelete = new EventEmitter<OrderItem>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  unset(item: ICartItem) {
+  unset(item: OrderItem) {
     this.onDelete.emit(item);
   }
 
-  update(item: ICartItem, newVal: number) {
+  update(item: OrderItem, newVal: number) {
     this.onUpdate.emit([item, newVal]);
   }
 
