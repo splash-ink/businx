@@ -1,5 +1,4 @@
 import { CartService } from './cart.service';
-import { ICartItem } from './cart.model';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Invoice } from '../invoice.model';
@@ -39,7 +38,7 @@ export class CartComponent implements OnInit {
   }
 
   isReady(): boolean {
-    const items: ICartItem [] = this.cs.getCartItems();
+    const items: OrderItem [] = this.cs.getCartItems();
     const buyer: Contact = this.cs.getBuyer();
 
     if(items.length > 0 && buyer !== null) {
@@ -50,7 +49,7 @@ export class CartComponent implements OnInit {
   }
 
   async invoice() {
-    const items: ICartItem [] = this.cs.getCartItems();
+    const items: OrderItem [] = this.cs.getCartItems();
     const buyer: Contact = this.cs.getBuyer();
     const ship = this.getShip();
     const discounts = this.getDiscount();
