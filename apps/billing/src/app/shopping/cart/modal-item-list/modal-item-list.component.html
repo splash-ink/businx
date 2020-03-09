@@ -14,7 +14,7 @@
       </div>
 
       <div class="scrollbar-inner" *ngIf="docs$">
-        <a href="javascript:void(0)" class="list-group-item list-group-item-action" *ngFor="let doc of docs$ | async" (click)="add(doc)">
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action" *ngFor="let doc of docs$ | async">
           <div class="row" data-toggle="tooltip" data-placement="right" data-title="">
             <div class="col">
               <h6 class="text-sm mb-0">{{ doc.name }}</h6>
