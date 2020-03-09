@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { ICartItem } from '../cart.model';
 import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Item } from '@businx/data-models';
 import { Observable } from 'rxjs';
@@ -21,8 +20,17 @@ export class ModalItemListComponent implements OnInit {
   ) { }
 
   add (item: Item) {
+    const { name, description, price, id } = item;
+
     if(typeof item != 'undefined')
-      this.cs.setCartItem(new ICartItem(item, 1, false));
+      this.cs.setCartItem({
+        id,
+        name,
+        description,
+        price,
+        qty: 1,
+        total: price
+      });
 
     $('#itemListBtn').click();
   }
