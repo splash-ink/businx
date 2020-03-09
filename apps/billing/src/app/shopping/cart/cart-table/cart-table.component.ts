@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ICartItem } from '../cart.model';
 import { OrderItem } from '@businx/data-models';
 
 @Component({
