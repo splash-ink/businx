@@ -2,6 +2,7 @@
   <div class="row d-flex justify-content-between">
     <div class="col">
       <img src="../assets/spl-ink-logo.png" class="invoice-logo d-block" alt="Splash Ink Logo">
+
       <h1 id="company_name" class="pt-3 h6 invoice-no-mb">Splash Ink, Lda.</h1>
       <span id="company_location_nif" class="text-sm text-muted d-block">Vila de Cacuaco, N55E - NIF: 5000050229</span>
       <span id="company_contact" class="text-sm text-muted d-block">(+244) 922679021 - hello@splashink.co</span>
@@ -9,23 +10,23 @@
     </div>
     <div class="col-auto invoice-text-center">
       <h1 class="text-uppercase invoice-no-mb d-block">Factura</h1>
-      <span class="font-weight-bold text-sm">Factura# {{ doc?.invoice.id }}</span>
+      <span class="font-weight-bold text-sm">Factura# {{ doc?.id }}</span>
     </div>
   </div>
 
   <div class="row d-flex justify-content-between invoice-pt-4">
     <div class="col">
       <p class="text-sm text-muted invoice-no-mb">Facturar a</p>
-      <span id="buyer" class="d-block h6">{{ doc?.invoice.buyer?.name }}</span>
+      <span id="buyer" class="d-block h6">{{ doc?.buyer?.name }}</span>
     </div>
     <div class="col-auto">
       <div class="row">
         <div class="col-auto text-muted text-sm">Data de emissao:</div>
-        <div id="issue_date" class="col text-muted text-sm">{{ doc?.invoice.issue_date | date:'dd MMM yyyy'}}</div>
+        <div id="issue_date" class="col text-muted text-sm">{{ doc?.date?.issue | date:'dd MMM yyyy'}}</div>
       </div>
       <div class="row">
         <div class="col text-muted text-sm">Vencimento:</div>
-        <div id="due_date" class="col text-right text-muted text-sm">{{ doc?.invoice.due_date | date:'dd MMM yyyy'}}</div>
+        <div id="due_date" class="col text-right text-muted text-sm">{{ doc?.date?.due | date:'dd MMM yyyy'}}</div>
       </div>
     </div>
   </div>
@@ -42,22 +43,22 @@
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngIf="doc.invoice.items.length > 0">
-          <tr *ngFor="let data of doc.invoice.items">
+        <ng-container *ngIf="doc.shopItems.length > 0">
+          <tr *ngFor="let item of doc.shopItems">
             <td>*</td>
             <th scope="row">
               <div class="row">
                 <div class="col">
-                  <h1 class="h6 invoice-no-mb">{{ data?.item?.service }}</h1>
+                  <h1 class="h6 invoice-no-mb">{{ item?.name }}</h1>
                   <span class="d-block text-sm text-muted">
-                    {{ data?.item?.description }}
+                    {{ item?.description }}
                   </span>
                 </div>
               </div>
             </th>
-            <td>{{ data?.quantity }}</td>
-            <td>{{ data?.item?.price | currency:'AOA' }}</td>
-            <td>{{ data?.getTotal() | currency:'AOA' }} </td>
+            <td>{{ item?.qty }}</td>
+            <td>{{ item?.price | currency:'AOA' }}</td>
+            <td>{{ item?.total | currency:'AOA' }} </td>
           </tr>
         </ng-container>
       </tbody>
@@ -73,10 +74,10 @@
             <span class="d-block font-weight-bold">Total:</span>
           </div>
           <div class="col">
-            <span class="d-block text-sm text-muted">{{ doc.subtotal() | currency:'AOA' }}</span>
-            <span class="d-block text-sm text-muted">{{ doc.invoice.ship | currency:'AOA' }}</span>
-            <span class="text-sm text-muted">{{ doc.tax() | currency:'AOA' }}</span>
-            <span class="d-block font-weight-bold">{{ doc.total() | currency:'AOA' }}</span>
+            <span class="d-block text-sm text-muted">{{ doc?.subtotal | currency:'AOA' }}</span>
+            <span class="d-block text-sm text-muted">{{ doc?.ship | currency:'AOA' }}</span>
+            <span class="text-sm text-muted">{{ doc?.tax | currency:'AOA' }}</span>
+            <span class="d-block font-weight-bold">{{ doc?.total | currency:'AOA' }}</span>
           </div>
         </div>
       </div>
