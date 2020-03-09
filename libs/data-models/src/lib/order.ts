@@ -10,6 +10,7 @@ export interface OrderState {
 };
 
 export interface OrderItem {
+  id: number | string;
   name: string;
   description: string;
   price: number;
