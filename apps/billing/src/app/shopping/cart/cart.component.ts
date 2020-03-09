@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Invoice } from '../invoice.model';
 import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Contact } from '../../contacts/contact.model';
+import { OrderItem } from '@businx/data-models';
 
 export const LocalKeys = [
   'CART_SHIP',
@@ -85,11 +86,11 @@ export class CartComponent implements OnInit {
     this.syncToLocalStorage(LocalKeys[1], 0);
   }
 
-  onDelete($event: ICartItem) {
+  onDelete($event: OrderItem) {
     this.cs.unsetCartItem($event);
   }
 
-  onUpdate($event: [ICartItem, number]) {
+  onUpdate($event: [OrderItem, number]) {
     const [ item, newVal] = $event;
 
     this.cs.updateCartItemQty(item, newVal);
