@@ -13,6 +13,6 @@
 </div>
 <div class="card">
   <div class="card-content" #invoice>
-    <businx-invoice *ngIf="doc$ | async as doc" [invoice-data]="parseInvoiceToI2(doc)"></businx-invoice>
+    <businx-invoice *ngIf="doc$ | async as doc" [invoice-data]="doc"></businx-invoice>
   </div>
 </div>
