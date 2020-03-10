@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TERMS } from '@businx/billing/shared/globals';
-import { IInvoice } from '@businx/billing/shopping/invoice.model';
+import { Order } from '@businx/data-models';
 
 @Component({
   selector: 'businx-invoice',
@@ -9,15 +8,12 @@ import { IInvoice } from '@businx/billing/shopping/invoice.model';
 })
 export class InvoiceComponent implements OnInit {
 
-  @Input('invoice-data') doc: IInvoice;
+  @Input('invoice-data') doc: Order;
 
-  terms = TERMS;
+  terms = 'O cliente deve tomar conhecimento sobre os itens da factura antes do pagamento. O pagamento de toda a factura deve se\
+  r feito no prazo da factura, sendo que no contrário será necessário a emissão de uma nova. Não fazemos devoluções de valores.';
 
   constructor() { }
-
-  getTotalByItem(price: number, qty: number) {
-    return (price * qty);
-  }
 
   ngOnInit() {
   }
