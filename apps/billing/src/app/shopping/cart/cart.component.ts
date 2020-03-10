@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
   }
 
   async invoice() {
-    const items: OrderItem [] = this.cs.getCartItems();
+    const shopItems: OrderItem [] = this.cs.getCartItems();
     const buyer: Contact = this.cs.getBuyer();
     const ship = this.getShip();
     const discounts = this.getDiscount();
@@ -58,17 +58,26 @@ export class CartComponent implements OnInit {
 
     if (this.isReady) {
       try {
-        const invoice = await this.dataService.create<Order>(this.ref, {
+        const order: Order = {
+          id: 0,
           buyer,
-          items,
-          discounts,
+          shopItems,
+          date: {
+            issue: null,
+            due: null
+          },
+          status: {
+            pending: true,
+            billed: true,
+          },
           ship,
+          discounts,
           tax,
           subtotal,
-          total,
-          issue_date: this.timestamp,
-          due_date: this.dueDate
-        });
+          total
+        };
+
+        const invoice = await this.dataService.create<Order>(this.ref, order);
 
         return invoice;
 
