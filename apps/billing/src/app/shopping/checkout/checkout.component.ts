@@ -3,6 +3,7 @@ import { FirestoreDataService } from '@businx/firestore-data-service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Invoice, IInvoice } from '../invoice.model';
+import { Order } from '@businx/data-models';
 
 @Component({
   selector: 'businx-checkout',
@@ -13,17 +14,17 @@ export class CheckoutComponent implements OnInit {
 
   @ViewChild('invoice', { static: true }) el: ElementRef;
 
-  doc$: Observable<Invoice>;
+  doc$: Observable<Order>;
 
   constructor(
     private readonly dataService: FirestoreDataService,
     private route: ActivatedRoute
   ) { }
 
-  async exportAsPDF(invoiceNo: string | number) {
+  async exportAsPDF() {
     const opt = {
       margin:       0,
-      filename:     `SPL-${invoiceNo}.pdf`,
+      filename:     `SPL-000001.pdf`,
       image:        { type: 'jpeg', quality: 1 },
       html2canvas:  { scale: 1 },
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -48,7 +49,7 @@ export class CheckoutComponent implements OnInit {
 
       console.log(id);
 
-      this.doc$ = this.dataService.findByRef$<Invoice>(ref);
+      this.doc$ = this.dataService.findByRef$<Order>(ref);
     }
   }
 
