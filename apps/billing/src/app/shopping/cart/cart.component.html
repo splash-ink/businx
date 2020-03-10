@@ -2,7 +2,7 @@
 
 <div class="row pt-3">
   <div class="col-lg-7">
-    <businx-contact-card *ngIf="cs.getBuyer()" [data]="cs.getBuyer()" [expose-cart-ops]="true"></businx-contact-card>
+    <businx-contact-card class="shadow" *ngIf="cs.getBuyer()" [data]="cs.getBuyer()" [expose-cart-ops]="true"></businx-contact-card>
     <a href="javascript:void(0)" data-toggle="modal" data-target="#contacts-list-modal" *ngIf="!cs.getBuyer()">
       <div class="card empty-contact-card">
         <div class="card-body text-center py-2">
@@ -12,7 +12,7 @@
     </a>
   </div>
   <div class="col-lg-5">
-    <div class="card">
+    <div class="card shadow">
       <ul class="list-group">
         <li class="text-sm list-group-item d-flex justify-content-between align-items-center">
           <span>Data de emissão:</span>
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div class="card">
+<div class="card shadow">
   <div class="card-header actions-toolbar border-0">
     <div class="row align-items-center">
       <div class="col-6">
@@ -68,10 +68,10 @@
 
 <div class="row">
   <div class="col text-right">
-    <button type="button" class="btn btn-sm btn-secondary">
+    <button type="button" class="btn btn-sm btn-secondary shadow-lg">
       Guardar como rascunho
     </button>
-    <button [disabled]="!isReady()" type="button" class="btn btn-animated btn-success btn-animated-x" (click)="checkout()">
+    <button [disabled]="!isReady()" type="button" class="btn btn-animated btn-success btn-animated-x shadow-lg" (click)="checkout()">
       <span class="btn-inner--visible">Finalizar</span>
       <span class="btn-inner--hidden">
         <i class="far fa-arrow-right"></i>
