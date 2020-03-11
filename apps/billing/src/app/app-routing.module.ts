@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'shopping',
     loadChildren: () => import('@businx/billing/shopping/shopping.module').then(m => m.ShoppingModule)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('@businx/billing/orders').then(m => m.OrdersModule)
   }
 ];
 
