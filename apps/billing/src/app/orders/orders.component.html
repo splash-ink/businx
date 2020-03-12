@@ -1,35 +1,57 @@
 <section class="bg-transparent order-grid">
-  <div class="order-control order-area">
-    <div class="d-flex justify-content-between align-items-center">
+  <div class="order-area">
+    <div class="order-card">
+      <div class="d-flex justify-content-between align-items-center">
 
-      <div class="justify-content-center">
-        <select class="custom-select custom-select-sm border-0">
-          <option selected>Todos as facturas</option>
-          <option value="archived">Arquivado</option>
-          <option value="billed">Faturado</option>
-          <option value="canceled">Cancelado</option>
-          <option value="payed">Pago</option>
-          <option value="pending">Pendente</option>
-          <option value="shipped">Entregue</option>
-        </select>
+        <div class="justify-content-center">
+          <select class="custom-select custom-select-sm border-0">
+            <option selected>Todos as facturas</option>
+            <option value="archived">Arquivado</option>
+            <option value="billed">Faturado</option>
+              <option value="canceled">Cancelado</option>
+              <option value="payed">Pago</option>
+              <option value="pending">Pendente</option>
+              <option value="shipped">Entregue</option>
+          </select>
+        </div>
+
+        <div class="orders-control">
+          <span class="orders-control-item">
+            <i class="far fa-stream"></i>
+          </span>
+          <span class="orders-control-item">
+            <i class="far fa-search"></i>
+          </span>
+          <button class="orders-control-item btn btn-sm rounded-pill btn-primary">
+            <i class="far fa-plus"></i>
+          </button>
+        </div>
+
       </div>
-
-      <div class="orders-control">
-        <span class="orders-control-item">
-          <i class="far fa-stream"></i>
-        </span>
-        <span class="orders-control-item">
-          <i class="far fa-search"></i>
-        </span>
-        <button class="orders-control-item btn btn-sm rounded-pill btn-primary">
-          <i class="far fa-plus"></i>
-        </button>
-      </div>
-
     </div>
   </div>
-  <div class="order-area">
-
+  <div class="order-area pb-3">
+    <ul class="list-group">
+      <div class="order-card list-group-item order-list-item">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex align-items-center">
+              <span class="avatar bg-dark text-white rounded-circle avatar-sm">AM</span>
+              <div class="avatar-content ml-3">
+                <h6 class="mb-0">Anisa Makayla</h6>
+                <small class="d-block text-muted text-sm">Enviado Parcialmente</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="text-sm">
+              <span class="d-block price">{{ 3669.04 | currency:'AOA' }}</span>
+              <span class="text-muted">SPL-0001</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
   </div>
   <div class="order-area card shadow-lg">🛒</div>
 </section>
