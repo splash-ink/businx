@@ -1,1 +1,35 @@
-<p>orders works!</p>
+<section class="bg-transparent order-grid">
+  <div class="order-control order-area">
+    <div class="d-flex justify-content-between align-items-center">
+
+      <div class="justify-content-center">
+        <select class="custom-select custom-select-sm border-0">
+          <option selected>Todos as facturas</option>
+          <option value="archived">Arquivado</option>
+          <option value="billed">Faturado</option>
+          <option value="canceled">Cancelado</option>
+          <option value="payed">Pago</option>
+          <option value="pending">Pendente</option>
+          <option value="shipped">Entregue</option>
+        </select>
+      </div>
+
+      <div class="orders-control">
+        <span class="orders-control-item">
+          <i class="far fa-stream"></i>
+        </span>
+        <span class="orders-control-item">
+          <i class="far fa-search"></i>
+        </span>
+        <button class="orders-control-item btn btn-sm rounded-pill btn-primary">
+          <i class="far fa-plus"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <div class="order-area">
+
+  </div>
+  <div class="order-area card shadow-lg">🛒</div>
+</section>
