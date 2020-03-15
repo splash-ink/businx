@@ -5,8 +5,8 @@
   gap: 1rem;
 
   grid-template-areas:
-  'oc 🛒'
-  'ol 🛒';
+    'oc 🛒'
+    'ol 🛒';
 
   grid-template-rows: auto;
   grid-template-columns: 22rem auto;
@@ -35,15 +35,20 @@
   background: #fefefe;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
 
-  height: 100%;
+  height: inherit;
   width: 100%;
   border-radius: 20px;
   transition: all 500ms;
   overflow: hidden;
 }
 
+.order-card:hover {
+  background: #3e3e3e;
+  color: #fff;
+}
+
 .orders-control {
-  display:  grid;
+  display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(1fr));
   grid-auto-flow: column;
@@ -56,15 +61,63 @@
   align-items: center;
 }
 
-.order-list-item {
-  margin-bottom: .75rem;
+.order-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(16, 110, 173, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(16, 110, 173, 0.3);
+  background-color: #F5F5F5;
+  border-radius: 8px;
 }
 
-.order-list-item:hover {
-  transform: translateY(-3px) scale(1.1);
+.order-list::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.order-list::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-image: -webkit-gradient(linear,
+      left bottom,
+      left top,
+      color-stop(0.86, #081430));
+}
+
+.order-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 90vh;
+  padding: 0;
+}
+
+.order-list {
+  list-style-type: none;
+}
+
+.order-list>li {
+  padding: .50rem;
+  width: initial;
+  background: transparent !important;
+  border: none;
+}
+
+.order-list-item {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
 }
 
 .price {
   font-weight: bold;
   color: #3c4858;
+}
+
+@media screen and (max-width: 375px) {
+  .order-list {
+    display: none;
+  }
 }
