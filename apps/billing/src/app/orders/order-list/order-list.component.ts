@@ -17,9 +17,9 @@ export class OrderListComponent implements OnInit {
   private readonly ref = 'companies/splashink/invoices';
 
   constructor(
-      private readonly route: ActivatedRoute,
-      private readonly fds: FirestoreDataService
-    ) { }
+    private readonly route: ActivatedRoute,
+    private readonly fds: FirestoreDataService
+  ) { }
 
   /**
    * This function made a query snapshot at the URL and verify if the given URL parameter
