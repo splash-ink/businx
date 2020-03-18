@@ -38,6 +38,7 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.findUrlParam('id');
+    this.order = this.fds.findByRef$<Order>(this.ref + '/' + this.id);
   }
 
 }
