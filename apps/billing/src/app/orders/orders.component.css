@@ -42,11 +42,6 @@
   overflow: hidden;
 }
 
-.order-card:hover {
-  background: #3e3e3e;
-  color: #fff;
-}
-
 .orders-control {
   display: grid;
   gap: 1rem;
@@ -114,6 +109,40 @@
 .price {
   font-weight: bold;
   color: #3c4858;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 20rem;
+  max-width: inherit;
+
+  position: fixed;
+  bottom: 3.5rem;
+
+  background-color: #273444 !important;
+}
+
+.tools > button {
+  color: #fff;
+  background: transparent !important;
+
+  border: none;
+}
+
+.tools > button:hover {
+  color:#2684ff;
+
+  transform: translateY(-3px) scale(1.1);
+  transition: all 500ms;
+}
+
+.tools > button:last-child {
+  color: #ff5630;
+}
+
+.tools > button:last-child:hover {
+  color: #ff3030;
 }
 
 @media screen and (max-width: 375px) {
