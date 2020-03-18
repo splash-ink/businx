@@ -54,6 +54,23 @@
         </div>
       </li>
     </ul>
+
+    <div class="order-card tools">
+      <button type="button" title="Editar">
+        <i class="far fa-pencil"></i>
+      </button>
+      <button type="button" title="Estado">
+        <i class="far fa-circle"></i>
+      </button>
+      <button type="button" title="Efectuar Pagamento">
+        <i class="far fa-dollar-sign"></i>
+      </button>
+      <button type="button" title="Eliminar">
+        <i class="far fa-trash"></i>
+      </button>
+    </div>
   </div>
-  <div class="order-area card shadow-lg">🛒</div>
+  <div class="order-area card shadow-lg">
+    <router-outlet></router-outlet>
+  </div>
 </section>
