@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { OrdersRoutingModule } from './orders-routing.module';
 import { OrdersComponent } from './orders.component';
 import { OrderListComponent } from './order-list/order-list.component';
-import { SharedModule } from '../shared/shared.module';
+import { InvoiceModule } from '@businx/invoice';
 
 
 @NgModule({
@@ -12,7 +12,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     OrdersRoutingModule,
-    SharedModule
+    InvoiceModule
   ]
 })
 export class OrdersModule { }
