@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Order } from '@businx/data-models';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 
 @Component({
   selector: 'businx-order-list',
@@ -15,7 +16,10 @@ export class OrderListComponent implements OnInit {
   private id;
   private readonly ref = 'companies/splashink/invoices';
 
-  constructor(private readonly route: ActivatedRoute) { }
+  constructor(
+      private readonly route: ActivatedRoute,
+      private readonly fds: FirestoreDataService
+    ) { }
 
   /**
    * This function made a query snapshot at the URL and verify if the given URL parameter
