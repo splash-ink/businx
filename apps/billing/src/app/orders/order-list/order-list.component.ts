@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OrderListComponent implements OnInit {
 
+  private id;
+
   constructor(private readonly route: ActivatedRoute) { }
 
   /**
@@ -26,6 +28,7 @@ export class OrderListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.id = this.findUrlParam('id');
   }
 
 }
