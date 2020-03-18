@@ -11,7 +11,7 @@ import { FirestoreDataService } from '@businx/firestore-data-service';
 })
 export class OrderListComponent implements OnInit {
 
-  order: Observable<Order>;
+  order$: Observable<Order>;
 
   private id;
   private readonly ref = 'companies/splashink/invoices';
@@ -38,7 +38,7 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.findUrlParam('id');
-    this.order = this.fds.findByRef$<Order>(this.ref + '/' + this.id);
+    this.order$ = this.fds.findByRef$<Order>(this.ref + '/' + this.id);
   }
 
 }
