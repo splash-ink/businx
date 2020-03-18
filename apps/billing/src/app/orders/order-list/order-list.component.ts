@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Order } from '@businx/data-models';
 
 @Component({
   selector: 'businx-order-list',
@@ -8,7 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OrderListComponent implements OnInit {
 
+  order: Observable<Order>;
+
   private id;
+  private readonly ref = 'companies/splashink/invoices';
 
   constructor(private readonly route: ActivatedRoute) { }
 
