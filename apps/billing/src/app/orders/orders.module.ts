@@ -5,6 +5,7 @@ import { OrdersRoutingModule } from './orders-routing.module';
 import { OrdersComponent } from './orders.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { InvoiceModule } from '@businx/invoice';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { InvoiceModule } from '@businx/invoice';
   imports: [
     CommonModule,
     OrdersRoutingModule,
+    FormsModule,
     InvoiceModule
   ]
 })
