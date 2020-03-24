@@ -6,10 +6,11 @@ import { OrdersComponent } from './orders.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { InvoiceModule } from '@businx/invoice';
 import { FormsModule } from '@angular/forms';
+import { OrderCardComponent } from './order-card/order-card.component';
 
 
 @NgModule({
-  declarations: [OrdersComponent, OrderListComponent],
+  declarations: [OrdersComponent, OrderListComponent, OrderCardComponent],
   imports: [
     CommonModule,
     OrdersRoutingModule,
