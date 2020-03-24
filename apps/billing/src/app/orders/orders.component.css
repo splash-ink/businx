@@ -4,9 +4,7 @@
   display: grid;
   gap: 1rem;
 
-  grid-template-areas:
-    'oc 🛒'
-    'ol 🛒';
+  grid-template-areas: 'oc 🛒';
 
   grid-template-rows: auto;
   grid-template-columns: 22rem auto;
@@ -14,10 +12,6 @@
 
 .order-area:nth-child(1) {
   grid-area: oc;
-}
-
-.order-area:nth-child(2) {
-  grid-area: ol;
 }
 
 .order-area:last-child {
