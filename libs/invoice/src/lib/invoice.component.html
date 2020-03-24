@@ -17,7 +17,13 @@
   <div class="row d-flex justify-content-between invoice-pt-4">
     <div class="col">
       <p class="text-sm text-muted invoice-no-mb">Facturar a</p>
-      <span id="buyer" class="d-block h6">{{ doc?.buyer?.name }}</span>
+      <h1 id="buyer" class="d-block h6"
+        *ngIf="doc?.buyer?.company && doc?.buyer?.accountType == 'Empresa'; else isPersonal">
+        {{ doc?.buyer?.company }} <span class="mx-2 text-muted" *ngIf="doc?.buyer?.nif">|</span> NIF - {{ doc?.buyer?.nif }}
+      </h1>
+      <ng-template #isPersonal>
+        <span id="buyer" class="d-block h6">{{ doc?.buyer?.name }}</span>
+      </ng-template>
     </div>
     <div class="col-auto">
       <div class="row">
