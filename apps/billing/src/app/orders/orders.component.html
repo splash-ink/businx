@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-between align-items-center">
 
         <div class="justify-content-center">
-          <select class="custom-select custom-select-sm border-0" [(ngModel)]="sort">
+          <select class="custom-select custom-select-sm border-0" [(ngModel)]="sort" (change)="onSort()">
             <option value="" selected>Todos as facturas</option>
             <option value="archived">Arquivado</option>
             <option value="billed">Faturado</option>
@@ -29,29 +29,9 @@
 
       </div>
     </div>
-  </div>
-  <div class="order-area pb-3">
     <ul class="order-list">
-      <li class="order-list-item">
-        <div class="order-card">
-          <div class="row">
-            <div class="col">
-              <div class="d-flex align-items-center">
-                <span class="avatar bg-dark text-white rounded-circle avatar-sm">AM</span>
-                <div class="avatar-content ml-3">
-                  <h6 class="mb-0">Anisa Makayla</h6>
-                  <small class="d-block text-muted text-sm">Enviado Parcialmente</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="text-sm">
-                <span class="d-block price">{{ 3669.04 | currency:'AOA' }}</span>
-                <span class="text-muted">SPL-0001</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <li class="order-list-item" *ngFor="let order of docs$ | async">
+        <businx-order-card [order]="order"></businx-order-card>
       </li>
     </ul>
 
