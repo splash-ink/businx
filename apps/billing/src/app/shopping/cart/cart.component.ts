@@ -18,7 +18,8 @@ export const LocalKeys = [
 export class CartComponent implements OnInit {
 
   timestamp = Date.now();
-  dueDate: Date = new Date();
+  issueDate;
+  dueDate;
   ref = 'companies/splashink/invoices';
 
   constructor(
@@ -40,7 +41,7 @@ export class CartComponent implements OnInit {
     const items: OrderItem [] = this.cs.getCartItems();
     const buyer: Contact = this.cs.getBuyer();
 
-    if(items.length > 0 && buyer !== null) {
+    if(items.length > 0 && buyer !== null && (this.issueDate && this.dueDate) !== undefined) {
       return true;
     }
 
@@ -63,8 +64,8 @@ export class CartComponent implements OnInit {
           buyer,
           shopItems,
           date: {
-            issue: null,
-            due: null
+            issue: this.issueDate,
+            due: this.dueDate
           },
           status: {
             pending: true,
@@ -76,6 +77,8 @@ export class CartComponent implements OnInit {
           subtotal,
           total
         };
+
+        // console.log(order);
 
         const invoice = await this.dataService.create<Order>(this.ref, order);
 
@@ -131,8 +134,8 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dueDate
-    .setDate(this.dueDate.getDate() + 14);
+    // this.dueDate
+    // .setDate(this.dueDate.getDate() + 14);
   }
 
 }
