@@ -103,12 +103,6 @@
 .order-list-item {
   position: relative;
   display: block;
-  margin-bottom: .75rem;
-}
-
-.price {
-  font-weight: bold;
-  color: #3c4858;
 }
 
 .tools {
