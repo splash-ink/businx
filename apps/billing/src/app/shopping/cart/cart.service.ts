@@ -63,6 +63,7 @@ export class CartService {
       cartItems.forEach(cartItem => {
         if (item.id === cartItem.id) {
           cartItem.qty = qty;
+          cartItem.total = cartItem.price * qty;
         }
       });
     }
