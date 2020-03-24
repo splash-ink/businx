@@ -41,15 +41,20 @@
         <i class="far fa-shopping-cart"></i>
       </a>
       <a routerLink="/items" class="action-item action-item-lg text-white pr-0 hover-translate-y-n3">
-        <i class="far fa-concierge-bell"></i>
+        <i class="far fa-hand-holding-heart"></i>
       </a>
     </div>
   </div>
 
   <div class="nav-application clearfix">
-    <a href="#!" class="btn btn-square text-sm disabled">
+    <a routerLink="dashboard" routerLinkActive="active" class="btn btn-square text-sm">
       <span class="btn-inner--icon d-block"><i class="far fa-tachometer-alt-fastest fa-2x"></i></span>
       <span class="btn-inner--icon d-block pt-2">Painel</span>
+    </a>
+
+    <a routerLink="kanban" routerLinkActive="active" class="btn btn-square text-sm disabled">
+      <span class="btn-inner--icon d-block"><i class="far fa-columns fa-2x"></i></span>
+      <span class="btn-inner--icon d-block pt-2">Kanban</span>
     </a>
   </div>
 </div>
