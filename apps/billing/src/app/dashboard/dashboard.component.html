@@ -1,5 +1,6 @@
 <businx-page-title [controls]="false" title="Painel de Controle"></businx-page-title>
 
+<!-- Growth -->
 <ng-container *ngIf="growthCards$.length > 0">
   <div class="row py-3">
     <div class="col-lg-4" *ngFor="let card of growthCards$">
@@ -8,6 +9,7 @@
   </div>
 </ng-container>
 
+<!-- Sales Rate & Chart -->
 <div class="row py-2">
   <div class="col-lg-6">
     <div class="card shadow" id="earns-card">
@@ -23,7 +25,6 @@
                 <i class="fa fa-chevron-up"></i> 16%
               </span>
             </p>
-
           </div>
         </div>
         <div class="row d-flex align-items-center px-2 m-0">
@@ -57,14 +58,18 @@
     </div>
   </div>
 </div>
+
+<!-- Invoice -->
 <div class="d-flex justify-content-between">
   <h1 class="h5 font-weight-bold">Facturas Recentes</h1>
   <a routerLink="/orders" class="btn-link btn-sm text-uppercase" *ngIf="orders$">Ver todas as Facturas</a>
 </div>
 
 <div class="row pt-1 pb-5">
+  <!-- Empty -->
   <p class="text-muted empty-invoice-list" *ngIf="!orders$; else hasData">
-    Não há faturas recentes para mostrar. <a routerLink="/shopping/cart" class="btn-link">Clique aqui</a> para criar uma nova Factura ou Orçamento.
+    Não há faturas recentes para mostrar. <a routerLink="/shopping/cart" class="btn-link">Clique aqui</a> para criar uma
+    nova Factura ou Orçamento.
   </p>
   <ng-template #hasData>
     <div class="col-lg-4" *ngFor="let order of orders$ | async">
