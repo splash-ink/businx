@@ -33,7 +33,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
       company: ['', [_.minLength(2)]],
       phone: ['', [_.required, _.minLength(7), _.maxLength(14)]],
       email: ['', [_.email]],
-      nif: ['', [_.minLength(14)]],
+      nif: ['', [_.maxLength(14)]],
       coin: ['', [_.required, _.maxLength(3), _.minLength(2)]]
     });
 
