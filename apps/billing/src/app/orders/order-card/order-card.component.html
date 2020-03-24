@@ -1,1 +1,29 @@
-<p>order-card works!</p>
+<a class="card" [routerLink]="['/orders', order?.id]" routerLinkActive="card-active">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex align-items-center">
+        <span class="avatar bg-dark text-white rounded-circle avatar-sm">AM</span>
+        <div class="avatar-content ml-3">
+          <h6 class="mb-0 text-sm"
+            *ngIf="order?.buyer?.company && order?.buyer?.accountType == 'Empresa'; else isPersonal">
+            {{ order?.buyer?.company.substr(0, 16) }}</h6>
+          <ng-template #isPersonal>
+            <h6 class="mb-0">{{ order?.buyer?.name }}</h6>
+          </ng-template>
+          <span class="font-weight-bold text-warning text-sm" *ngIf="order?.status?.pending">
+            Pendente
+          </span>
+          <span class="font-weight-bold text-warning text-sm" *ngIf="order?.status?.payed">
+            Pagamento Efectuado
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="text-sm">
+        <span class="d-block price">{{ order?.total | currency:'AOA' }}</span>
+        <span class="text-muted">SPL-0001</span>
+      </div>
+    </div>
+  </div>
+</a>
