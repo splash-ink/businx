@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.orders$ = this.fds.findAllWithIds$<Order>(this.baseRef + '/invoices', query => query.orderBy('createdAt', 'desc').limit(4));
+    this.orders$ = this.fds.findAllWithIds$<Order>(this.baseRef + '/invoices', query => query.orderBy('updatedAt', 'desc').limit(4));
   }
 
 }
