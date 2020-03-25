@@ -46,6 +46,7 @@
     "@nestjs/platform-express": "^6.8.3",
     "apexcharts": "^3.15.5",
     "core-js": "^2.6.11",
+    "date-fns": "^2.11.0",
     "express": "^4.17.1",
     "firebase-admin": "^8.9.2",
     "firebase-functions": "^3.3.0",
@@ -79,12 +80,12 @@
     "eslint": "6.1.0",
     "eslint-config-prettier": "6.0.0",
     "jest": "24.1.0",
-    "jest-preset-angular": "^8.0.0",
+    "jest-preset-angular": "^8.1.2",
     "prettier": "1.18.2",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.5.3"
+    "typescript": "^3.5.3"
   },
   "main": "dist/apps/functions/main.js",
   "engines": {
