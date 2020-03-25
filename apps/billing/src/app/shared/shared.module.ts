@@ -9,6 +9,7 @@ import { PageTitleComponent } from './page-title/page-title.component';
 import { TableComponent } from './table/table.component';
 import { AppStyles, StringManipulation } from './utils';
 import { ApexLineComponent } from './apex-line/apex-line.component';
+import { RelativeTimePipe } from './relative-time.pipe';
 
 const components = [
   ApexLineComponent,
@@ -18,6 +19,10 @@ const components = [
   ContactCardComponent
 ];
 
+const pipes = [
+  RelativeTimePipe
+]
+
 const modules = [
   RouterModule,
   FormsModule,
@@ -26,8 +31,8 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components],
-  exports: [...components, modules],
+  declarations: [...components, ...pipes],
+  exports: [...components, ...pipes, ...modules],
   imports: [
     CommonModule,
     modules
