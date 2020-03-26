@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Order } from '@businx/data-models';
 import { FirestoreDataService } from '@businx/firestore-data-service';
+import { Subscription } from 'rxjs';
+import { OrderService } from '../order.service';
 
 @Component({
-  selector: 'businx-order-list',
-  templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+  templateUrl: './order-details.component.html',
+  styleUrls: ['./order-details.component.css']
 })
-export class OrderListComponent implements OnInit {
+export class OrderDetailsComponent implements OnInit, OnDestroy {
 
-  order$: Observable<Order>;
+  order: Order;
 
   private id;
+  private subscription: Subscription;
   private readonly ref = 'companies/splashink/invoices';
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly fds: FirestoreDataService
+    private readonly fds: FirestoreDataService,
+    private readonly orderService: OrderService
   ) { }
 
   /**
@@ -38,7 +40,16 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.findUrlParam('id');
-    this.order$ = this.fds.findByRef$<Order>(this.ref + '/' + this.id);
+    this.subscription = this.fds.findByRef$<Order>(this.ref + '/' + this.id)
+    .subscribe(order => {
+      this.order = order;
+      this.orderService.emitOrder(order);
+    });
+
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
