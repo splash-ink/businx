@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Order } from '@businx/data-models';
 import { FirestoreDataService } from '@businx/firestore-data-service';
-import { Subscription } from 'rxjs';
-import { OrderService } from '../order.service';
+import { Observable, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   templateUrl: './order-details.component.html',
@@ -11,16 +11,14 @@ import { OrderService } from '../order.service';
 })
 export class OrderDetailsComponent implements OnInit, OnDestroy {
 
-  order: Order;
+  order$: Observable<Order>;
 
-  private id;
-  private subscription: Subscription;
+  private subs: Subscription;
   private readonly ref = 'companies/splashink/invoices';
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly fds: FirestoreDataService,
-    private readonly orderService: OrderService
+    private readonly fds: FirestoreDataService
   ) { }
 
   /**
@@ -39,17 +37,12 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.id = this.findUrlParam('id');
-    this.subscription = this.fds.findByRef$<Order>(this.ref + '/' + this.id)
-    .subscribe(order => {
-      this.order = order;
-      this.orderService.emitOrder(order);
+    this.subs = this.route.paramMap.subscribe((params : ParamMap)=> {
+      this.order$ = this.fds.findByRef$<Order>(this.ref + '/' + params.get('id'));
     });
-
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subs.unsubscribe();
   }
-
 }
