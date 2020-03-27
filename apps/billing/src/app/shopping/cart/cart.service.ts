@@ -87,6 +87,30 @@ export class CartService {
     localStorage.removeItem(this.itemsStore);
   }
 
+  getDiscount(): number {
+    return this.getFromLocalStorage('CART_DISCOUNT');
+  }
+
+  setDiscount(discount: number) {
+    this.setToLocalStorage('CART_DISCOUNT', discount);
+  }
+
+  unsetDiscount() {
+    this.unsetFromLocalStorage('CART_DISCOUNT');
+  }
+
+  getShip(): number {
+    return this.getFromLocalStorage('CART_SHIP');
+  }
+
+  setShip(ship: number) {
+    this.setToLocalStorage('CART_SHIP', ship);
+  }
+
+  unsetShip() {
+    this.unsetFromLocalStorage('CART_SHIP');
+  }
+
   getSubtotal(): number {
     const cartItems: OrderItem [] = this.getCartItems();
     let subtotal = 0;
