@@ -1,0 +1,12 @@
+<ng-container *ngIf="order$ | async as order">
+  <div class="card tools">
+    <div class="text-right">
+      <button type="button" class="btn btn-sm btn-secondary rounded-circle btn-icon-only" (click)="edit()">
+        <span class="btn-inner--icon">
+          <i class="far fa-pencil"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+  <businx-invoice [invoice-data]="order"></businx-invoice>
+</ng-container>

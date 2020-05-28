@@ -21,7 +21,7 @@ export class ItemFormComponent implements OnInit, AfterViewInit {
 
   constructor(
     private fb: FormBuilder,
-    private fv: FormValidationService,
+    public fv: FormValidationService,
     private readonly fds: FirestoreDataService
   ) {
     this.form = this.fb.group({

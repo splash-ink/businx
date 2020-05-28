@@ -5,6 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
+    "start:dev": "nx serve --host 0.0.0.0 --disable-host-check",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "nx serve billing",
     "dev:backend": "nx build functions && firebase serve --only functions",
