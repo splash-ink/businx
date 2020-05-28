@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Order } from '@businx/data-models';
 import { CartService } from '../shopping/cart/cart.service';
+import { FirestoreDataService } from '@businx/firestore-data-service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class OrderService {
   public order = new EventEmitter<Order>();
 
   constructor(
-    private readonly cartService: CartService
+    private readonly cartService: CartService,
+    private readonly db: FirestoreDataService
   ) { }
 
   /**
@@ -18,7 +20,7 @@ export class OrderService {
    * @param order An object of type Order wich contains the Order data.
    */
   pushToCart(order: Order): void {
-    const { buyer, shopItems, ship, discounts } = order;
+    const { id, buyer, shopItems, ship, discounts } = order;
 
     this.cartService.setBuyer(buyer);
     this.cartService.setShip(ship);

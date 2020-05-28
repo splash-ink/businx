@@ -34,7 +34,7 @@
         <span class="h6"><i class="far fa-shopping-bag"></i> Bolsa</span>
       </div>
       <div class="col-6 text-right">
-        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle" (click)="clearCartData()"
+        <button class="btn btn-sm btn-soft-danger btn-icon-only rounded-circle" (click)="clearCartItems()"
           title="Esvaziar Bolsa">
           <i class="far fa-trash-alt"></i>
         </button>
@@ -48,19 +48,19 @@
   <div class="table-responsive">
     <businx-cart-table
     [data]="cs.getCartItems()"
-    (onDelete)="onDelete($event)"
-    (onUpdate)="onUpdate($event)"
+    (onDelete)="onCartItemDelete($event)"
+    (onUpdate)="onCartItemUpdate($event)"
     ></businx-cart-table>
   </div>
   <div class="card-body">
     <businx-summary
-    [ship]="getShip()"
+    [ship]="ship()"
     (_ship)="syncToLocalStorage('CART_SHIP', $event)"
-    [discount]="getDiscount()"
+    [discount]="discount()"
     (_discount)="syncToLocalStorage('CART_DISCOUNT', $event)"
-    [tax]="getTax()"
-    [total]="getTotal()"
-    [subtotal]="getSubtotal()"
+    [tax]="tax()"
+    [total]="total()"
+    [subtotal]="subtotal()"
     >
     </businx-summary>
   </div>
@@ -71,7 +71,7 @@
     <button type="button" class="btn btn-sm btn-secondary shadow-lg">
       Guardar como rascunho
     </button>
-    <button [disabled]="!isReady()" type="button" class="btn btn-animated btn-success btn-animated-x shadow-lg" (click)="checkout()">
+    <button [disabled]="!cartState()" type="button" class="btn btn-animated btn-success btn-animated-x shadow-lg" (click)="submit()">
       <span class="btn-inner--visible">Finalizar</span>
       <span class="btn-inner--hidden">
         <i class="far fa-arrow-right"></i>

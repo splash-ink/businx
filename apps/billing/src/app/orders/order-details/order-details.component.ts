@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Order } from '@businx/data-models';
 import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Observable, Subscription } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   templateUrl: './order-details.component.html',
@@ -11,13 +10,16 @@ import { switchMap } from 'rxjs/operators';
 })
 export class OrderDetailsComponent implements OnInit, OnDestroy {
 
+  id;
+
   order$: Observable<Order>;
 
   private subs: Subscription;
   private readonly ref = 'companies/splashink/invoices';
 
   constructor(
-    private readonly route: ActivatedRoute,
+    private readonly activatedRoute: ActivatedRoute,
+    private router: Router,
     private readonly fds: FirestoreDataService
   ) { }
 
@@ -28,7 +30,7 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
    * @param {string} paramName Indicates the name of param to find at URL
    */
   findUrlParam(paramName: string): string {
-    const { paramMap } = this.route.snapshot;
+    const { paramMap } = this.activatedRoute.snapshot;
 
     if (paramName.length < 0 || !paramMap.has(paramName))
       return;
@@ -36,9 +38,15 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
     return paramMap.get(paramName);
   }
 
+  edit() {
+    this.router.navigate(['shopping/cart'], { queryParams: { orderId: this.id } })
+  }
+
   ngOnInit() {
-    this.subs = this.route.paramMap.subscribe((params : ParamMap)=> {
-      this.order$ = this.fds.findByRef$<Order>(this.ref + '/' + params.get('id'));
+    this.subs = this.activatedRoute.paramMap.subscribe((params : ParamMap)=> {
+      this.id = params.get('id');
+
+      this.order$ = this.fds.findByRef$<Order>(this.ref + '/' + this.id);
     });
   }
 

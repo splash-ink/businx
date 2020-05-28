@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreDataService } from '@businx/firestore-data-service';
 import { Order } from '@businx/data-models';
 import { Observable } from 'rxjs';
+import { OrderService } from './order.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +17,13 @@ export class OrdersComponent implements OnInit {
   ref = 'companies/splashink/invoices';
   docs$: Observable<Order []>;
 
-  constructor(private readonly fds: FirestoreDataService) { }
+  trackedOrder: Order;
+
+  constructor(
+    private readonly fds: FirestoreDataService,
+    private readonly orderService: OrderService,
+    private router: Router
+  ) { }
 
   onSort() {
     this.docs$ = this.fetch();
