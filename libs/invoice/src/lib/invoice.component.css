@@ -26,3 +26,20 @@
 .invoice-text-center {
     text-align: center;
 }
+
+.summary-section {
+  border-top: 2px solid #eee;
+  padding-top: 1rem;
+}
+
+.terms {
+  text-align: justify;
+}
+.generated-by {
+  border-top: 2px solid #eee;
+}
+
+.generated-by > p {
+  font-size: 12px;
+  text-align: left;
+}
