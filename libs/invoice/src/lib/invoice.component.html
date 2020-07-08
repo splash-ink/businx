@@ -5,7 +5,7 @@
 
       <h1 id="company_name" class="pt-3 h6 invoice-no-mb">Splash Ink, Lda.</h1>
       <span id="company_location_nif" class="text-sm text-muted d-block">Vila de Cacuaco, N55E - NIF: 5000050229</span>
-      <span id="company_contact" class="text-sm text-muted d-block">(+244) 922679021 - hello@splashink.co</span>
+      <span id="company_contact" class="text-sm text-muted d-block">(+244) 922679021 - hello@splashink.gq</span>
       <span id="company_addr" class="text-sm text-muted d-block">Luanda, Cacuaco <br />Angola</span>
     </div>
     <div class="col-auto invoice-text-center">
@@ -19,7 +19,7 @@
       <p class="text-sm text-muted invoice-no-mb">Facturar a</p>
       <h1 id="buyer" class="d-block h6"
         *ngIf="doc?.buyer?.company && doc?.buyer?.accountType == 'Empresa'; else isPersonal">
-        {{ doc?.buyer?.company }} <span class="mx-2 text-muted" *ngIf="doc?.buyer?.nif">|</span> NIF - {{ doc?.buyer?.nif }}
+        {{ doc?.buyer?.company }} <span class="mx-2 text-muted" *ngIf="doc?.buyer?.nif">| NIF -</span>{{ doc?.buyer?.nif }}
       </h1>
       <ng-template #isPersonal>
         <span id="buyer" class="d-block h6">{{ doc?.buyer?.name }}</span>
@@ -71,17 +71,19 @@
     </table>
 
     <div id="tbl-items">
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end summary-section">
         <div class="row">
           <div class="col-auto">
             <span class="d-block text-sm text-muted">Subtotal:</span>
             <span class="d-block text-sm text-muted">Entrega:</span>
+            <span class="d-block text-sm text-muted">Desconto ({{doc?.discounts}}%):</span>
             <span class="text-sm text-muted">Imposto (IVA - 14%):</span>
             <span class="d-block font-weight-bold">Total:</span>
           </div>
           <div class="col">
             <span class="d-block text-sm text-muted">{{ doc?.subtotal | currency:'AOA' }}</span>
             <span class="d-block text-sm text-muted">{{ doc?.ship | currency:'AOA' }}</span>
+            <span class="d-block text-sm text-muted">{{ doc?.discounts * doc.subtotal / 100 }}</span>
             <span class="text-sm text-muted">{{ doc?.tax | currency:'AOA' }}</span>
             <span class="d-block font-weight-bold">{{ doc?.total | currency:'AOA' }}</span>
           </div>
@@ -94,7 +96,7 @@
         <div>
           <h3 class="h5">Notas</h3>
           <p class="text-muted text-sm">
-            Obrigado pela sua transacao.
+            Obrigado pela sua transação.
           </p>
         </div>
         <div>
@@ -106,9 +108,12 @@
         </div>
         <div>
           <h3 class="h5">Termos e Condições</h3>
-          <p class="text-sm text-muted">
+          <p class="text-sm text-muted terms">
             {{ terms }}
           </p>
+          <div class="generated-by">
+            <p class="text-muted">Documento processado pelo computador</p>
+          </div>
         </div>
       </div>
     </div>
