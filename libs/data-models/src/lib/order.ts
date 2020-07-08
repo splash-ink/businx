@@ -23,7 +23,7 @@ export interface OrderItem {
  * @param status is setted as "Pending" by default
  */
 export interface Order {
-  id: string | number;
+  id?: string | number;
   buyer: Contact;
   shopItems: OrderItem [];
   date: {
