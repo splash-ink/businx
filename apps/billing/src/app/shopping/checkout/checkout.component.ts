@@ -15,6 +15,7 @@ export class CheckoutComponent implements OnInit {
   @ViewChild('invoice', { static: true }) el: ElementRef;
 
   doc$: Observable<Order>;
+  id: string;
 
   constructor(
     private readonly dataService: FirestoreDataService,
@@ -24,7 +25,7 @@ export class CheckoutComponent implements OnInit {
   async exportAsPDF() {
     const opt = {
       margin:       0,
-      filename:     `SPL-000001.pdf`,
+      filename:     `SPL-${this.id}.pdf`,
       image:        { type: 'jpeg', quality: 1 },
       html2canvas:  { scale: 1 },
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -44,10 +45,8 @@ export class CheckoutComponent implements OnInit {
     const { paramMap } =  this.route.snapshot;
 
     if (paramMap.has('id')) {
-      const id = paramMap.get('id');
-      const ref = `companies/splashink/invoices/${id}`;
-
-      console.log(id);
+      this.id = paramMap.get('id');
+      const ref = `companies/splashink/invoices/${this.id}`;
 
       this.doc$ = this.dataService.findByRef$<Order>(ref);
     }
