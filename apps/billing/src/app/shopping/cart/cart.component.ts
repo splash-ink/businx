@@ -56,7 +56,6 @@ export class CartComponent implements OnInit {
 
   async submit() {
     const order: Order = {
-      id: '***',
       buyer: this.cs.getBuyer(),
       shopItems: this.cs.getCartItems(),
       date: {
