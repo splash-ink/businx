@@ -27,7 +27,7 @@ export class ContactsListModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.docs$ = this.fds.findAllWithIds$<Contact>('companies/splashink/contacts');
+    this.docs$ = this.fds.findAllWithIds$<Contact>('companies/splashink/contacts', ref => ref.orderBy("name", "asc"));
   }
 
 }

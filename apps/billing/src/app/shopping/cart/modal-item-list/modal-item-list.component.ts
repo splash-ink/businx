@@ -36,7 +36,7 @@ export class ModalItemListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.docs$ = this.fds.findAllWithIds$<Item>('companies/splashink/items');
+    this.docs$ = this.fds.findAllWithIds$<Item>('companies/splashink/items', ref => ref.orderBy("name", "asc"));
   }
 
 }
