@@ -32,7 +32,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   }
 
   sync() {
-    this.subscription = this.fsds.findAllWithIds$<contactPreview>(this.ref)
+    this.subscription = this.fsds.findAllWithIds$<contactPreview>(this.ref, ref => ref.orderBy("name", "asc"))
     .subscribe((docs) => {
       docs.map((payload) => {
         const contact: contactPreview = {
